@@ -9,15 +9,24 @@ import {
 import NavBar from './Components/NavBar'
 import Home from './Components/Home'
 import Footer from './Components/Footer'
+import styled from 'styled-components'
 
 function App() {
   return (
-    <div className="App">
+    <Container className="App">
       <NavBar />
       <Home />
       <Footer />
-    </div>
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+`
