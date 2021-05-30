@@ -10,14 +10,22 @@ import NavBar from './Components/NavBar'
 import Home from './Components/Home'
 import Footer from './Components/Footer'
 import styled from 'styled-components'
+import Signin from './Components/Signin';
 
 function App() {
   return (
-    <Container className="App">
-      <NavBar />
-      <Home />
-      <Footer />
-    </Container>
+    <Router>
+      <Route path="/signin">
+        <Signin />
+      </Route>
+      <Route path="/">
+        <NavBar />
+        <Container>
+          <Home />
+          <Footer />
+        </Container>
+      </Route>
+    </Router>
   );
 }
 
@@ -28,5 +36,5 @@ const Container = styled.div`
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 55px);
 `
