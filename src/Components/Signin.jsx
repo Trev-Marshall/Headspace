@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {COLORS1} from '../Design/Constants'
 
 function Signin() {
   return (
@@ -9,9 +10,9 @@ function Signin() {
         <LogoText>Logo</LogoText>
         <Form>
           <Label>Email:</Label>
-          <Input />
+          <Input placeholder="Email..." />
           <Label>Password:</Label>
-          <Input />
+          <Input placeholder="Password..." />
           <Submit type="submit" />
         </Form>
       </SignInDiv>
@@ -27,10 +28,10 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F3F9D2;
+  background-color: ${COLORS1.secondary_main};
 `
 const SignInDiv = styled.div`
-  background-color: #231F20;
+  background-color: ${COLORS1.main};
   border-radius: 20px;
   width: 400px;
   height: 400px;
@@ -47,31 +48,41 @@ const Form = styled.form`
 `
 
 const Label = styled.label`
-  color: #F3F9D2;
+  color: white;
   padding: 10px 0;
   font-size: 1.05em;
+  display: none;
 `
 
 const Input = styled.input`
   padding: 10px;
-  background-color: #92B4A7;
-  border-radius: 10px;
+  background-color: ${COLORS1.main};
+  border: none;
+  border-bottom: 3px solid ${COLORS1.bright_color};
+  color: white;
+  font-size: 1.1em;
+  margin: 10px 0;
+  &::placeholder {
+    color: white;
+  }
 `
 
 
 const Submit = styled.input`
   margin: 15px 0;
-  background-color: #F3F9D2;
+  background-color: ${COLORS1.secondary_accent};
   font-weight: bold;
+  border: none;
   width: 40%;
   margin-left: auto;
   padding: 14px;
   font-size: 1.1em;
   border-radius: 15px;
+  color: white;
 `
 
 const LogoText = styled.h1`
-  color: #F3F9D2;
+  color: ${COLORS1.off_white};
   height: 100px;
   width: 90%;
   text-align: left;
