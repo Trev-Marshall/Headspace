@@ -1,11 +1,32 @@
 import React from 'react'
+import styled from 'styled-components'
 
 function Home() {
   return (
-    <div>
-      ~Home component~ This will most likely be where the main tasks and progress is for the day. This is where most of the shabang/functionality is going to happen
-    </div>
+    <Container>
+      <Ul>
+        <Li>Static list item</Li>
+        <Li>Static list item</Li>
+        <Li>Static list item</Li>
+        <Li>Static list item</Li>
+        <Li>Static list item</Li>
+      </Ul>
+    </Container>
   )
 }
 
 export default Home
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+const Li = styled.li`
+  margin: 13px;
+  font-size: 1.4em; 
+`
+
+const Ul = styled.ul`
+  list-style-type: none;
+`
