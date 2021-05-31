@@ -66,6 +66,7 @@ const Ul = styled.ul`
 const Span = styled.span`
   font-size: 2.5em;
   transition: all 250ms;
+  cursor: pointer;
   &:hover {
     color: ${COLORS1.secondary_accent};
     transform: rotate(90deg);
