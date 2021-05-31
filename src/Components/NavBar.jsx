@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { COLORS1 } from '../Design/Constants';
 
 const Navbar = () => {
     return (
@@ -13,9 +14,6 @@ const Navbar = () => {
         <NavLink to="/profile" activeStyle>
           Profile
         </NavLink>
-        <NavLink to="/logo" activeStyle>
-          Logo
-        </NavLink>
       </NavMenu>
       <NavBtn>
         <NavBtnLink to="/signin">Sign In</NavBtnLink>
@@ -27,8 +25,8 @@ const Navbar = () => {
 export default Navbar;
 
 const Nav = styled.nav`
-  background: #000;
-  height: 55px;
+  background: ${COLORS1.main};
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,9 +70,11 @@ const NavBtn = styled.nav`
 
 const NavBtnLink = styled(Link)`
   border-radius: 4px;
-  background: #256ce1;
+  background: ${COLORS1.secondary_accent};
   padding: 10px 22px;
-  color: #fff;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: white;
   outline: none;
   border: none;
   cursor: pointer;

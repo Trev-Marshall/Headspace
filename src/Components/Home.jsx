@@ -21,6 +21,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 `
 const Li = styled.li`
   margin: 13px;

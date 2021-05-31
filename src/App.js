@@ -11,6 +11,7 @@ import Home from './Components/Home'
 import Footer from './Components/Footer'
 import styled from 'styled-components'
 import Signin from './Components/Signin';
+import { COLORS1 } from './Design/Constants'
 
 function App() {
   return (
@@ -37,4 +38,5 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   height: calc(100vh - 55px);
+  background-color: ${COLORS1.secondary_main};
 `
