@@ -12,20 +12,26 @@ import Footer from './Components/Footer'
 import styled from 'styled-components'
 import Signin from './Components/Signin';
 import { COLORS1 } from './Design/Constants'
+import Profile from './Components/Profile';
 
 function App() {
   return (
     <Router>
-      <Route path="/signin">
-        <Signin />
-      </Route>
-      <Route path="/">
-        <NavBar />
-        <Container>
-          <Home />
-          <Footer />
-        </Container>
-      </Route>
+      <Switch>
+        <Route path="/signin">
+          <Signin />
+        </Route>
+        <Route path="/profile">
+          <Profile />
+        </Route>
+        <Route path="/">
+          <NavBar />
+          <Container>
+            <Home />
+            <Footer />
+          </Container>
+        </Route>
+      </Switch>
     </Router>
   );
 }
