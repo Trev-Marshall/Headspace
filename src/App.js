@@ -37,6 +37,6 @@ const Container = styled.div`
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 55px);
+  height: calc(100vh - 60px);
   background-color: ${COLORS1.secondary_main};
 `
