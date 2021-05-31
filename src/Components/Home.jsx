@@ -1,15 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
+import Todo from './Todo'
+
+
 
 function Home() {
+  const [todos, setTodos] = useState([
+    {text: 'this is the text of a todo'},
+    {text: 'This is the second todo on the list'},
+    {text: 'This is the third todo on the list'}
+  ])
+
   return (
     <Container>
       <Ul>
-        <Li>Static list item</Li>
-        <Li>Static list item</Li>
-        <Li>Static list item</Li>
-        <Li>Static list item</Li>
-        <Li>Static list item</Li>
+        {todos && 
+        todos.map((todo, index) => (
+          <Li
+          key={index}
+          index={index}
+          todo={todo}
+          />
+        ))}
       </Ul>
     </Container>
   )
@@ -23,7 +35,7 @@ const Container = styled.div`
   align-items: center;
   color: white;
 `
-const Li = styled.li`
+const Li = styled(Todo)`
   margin: 13px;
   font-size: 1.4em; 
 `
