@@ -11,7 +11,7 @@ const Navbar = () => {
       </NavLink>
 
       <NavMenu>
-        <NavLink to="/profile" activeStyle>
+        <NavLink to="/profile" >
           Profile
         </NavLink>
       </NavMenu>
