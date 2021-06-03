@@ -1,16 +1,19 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
+import PageHeading from './PageHeading'
+import BackButton from './BackButton.jsx'
 
-function Home() {
+function Goals() {
+
   const [todos, setTodos] = useState([
-    {text: 'this is the text of a todo',
+    {text: 'this is the text of a goal',
     isCompleted: false},
-    {text: 'This is the second todo on the list',
+    {text: 'This is the second goal on the list',
     isCompleted: false},
-    {text: 'This is the third todo on the list',
+    {text: 'This is the third goal on the list',
     isCompleted: false}
   ])
   const [value, setValue] = useState("")
@@ -18,6 +21,8 @@ function Home() {
 
   return (
     <Container>
+      <BackButton />
+      <PageHeading value={"Goals"} headingSizeEm={"4em"}/>
       <Ul>
         {todos && 
         todos.map((todo, index) => (
@@ -49,9 +54,11 @@ function Home() {
   )
 }
 
-export default Home
+export default Goals
 
 const Container = styled.div`
+  background-color: ${COLORS1.main};
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
