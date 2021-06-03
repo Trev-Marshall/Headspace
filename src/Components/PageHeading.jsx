@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { COLORS1 } from '../Design/Constants'
 
-function PageHeading({value}) {
+function PageHeading({value, headingSizeEm}) {
   return (
-    <H1>
+    <H1 style={{fontSize: headingSizeEm}}>
       {value}
     </H1>
   )
@@ -15,7 +15,6 @@ export default PageHeading
 const H1 = styled.h1`
   position: relative;
   opacity: .8;
-  font-size: 4em;
   &:before {
     content: '';
     position: absolute;

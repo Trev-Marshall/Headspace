@@ -4,6 +4,7 @@ import Todo from './Todo'
 import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
 import PageHeading from './PageHeading'
+import BackButton from './BackButton.jsx'
 
 function Goals() {
 
@@ -20,7 +21,8 @@ function Goals() {
 
   return (
     <Container>
-      <PageHeading value={"Goals"}/>
+      <BackButton />
+      <PageHeading value={"Goals"} headingSizeEm={"4em"}/>
       <Ul>
         {todos && 
         todos.map((todo, index) => (

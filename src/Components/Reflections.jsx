@@ -4,6 +4,7 @@ import Todo from './Todo'
 import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
 import PageHeading from './PageHeading'
+import BackButton from './BackButton'
 
 function Reflections() {
 
@@ -20,7 +21,8 @@ function Reflections() {
 
   return (
     <Container>
-      <PageHeading value={"Reflections"}/>
+      <BackButton />
+      <PageHeading value={"Reflections"} headingSizeEm={"4em"}/>
       <Ul>
         {todos && 
         todos.map((todo, index) => (
