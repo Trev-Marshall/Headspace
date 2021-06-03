@@ -1,16 +1,18 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
+import PageHeading from './PageHeading'
 
-function Home() {
+function Reflections() {
+
   const [todos, setTodos] = useState([
-    {text: 'this is the text of a todo',
+    {text: 'this is the text of a reflection',
     isCompleted: false},
-    {text: 'This is the second todo on the list',
+    {text: 'This is the second reflection on the list',
     isCompleted: false},
-    {text: 'This is the third todo on the list',
+    {text: 'This is the third reflection on the list',
     isCompleted: false}
   ])
   const [value, setValue] = useState("")
@@ -18,6 +20,7 @@ function Home() {
 
   return (
     <Container>
+      <PageHeading value={"Reflections"}/>
       <Ul>
         {todos && 
         todos.map((todo, index) => (
@@ -49,9 +52,11 @@ function Home() {
   )
 }
 
-export default Home
+export default Reflections
 
 const Container = styled.div`
+  background-color: ${COLORS1.main};
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

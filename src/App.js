@@ -7,12 +7,14 @@ import {
   Switch
 } from 'react-router-dom'
 import NavBar from './Components/NavBar'
-import Home from './Components/Home'
+import TodoList from './Components/TodoList'
 import Footer from './Components/Footer'
 import styled from 'styled-components'
 import Signin from './Components/Signin';
 import { COLORS1 } from './Design/Constants'
 import Profile from './Components/Profile';
+import Goals from './Components/Goals'
+import Reflections from './Components/Reflections'
 
 function App() {
   return (
@@ -24,10 +26,16 @@ function App() {
         <Route path="/profile">
           <Profile />
         </Route>
+        <Route path="/goals">
+          <Goals />
+        </Route>
+        <Route path="/reflections">
+          <Reflections />
+        </Route>
         <Route path="/">
           <NavBar />
           <Container>
-            <Home />
+            <TodoList />
             <Footer />
           </Container>
         </Route>
