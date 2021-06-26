@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -15,13 +15,88 @@ import { COLORS1 } from './Design/Constants'
 import Profile from './Components/Profile';
 import Goals from './Components/Goals'
 import Reflections from './Components/Reflections'
+import Signup from './Components/Signup'
 
 function App() {
+  const [loginState, setLogin] = useState({
+    displayedForm: '',
+    logged_in: localStorage.getItem('token') ? true : false,
+    username: ''
+  })
+
+  useEffect(() => {
+    if (loginState.logged_in) {
+      fetch('http://localhost8000/core/current_user/', {
+        headers: {
+          Authoriization: `JWT ${localStorage.getItem('token')}`
+        }
+      })
+        .then(res => res.json())
+        .then(json => {
+          setLogin({ username: json.username })
+        })
+    }
+  }, [])
+
+  const handleLogin = (e, data) => {
+    e.preventDefault()
+    fetch('http://localhost8000/token-auth/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json)
+      .then(json => {
+        localStorage.setItem('token', json.token);
+        setLogin({
+          logged_in: true,
+          displayedForm: '',
+          username: json.user.username
+        })
+      })
+  }
+
+  const handleSignup = (e, data) => {
+    e.preventDefault()
+    fetch('http://localhost:8000/core/users/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(json => {
+        localStorage.setItem('token', json.token)
+        setLogin({
+          logged_in: true,
+          displayedForm: '',
+          username: json.username
+        })
+      })
+  }
+
+  handleLogout = () => {
+    localStorage.removeItem('token')
+    setLogin({ logged_in: false, username: '' })
+  }
+
+  displayForm = form => {
+    setLogin({
+      displayedForm: form
+    })
+  }
+
   return (
     <Router>
       <Switch>
         <Route path="/signin">
-          <Signin />
+          <Signin handleLogin={handleLogin} />
+        </Route>
+        <Route path="/signup">
+          <Signup handleLogout={handleSignup} />
         </Route>
         <Route path="/profile">
           <Profile />
@@ -33,7 +108,7 @@ function App() {
           <Reflections />
         </Route>
         <Route path="/">
-          <NavBar />
+          <NavBar handleLogout={handleLogout} />
           <Container>
             <TodoList />
             <Footer />

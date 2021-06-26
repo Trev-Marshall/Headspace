@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 
-function Signin({ handleLogin }) {
+function Signup({ handleSignup }) {
   const [formState, setForm] = useState({
     username: '',
     password: ''
@@ -22,8 +22,8 @@ function Signin({ handleLogin }) {
     <Container>
       <SignInDiv>
         <LogoText>Headspace</LogoText>
-        <FormText>Log in</FormText>
-        <Form onSubmit={e => handleLogin(e, formState)}>
+        <FormText>Sign up</FormText>
+        <Form onSubmit={e => handleSignup(e, formState)}>
           <Label htmlFor="username">Username:</Label>
           <Input 
           type="text"
@@ -47,7 +47,7 @@ function Signin({ handleLogin }) {
   )
 }
 
-export default Signin
+export default Signup
 
 const Container = styled.div`
   height: 100vh;
