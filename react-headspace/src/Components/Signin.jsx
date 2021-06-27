@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 
@@ -43,6 +44,7 @@ function Signin({ handleLogin }) {
           <Submit type="submit" />
         </Form>
       </SignInDiv>
+        <p>Don't have an account? <Link to="/signup">Sign up.</Link></p>
     </Container>
   )
 }
@@ -53,6 +55,7 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   background-color: ${COLORS1.secondary_main};
 `

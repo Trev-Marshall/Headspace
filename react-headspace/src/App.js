@@ -78,12 +78,12 @@ function App() {
       })
   }
 
-  handleLogout = () => {
+  const handleLogout = () => {
     localStorage.removeItem('token')
     setLogin({ logged_in: false, username: '' })
   }
 
-  displayForm = form => {
+  const displayForm = form => {
     setLogin({
       displayedForm: form
     })
