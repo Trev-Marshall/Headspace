@@ -19,7 +19,6 @@ import Signup from './Components/Signup'
 
 function App() {
   const [loginState, setLogin] = useState({
-    displayedForm: '',
     logged_in: localStorage.getItem('token') ? true : false,
     username: ''
   })
@@ -47,13 +46,11 @@ function App() {
       },
       body: JSON.stringify(data)
     })
-      .then(res => res.json)
+      .then(res => res.json())
       .then(json => {
-        console.log(json.token)
         localStorage.setItem('token', json.token);
         setLogin({
           logged_in: true,
-          displayedForm: '',
           username: json.user.username
         })
       })
@@ -73,7 +70,6 @@ function App() {
         localStorage.setItem('token', json.token)
         setLogin({
           logged_in: true,
-          displayedForm: '',
           username: json.username
         })
       })
@@ -83,12 +79,6 @@ function App() {
     console.log('done')
     localStorage.removeItem('token')
     setLogin({ logged_in: false, username: '' })
-  }
-
-  const displayForm = form => {
-    setLogin({
-      displayedForm: form
-    })
   }
 
   return (
