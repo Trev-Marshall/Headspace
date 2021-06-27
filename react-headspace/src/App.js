@@ -26,9 +26,9 @@ function App() {
 
   useEffect(() => {
     if (loginState.logged_in) {
-      fetch('http://localhost8000/core/current_user/', {
+      fetch('http://localhost:8000/core/current_user/', {
         headers: {
-          Authoriization: `JWT ${localStorage.getItem('token')}`
+          Authorization: `JWT ${localStorage.getItem('token')}`
         }
       })
         .then(res => res.json())
@@ -40,7 +40,7 @@ function App() {
 
   const handleLogin = (e, data) => {
     e.preventDefault()
-    fetch('http://localhost8000/token-auth/', {
+    fetch('http://localhost:8000/token-auth/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -49,6 +49,7 @@ function App() {
     })
       .then(res => res.json)
       .then(json => {
+        console.log(json.token)
         localStorage.setItem('token', json.token);
         setLogin({
           logged_in: true,
@@ -79,6 +80,7 @@ function App() {
   }
 
   const handleLogout = () => {
+    console.log('done')
     localStorage.removeItem('token')
     setLogin({ logged_in: false, username: '' })
   }
@@ -96,7 +98,7 @@ function App() {
           <Signin handleLogin={handleLogin} />
         </Route>
         <Route path="/signup">
-          <Signup handleLogout={handleSignup} />
+          <Signup handleSignup={handleSignup} />
         </Route>
         <Route path="/profile">
           <Profile />

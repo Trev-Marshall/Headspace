@@ -3,7 +3,7 @@ import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { COLORS1 } from '../Design/Constants';
 
-const Navbar = () => {
+const Navbar = ({handleLogout}) => {
     return (
     <Nav>
       <NavLink to="/">
@@ -16,7 +16,7 @@ const Navbar = () => {
         </NavLink>
       </NavMenu>
       <NavBtn>
-        <NavBtnLink to="/signin">Sign In</NavBtnLink>
+        <NavBtnLink onClick={handleLogout}>Logout</NavBtnLink>
       </NavBtn>
     </Nav>
   )
@@ -68,7 +68,7 @@ const NavBtn = styled.nav`
   }
 `
 
-const NavBtnLink = styled(Link)`
+const NavBtnLink = styled.button`
   border-radius: 4px;
   background: ${COLORS1.secondary_accent};
   padding: 10px 22px;

@@ -14,7 +14,7 @@ from .serializer import *
 @api_view(['GET'])
 def current_user(request):
     """
-    Determine the current user ny token, and return their data
+    Determine the current user by token, and return their data
     """
 
     serializer = UserSerializer(request.user)
