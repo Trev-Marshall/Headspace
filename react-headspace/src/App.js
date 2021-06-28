@@ -15,7 +15,6 @@ import { COLORS1 } from './Design/Constants'
 import Profile from './Components/Profile';
 import Goals from './Components/Goals'
 import Reflections from './Components/Reflections'
-import Signup from './Components/Signup'
 
 function App() {
   const [loginState, setLogin] = useState({
@@ -76,37 +75,38 @@ function App() {
   }
 
   const handleLogout = () => {
-    console.log('done')
     localStorage.removeItem('token')
     setLogin({ logged_in: false, username: '' })
   }
 
   return (
     <Router>
-      <Switch>
-        <Route path="/signin">
-          <Signin handleLogin={handleLogin} />
-        </Route>
-        <Route path="/signup">
-          <Signup handleSignup={handleSignup} />
-        </Route>
-        <Route path="/profile">
-          <Profile />
-        </Route>
-        <Route path="/goals">
-          <Goals />
-        </Route>
-        <Route path="/reflections">
-          <Reflections />
-        </Route>
-        <Route path="/">
-          <NavBar handleLogout={handleLogout} />
-          <Container>
-            <TodoList />
-            <Footer />
-          </Container>
-        </Route>
-      </Switch>
+      {loginState.username ? (
+        <Switch>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/goals">
+            <Goals />
+          </Route>
+          <Route path="/reflections">
+            <Reflections />
+          </Route>
+          <Route path="/">
+            <NavBar handleLogout={handleLogout} />
+            <Container>
+              <TodoList />
+              <Footer />
+            </Container>
+          </Route>
+        </Switch>
+      ) : (
+        <Signin
+          handleLogin={handleLogin}
+          handleSignup={handleSignup}
+        />
+      )
+      }
     </Router>
   );
 }

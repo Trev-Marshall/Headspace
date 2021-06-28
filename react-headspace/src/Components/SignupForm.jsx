@@ -3,24 +3,11 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 
-function Signup({ handleSignup }) {
-  const [formState, setForm] = useState({
-    username: '',
-    password: ''
-  })
+function SignupForm({ handleSignup, handleFormChange, formState, handleChange, display, setDisplay }) {
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setForm( prevstate => {
-      const newState = { ...prevstate }
-      newState[name] = value
-      return newState;
-    })
-  }
 
   return (
-    <Container>
+    <>
       <SignInDiv>
         <LogoText>Headspace</LogoText>
         <FormText>Sign up</FormText>
@@ -44,21 +31,13 @@ function Signup({ handleSignup }) {
           <Submit type="submit" />
         </Form>
       </SignInDiv>
-      <p>Already have an account? <Link to="/signin">Sign up.</Link></p>
-    </Container>
+      <p>Already have an account? <SignupLink onClick={() => setDisplay(!display)}>Sign in.</SignupLink></p>
+      </>
   )
 }
 
-export default Signup
+export default SignupForm
 
-const Container = styled.div`
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: ${COLORS1.secondary_main};
-`
 const SignInDiv = styled.div`
   background-color: ${COLORS1.main};
   border-radius: 20px;
@@ -123,4 +102,8 @@ const FormText = styled.h3`
   width: 90%;
   text-align: left;
   font-size: 2.5em;
+`
+
+const SignupLink = styled.a`
+
 `
