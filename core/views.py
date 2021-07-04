@@ -36,17 +36,19 @@ class UserList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class ReactView(APIView):
+class TodoView(APIView):
 
-    serializer_class = ReactSerializer
+    serializer_class = TaskSerializer
 
     def get(self, request):
         detail = [{"task": detail.task}
-                  for detail in React.objects.all()]
+                  for detail in Task.objects.all()]
         return Response(detail)
 
     def post(self, request):
-        serializer = ReactSerializer(data=request.data)
+        serializer = TaskSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save()
+            instance = serializer.save(commit=False)
+            instance.user = request.user
+            instance.save()
             return Response(serializer.data)

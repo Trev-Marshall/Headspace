@@ -1,13 +1,19 @@
 from rest_framework import serializers
+from rest_framework.utils.serializer_helpers import JSONBoundField
 from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
 from . models import *
 
 
-class ReactSerializer(serializers.ModelSerializer):
+class TaskSerializer(serializers.ModelSerializer):
     class Meta:
-        model = React
-        fields = ['task']
+        model = Task
+        fields = ['task', 'details', 'completed', 'dataCreated']
+
+
+# class ReflectionsSerializer(serializers.ModelSerializer):
+
+# class GoalsSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
