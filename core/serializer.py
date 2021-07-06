@@ -8,7 +8,7 @@ from . models import *
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ['task', 'details', 'completed', 'dataCreated']
+        fields = ['task', 'details', 'completed', 'dateCreated']
 
 
 # class ReflectionsSerializer(serializers.ModelSerializer):

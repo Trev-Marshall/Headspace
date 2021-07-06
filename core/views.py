@@ -12,6 +12,8 @@ from .serializer import *
 
 
 @api_view(['GET'])
+# The parameter here is passed in by default by rest framework. it is not Django's HttpRequest instance, it is REST's Request instances being passed in
+# authentication runs before the request is passed into the hendler method shown below.
 def current_user(request):
     """
     Determine the current user by token, and return their data
@@ -29,6 +31,7 @@ class UserList(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def post(self, request, format=None):
+      # 'request.data' is a POST but in django 'data' is used instead of 'POST'
         serializer = UserSerializerWithToken(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -36,6 +39,7 @@ class UserList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# This is considered a Gernetic APIView which makes common tasks more simple.
 class TodoView(APIView):
 
     serializer_class = TaskSerializer
@@ -48,7 +52,5 @@ class TodoView(APIView):
     def post(self, request):
         serializer = TaskSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            instance = serializer.save(commit=False)
-            instance.user = request.user
-            instance.save()
+            serializer.save(owner=request.user)
             return Response(serializer.data)
