@@ -2,61 +2,42 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
-import SignupForm from './SignupForm'
-import SigninForm from './SigninForm'
 
-function Signin({ handleLogin, handleSignup }) {
-  const [formState, setForm] = useState({
-    username: '',
-    password: '',
-  })
-  const [display, setDisplay] = useState(false)
+function SignupForm({ handleSignup, handleFormChange, formState, handleChange, display, setDisplay }) {
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setForm( prevstate => {
-      const newState = { ...prevstate }
-      newState[name] = value
-      return newState;
-    })
-  }
 
   return (
-    <Container>
-      {
-        display ? (
-          <SigninForm 
-          formState={formState}
-          display={display}
-          setDisplay={setDisplay}
-          handleChange={handleChange}
-          handleLogin={handleLogin}
+    <>
+      <SignInDiv>
+        <LogoText>Headspace</LogoText>
+        <FormText>Sign up</FormText>
+        <Form onSubmit={e => handleSignup(e, formState)}>
+          <Label htmlFor="username">Username:</Label>
+          <Input 
+          type="text"
+          name="username" 
+          placeholder="Username..."
+          value={formState.username}
+          onChange={handleChange}
           />
-        ) : (
-          <SignupForm 
-          formState={formState}
-          display={display}
-          setDisplay={setDisplay}
-          handleChange={handleChange}
-          handleSignup={handleSignup}
+          <Label htmlFor="password">Password:</Label>
+          <Input 
+          name="password"
+          type="password" 
+          value={formState.password}
+          placeholder="Password..." 
+          onChange={handleChange}
           />
-        )
-      }
-    </Container>
+          <Submit type="submit" />
+        </Form>
+      </SignInDiv>
+      <p>Already have an account? <SignupLink onClick={() => setDisplay(!display)}>Sign in.</SignupLink></p>
+      </>
   )
 }
 
-export default Signin
+export default SignupForm
 
-const Container = styled.div`
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background-color: ${COLORS1.secondary_main};
-`
 const SignInDiv = styled.div`
   background-color: ${COLORS1.main};
   border-radius: 20px;
