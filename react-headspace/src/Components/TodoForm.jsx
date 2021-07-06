@@ -22,6 +22,7 @@ function TodoForm({value, setValue, todos, setTodos, setFormState}) {
       <Input
       type='text'
       value={value}
+      name="task"
       onChange={e => setValue(e.target.value)}
       placeholder="Task..."
       />

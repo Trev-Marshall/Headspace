@@ -52,5 +52,6 @@ class TodoView(APIView):
     def post(self, request):
         serializer = TaskSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save(owner=request.user)
+          # the line below caused a problem for a day or so. When saving an instance be sure to name the data according to what it is in the model. Imade the mistake of following a tutorial and using the parameter he used which was 'ownwer' instead of user which throw a 500 internal server error.
+            serializer.save(user=request.user)
             return Response(serializer.data)
