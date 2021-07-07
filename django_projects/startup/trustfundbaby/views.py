@@ -7,9 +7,13 @@ def home(request):
 
     return render(request, 'home.html')
 
-def achv(request):  
+def works(request):  
 
-    return render(request, 'achv.html')
+    return render(request, 'works.html')
+
+def sendgift(request):  
+
+    return render(request, 'sendgift.html')
 
 def blog(request):  
 
@@ -18,6 +22,10 @@ def blog(request):
 def edu(request):  
 
     return render(request, 'edu.html')
+
+def achv(request):  
+
+    return render(request, 'achv.html')
 
 def faq(request):  
 
