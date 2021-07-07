@@ -14,11 +14,15 @@ function TodoForm({value, setValue, todos, setTodos, setFormState}) {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!value) return;
-    axios.post('http://localhost:8000/wel/', value)
+    axios.post('http://localhost:8000/wel/', value, {
+    headers: {
+          Authorization: `JWT ${localStorage.getItem('token')}`
+        }})
     .then( res => {
       console.log(res)
     }
     )
+    .catch(e => console.log(e))
     addTodo(value);
     setValue("");
   }

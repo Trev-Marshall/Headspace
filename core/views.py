@@ -43,6 +43,7 @@ class UserList(APIView):
 class TodoView(APIView):
 
     serializer_class = TaskSerializer
+    permission_classes = (permissions.IsAuthenticated,)
 
     def get(self, request):
         detail = [{"task": detail.task}
