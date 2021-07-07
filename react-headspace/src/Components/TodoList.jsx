@@ -13,7 +13,11 @@ function TodoList() {
     {text: 'This is the third todo on the list',
     isCompleted: false}
   ])
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState({
+    'task': '',
+    'details': '',
+    'completed': false,
+  })
   const [formState, setFormState] = useState(false)
 
   return (

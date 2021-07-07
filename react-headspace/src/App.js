@@ -31,6 +31,7 @@ function App() {
       })
         .then(res => res.json())
         .then(json => {
+          console.log(json)
           setLogin({ username: json.username })
         })
     }
@@ -47,6 +48,7 @@ function App() {
     })
       .then(res => res.json())
       .then(json => {
+        console.log('logged in. This is the data that has been returned: ' + json.token)
         localStorage.setItem('token', json.token);
         setLogin({
           logged_in: true,
