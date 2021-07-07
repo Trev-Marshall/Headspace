@@ -11,9 +11,15 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = ['task', 'details', 'completed', 'dateCreated']
 
 
-# class ReflectionsSerializer(serializers.ModelSerializer):
+class ReflectionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Relfection
+        fields = ['reflection', 'dateCreated']
 
-# class GoalsSerializer(serializers.ModelSerializer):
+class GoalsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Goals
+        fields = ['goal', 'completeBy', 'dateCreated', 'completed']
 
 
 class UserSerializer(serializers.ModelSerializer):
