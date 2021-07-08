@@ -6,15 +6,17 @@ from . models import *
 
 
 class TaskSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Task
-        fields = ['task', 'details', 'completed', 'dateCreated']
+        fields = ('task', 'details', 'completed', 'dateCreated')
 
 
 class ReflectionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Relfection
         fields = ['reflection', 'dateCreated']
+
 
 class GoalsSerializer(serializers.ModelSerializer):
     class Meta:

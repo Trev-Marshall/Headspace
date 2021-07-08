@@ -8,7 +8,8 @@ class Task(models.Model):
     details = models.TextField(max_length=600)
     completed = models.BooleanField(default=True)
     dateCreated = models.DateField(auto_now_add=True)
-    user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, default=None, on_delete=models.CASCADE, related_name="task")
 
 
 class Relfection(models.Model):

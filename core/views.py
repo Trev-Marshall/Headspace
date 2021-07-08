@@ -23,6 +23,18 @@ def current_user(request):
     return Response(serializer.data)
 
 
+class TaskList(APIView):
+    serializer_class = TaskSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get(request, self):
+        # The below line of code is trying to filter the tasks in the database by user and it is not working sadly. I can only grab "all" until we figure it out.
+        # queryset = Task.objects.filter(self.request.user)
+        queryset = Task.objects.all()
+        serializer_class = TaskSerializer(queryset, many=True)
+        return Response(serializer_class.data)
+
+
 class UserList(APIView):
     """
     Create a new user.
@@ -45,10 +57,11 @@ class TodoView(APIView):
     serializer_class = TaskSerializer
     permission_classes = (permissions.IsAuthenticated,)
 
-    def get(self, request):
-        detail = [{"task": detail.task}
-                  for detail in Task.objects.all()]
-        return Response(detail)
+    # def get(self, request, format=None):
+    #     tasks = [Task.objects.all()]
+    #     # queryset = Task.objects.all()
+    #     # serializer_class = TaskSerializer(queryset)
+    #     return Response(tasks)
 
     def post(self, request):
         serializer = TaskSerializer(data=request.data)

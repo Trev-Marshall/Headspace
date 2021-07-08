@@ -22,6 +22,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('wel/', TodoView.as_view(), name="task"),
+    path('todos/', TaskList.as_view(), name="task"),
     path('token-auth/', obtain_jwt_token),
     path('core/', include('core.urls'))
 ]
