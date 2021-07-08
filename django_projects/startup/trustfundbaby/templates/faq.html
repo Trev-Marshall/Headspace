@@ -1,6 +1,12 @@
 {% extends "base_generic.html" %}
 
+
 {% block content %}
+
+<!-- ion icons -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 
 <h1>FAQ</h1>
 
@@ -10,24 +16,26 @@
             <div class="accordion-item">
                 <a class="accordion-link" href="#q1">
                     State Sponsored Saving Investments
-                    <i class="icon ion-md-add"></i>
-                    <i class="icon ion-md-remove"></i>
+                    <ion-icon name="chevron-down-outline"></ion-icon>
+                    <ion-icon name="chevron-up-outline"></ion-icon>
                 </a>
                 <div class="answer">
-                    <b>What exactly is a 592 Savings Plan?</b>><br>
-                    A 529 Savings Plan is an educational investment plan that allows tax breaks for educational based expenses. Similar to a Roth IRA, but with education in mind, the plan is a tax advantaged savings account focused on encouraging and easing future educational plans.
-                    <br>
-                    <b>What are the benefits associated with a 529 account?</b>
-                    <br>
-                    As your savings compound over a period of time, withdrawls associated with qualified educational expenses will not be subjeted to tax. This differs from a typical savings account where withdrawls are deemeda s capital gains and are thus taxed.
-                    <br>
-                    <b>What can my savings be spent on?</b>
-                    <br>
-                    Savings from the 529 plan can only be spent on qualified education expenses. There is a 10% tax penalty on unqualified noneducational expenses.
-                    <br>
-                    <b>How do I withdraw money from my account?</b>
-                    <br>
-                    <b>How can the 529 pan impact a child's financial aid?</b>
+                    <p>
+                        <b>What exactly is a 592 Savings Plan?</b><br>
+                        A 529 Savings Plan is an educational investment plan that allows tax breaks for educational based expenses. Similar to a Roth IRA, but with education in mind, the plan is a tax advantaged savings account focused on encouraging and easing future educational plans.
+                        <br>
+                        <b>What are the benefits associated with a 529 account?</b>
+                        <br>
+                        As your savings compound over a period of time, withdrawls associated with qualified educational expenses will not be subjeted to tax. This differs from a typical savings account where withdrawls are deemeda s capital gains and are thus taxed.
+                        <br>
+                        <b>What can my savings be spent on?</b>
+                        <br>
+                        Savings from the 529 plan can only be spent on qualified education expenses. There is a 10% tax penalty on unqualified noneducational expenses.
+                        <br>
+                        <b>How do I withdraw money from my account?</b>
+                        <br>
+                        <b>How can the 529 pan impact a child's financial aid?</b>
+                    </p>
                 </div>
             </div>
         </div>
@@ -36,13 +44,15 @@
     <div class="container">
         <div class ="accordion">
             <div class="accordion-item">
-                <a class="accordion-link" href="#q1">
+                <a class="accordion-link" href="#q2">
                     How does a 529 plan work?
-                    <i class="icon ion-md-add"></i>
-                    <i class="icon ion-md-remove"></i>
+                    <ion-icon name="chevron-down-outline"></ion-icon>
+                    <ion-icon name="chevron-up-outline"></ion-icon>
                 </a>
                 <div class="answer">
-                    THIS IS HOW A 529 PLAN WORK
+                    <p>
+                        THIS IS HOW 529 workds.
+                    </p>
                 </div>
             </div>
         </div>
@@ -51,8 +61,6 @@
 
 </section>
 
-<!-- ion icons -->
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 
 {% endblock %}
