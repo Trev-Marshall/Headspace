@@ -99,12 +99,7 @@
     display: block;
 }
 
-.test{
-    font-size: 30px;
-    color:blueviolet
-}
-
-.test:target{
-    font-size: 20px;
-    color:cadetblue;
+:target{
+    border: 2px solid #D4D4D4;
+  background-color: #e5eecc;
 }
