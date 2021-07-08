@@ -62,7 +62,7 @@ section{
     padding: .5rem;
 }
 
-.accordion-link up{
+.accordion-link .up{
     display: none;
 }
 
@@ -97,10 +97,10 @@ section{
     max-height: 20rem;
 }
 
-.accordion-item:target .accordion-link down{
+.accordion-item:target .accordion-link .down{
     display: none;
 }
 
-.accordion-item:target .accordion-link up{
+.accordion-item:target .accordion-link .up{
     display: block;
 }
