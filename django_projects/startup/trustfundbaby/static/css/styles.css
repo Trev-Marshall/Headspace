@@ -88,7 +88,7 @@
 }
 
 .accordion-item:target .answer{
-    max-height: 20rem;
+    max-height: 50rem;
 }
 
 .accordion-item:target .accordion-link .down{
