@@ -91,10 +91,20 @@
     max-height: 20rem;
 }
 
-.accordion-item:target .down{
+.accordion-item:target .accordion-link .down{
     display: none;
 }
 
-.accordion-item:target .up{
+.accordion-item:target .accordion-link .up{
     display: block;
+}
+
+.test{
+    font-size: 30px;
+    color:blueviolet
+}
+
+.test:target{
+    font-size: 20px;
+    color:cadetblue;
 }
