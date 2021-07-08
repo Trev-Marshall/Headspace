@@ -4,6 +4,7 @@
     list-style: none;
 }
 
+/* send gift styles*/
 .bubble-element.clickable-element {
     outline: 0px dotted transparent;
     touch-action: manipulation;
@@ -25,4 +26,9 @@ element.style {
 .bubble-element-Group{
     position: relative;
     left: 100%;
+}
+
+hr.new{
+    background-color: black;
+    width: 75%;
 }
