@@ -6,6 +6,11 @@
 
 
 /* FAQ Styles. */
+h1{
+    align-items: center;
+    margin: 1.5rem;
+}
+
 *,
 *::before,
 *::after{
@@ -50,6 +55,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    margin: auto;
 }
 
 .accordion-link ion-icon{
