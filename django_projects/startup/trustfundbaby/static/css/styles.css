@@ -15,7 +15,7 @@
 }
 
 /* Section for centering */
-section{
+.faq{
     width: 100%;
     height: 100vh;
     background-color: white;
@@ -87,14 +87,14 @@ section{
     padding: 2rem;
 }
 
-:target .accordion-item.answer{
+.accordion-item:target .answer{
     max-height: 20rem;
 }
 
-:target .accordion-item .accordion-link .down{
+.accordion-item:target .accordion-link .down{
     display: none;
 }
 
-:target .accordion-item .accordion-link .up{
+.accordion-item:target .accordion-link .up{
     display: block;
 }
