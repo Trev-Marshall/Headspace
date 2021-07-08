@@ -10,4 +10,5 @@ urlpatterns = [
     path('faq/', views.faq, name='faq'),
     path('achv/', views.achv, name='achv'),
 
+    path('signup/', views.signup, name='signup')
 ]
