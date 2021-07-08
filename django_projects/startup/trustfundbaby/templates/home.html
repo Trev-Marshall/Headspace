@@ -200,10 +200,22 @@
     <h3>Get started in 2 minutes.</h3>
     <h3>It is totally FREE!</h3>
     <br>
-    <ol>
-        <li>Create an account and set up a college fund</li>
-        <li>Start contributing and build a team of Backers</li>
-        <li>Send your child to college, debt-free</li>
-    </ol>
+ 
+    <!-- this is a form that uses php but no such php file exists yet-->
+        <form action="TBD.php" method="POST">
+            <div>
+                <label for="Full Name">Create an account and set up a college fund</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="Email">Start contributing and build a team of Backers</label>
+                <input type="email" name="email">
+            </div>
+            <div>
+                <label for="Password">Send your child to college, debt-free</label>
+                <input type="text" name="password">
+            </div>
+        </form>
 </section>
+
 {% endblock %}
