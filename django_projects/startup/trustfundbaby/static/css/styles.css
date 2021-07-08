@@ -87,14 +87,14 @@ section{
     padding: 2rem;
 }
 
-.accordion-item:target .answer{
+:target .accordion-item.answer{
     max-height: 20rem;
 }
 
-.accordion-item:target .accordion-link .down{
+:target .accordion-item .accordion-link .down{
     display: none;
 }
 
-.accordion-item:target .accordion-link .up{
+:target .accordion-item .accordion-link .up{
     display: block;
 }
