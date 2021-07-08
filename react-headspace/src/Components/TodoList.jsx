@@ -1,17 +1,18 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
+import axios from 'axios'
 
 function TodoList() {
   const [todos, setTodos] = useState([
     {text: 'this is the text of a todo',
-    isCompleted: false},
+    completed: false},
     {text: 'This is the second todo on the list',
-    isCompleted: false},
+    completed: false},
     {text: 'This is the third todo on the list',
-    isCompleted: false}
+    completed: false}
   ])
   const [value, setValue] = useState({
     'task': '',
@@ -19,6 +20,16 @@ function TodoList() {
     'completed': false,
   })
   const [formState, setFormState] = useState(false)
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/todos/',  {
+    headers: {
+          Authorization: `JWT ${localStorage.getItem('token')}`
+        }})
+    .then(res => {
+      console.log(res)
+    })
+  }, [])
 
   return (
     <Container>

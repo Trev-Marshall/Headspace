@@ -19,7 +19,13 @@ function TodoForm({value, setValue, todos, setTodos, setFormState}) {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
     .then( res => {
-      console.log(res)
+      console.log(res.data)
+      setTodos([...todos,
+      {
+        'text': res.data.task,
+        'details': res.data.details,
+        'completed': res.data.completed
+      }])
     }
     )
     .catch(e => console.log(e))

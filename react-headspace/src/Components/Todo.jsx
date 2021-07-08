@@ -11,12 +11,12 @@ function Todo({todo, index, todos, setTodos}) {
 
   return (
     <Container>
-      <Li style={{ display: todo.isCompleted ? "none" : "block" }} >
+      <Li style={{ display: todo.completed ? "none" : "block" }} >
         {todo.text}
       </Li>
       <Span 
       onClick={() => completeTodo(index)}
-      style={{ display: todo.isCompleted ? "none" : "block" }}
+      style={{ display: todo.completed ? "none" : "block" }}
       >x</Span>
     </Container>
   )
