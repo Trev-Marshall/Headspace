@@ -3,36 +3,6 @@
     padding: 0;
     list-style: none;
 }
-
-/* send gift styles*/
-.bubble-element.clickable-element {
-    outline: 0px dotted transparent;
-    touch-action: manipulation;
-}
-
-.bubble-r-line {
-    clear: both;
-    position: relative;
-}
-
-.bubble-r-line {
-    clear: both;
-    position: relative;
-}
-element.style {
-    margin-top: 40px;
-    height: 80px;
-}
-.bubble-element-Group{
-    position: relative;
-    left: 100%;
-}
-
-hr.new{
-    background-color: black;
-    width: 75%;
-}
-
 /* FAQ Styles. */
 *,
 *::before,

@@ -2,41 +2,41 @@
 {% block content %}
     <head>
       {% load static %}
-      <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+      <link rel="stylesheet" href="{% static 'css/sendgift.css' %}">
     </head>
     <div class="container" style="align-items: center; left: auto;
     right: auto; display: block;">
-    <div class="text-center">
-      <img class="rounded" alt src="https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1619302176384x421296526534331600%2FMarketing%2520Site.png?w=192&h=206&auto=compress&fit=crop&dpr=1" style="display: block;
-      margin-left: auto;
-      margin-right: auto;">
-    </div>
+      <div class="text-center">
+        <img class="rounded" alt src="https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1619302176384x421296526534331600%2FMarketing%2520Site.png?w=192&h=206&auto=compress&fit=crop&dpr=1" style="display: inline-block;
+        margin-left: auto;
+        margin-right: auto;">
+      </div>
   
-    <div class="text-center">
-      <h1 class="rounded" style="display: block;
-      margin-left: auto;
-      margin-right: auto;">Give the gift of TrustFundRegistry.</h1>
-    </div>
+      <div class="text-center">
+        <h1 class="rounded" style="display: block;
+        margin-left: auto;
+        margin-right: auto;">Give the gift of TrustFundRegistry.</h1>
+      </div>
 
-    <div class="text-center">
-      <h1 class="rounded" style="display: block;
-      margin-left: auto;
-      margin-right: auto;">Easy to give. Wonderful to receive.</h1>
-    </div>
+      <div class="text-center">
+        <h1 class="rounded" style="display: block;
+        margin-left: auto;
+        margin-right: auto;">Easy to give. Wonderful to receive.</h1>
+      </div>
 
-    <div class="bubble-r-line">
-      <div class="bubble-r-box">
-        <div class="bubble-element" style="white-space: pre-wrap; overflow: visible; padding-bottom: 0px; font-family: Barlow; font-size: 16px; color: rgba(53, 3, 66, 0.59); text-align: center; line-height: 1.4; border-radius: 0px;">
-          One gift is all it takes to show a child you love how much you care about 
-          their future. Select an amount, share a few details, and we’ll <br>send a personalized email on your behalf
+      <div class="bubble-r-line">
+        <div class="bubble-r-box">
+          <div class="bubble-element" style="white-space: pre-wrap; overflow: visible; padding-bottom: 0px; font-family: Barlow; font-size: 16px; color: rgba(53, 3, 66, 0.59); text-align: center; line-height: 1.4; border-radius: 0px;">
+            One gift is all it takes to show a child you love how much you care about 
+            their future. Select an amount, share a few details, and we’ll <br>send a personalized email on your behalf
+          </div>
         </div>
       </div>
-    </div>
-    <div class="text-center">
-      <button style="position: relative; box-sizing: border-box; height: 46px; width: 187px; background: none rgb(163, 44, 196); border: none; text-align: center; font-family: Barlow; font-size: 17px; font-weight: 500; color: white; letter-spacing: 1px; line-height: 2.6; border-radius: 50px; margin-bottom: 10px;">
-        Send a gift now
-      </button>
-    </div>
+      <div class="text-center">
+        <button style="position: relative; box-sizing: border-box; height: 46px; width: 187px; background: none rgb(163, 44, 196); border: none; text-align: center; font-family: Barlow; font-size: 17px; font-weight: 500; color: white; letter-spacing: 1px; line-height: 2.6; border-radius: 50px; margin-bottom: 10px;">
+          Send a gift now
+        </button>
+      </div>
     </div>
 
     <div class="rounded" style="display: block;">
@@ -150,7 +150,16 @@
       <img alt="" src="https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1619260201688x533923935279017000%2Fpintreset.png?w=48&h=48&auto=compress&fit=crop&dpr=1" style="position: relative; white-space: pre-wrap; width: 35px; height: 35px; border-radius: 7px; margin-left: 10px; bottom: 50px; left: 170px;">
 
       <hr class="new">
+      
+      <div style="white-space: nowrap;">
+        <div style="display: inline-block; margin-right: 100px; text-decoration: none; cursor: pointer; font-family: Barlow; font-size: 14px; font-weight: 600; color: rgb(59, 59, 59);"><a style=" color: rgb(59, 59, 59); text-decoration: none;" href="/">About Us</a></div>
+        <div style="display: inline-block; margin-right: 100px; text-decoration: none; cursor: pointer; font-family: Barlow; font-size: 14px; font-weight: 600; color: rgb(59, 59, 59);"><a style=" color: rgb(59, 59, 59); text-decoration: none;" href="{% url 'blog' %}">Blog</a></div>
+        <div style="display: inline-block; margin-right: 100px; text-decoration: none; cursor: pointer; font-family: Barlow; font-size: 14px; font-weight: 600; color: rgb(59, 59, 59);"><a style=" color: rgb(59, 59, 59); text-decoration: none;" href="/">Send a gift</a></div>
+        <div style="display: inline-block; margin-right: 100px; text-decoration: none; cursor: pointer; font-family: Barlow; font-size: 14px; font-weight: 600; color: rgb(59, 59, 59);"><a style=" color: rgb(59, 59, 59); text-decoration: none;" href="/">Press</a></div>
+        <div style="display: inline-block; margin-right: 100px; margin-bottom: 20px; text-decoration: none; cursor: pointer; font-family: Barlow; font-size: 14px; font-weight: 600; color: rgb(59, 59, 59);"><a style=" color: rgb(59, 59, 59); text-decoration: none;" href="{% url 'faq' %}">Legal</a></div>
+      </div>
 
-
+      <hr class="new" style="width: 55%; display: flex; margin-left: 150px;" >
+    
     </div>
 {% endblock %}
