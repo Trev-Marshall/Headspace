@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
-from rest_framework import permissions, status
+from rest_framework import permissions, status, generics
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from .models import *
 from rest_framework.response import Response
 from .serializer import *
-
 # Create your views here.
 
 
@@ -23,16 +22,13 @@ def current_user(request):
     return Response(serializer.data)
 
 
-class TaskList(APIView):
+class TaskList(generics.ListAPIView):
     serializer_class = TaskSerializer
     permission_classes = (permissions.IsAuthenticated,)
 
-    def get(request, self):
-        # The below line of code is trying to filter the tasks in the database by user and it is not working sadly. I can only grab "all" until we figure it out.
-        # queryset = Task.objects.filter(self.request.user)
-        queryset = Task.objects.all()
-        serializer_class = TaskSerializer(queryset, many=True)
-        return Response(serializer_class.data)
+    def get_queryset(self):
+        user = self.request.user
+        return Task.objects.filter(user=user)
 
 
 class UserList(APIView):
@@ -43,7 +39,7 @@ class UserList(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def post(self, request, format=None):
-      # 'request.data' is a POST but in django 'data' is used instead of 'POST'
+        # 'request.data' is a POST but in django 'data' is used instead of 'POST'
         serializer = UserSerializerWithToken(data=request.data)
         if serializer.is_valid():
             serializer.save()

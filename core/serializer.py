@@ -1,3 +1,4 @@
+from django.db.models.fields.related import ForeignKey, RelatedField
 from rest_framework import serializers
 from rest_framework.utils.serializer_helpers import JSONBoundField
 from rest_framework_jwt.settings import api_settings
@@ -6,10 +7,9 @@ from . models import *
 
 
 class TaskSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Task
-        fields = ('task', 'details', 'completed', 'dateCreated')
+        fields = ['task', 'details', 'completed', 'dateCreated']
 
 
 class ReflectionsSerializer(serializers.ModelSerializer):
