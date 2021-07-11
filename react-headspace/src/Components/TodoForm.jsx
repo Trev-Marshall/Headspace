@@ -3,12 +3,15 @@ import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 
-function TodoForm({value, setValue, todos, setTodos, setFormState}) {
+function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
 
   const addTodo = text => {
     const newTodo = [...todos];
     setTodos(newTodo)
-    setFormState(false)
+    setFormState({
+      display: false,
+      edit: false
+    })
   }
 
   const handleSubmit = (e) => {
@@ -30,11 +33,42 @@ function TodoForm({value, setValue, todos, setTodos, setFormState}) {
     )
     .catch(e => console.log(e))
     addTodo(value);
-    setValue("");
+    setValue({
+      'task': '',
+      'details': '',
+      'completed': false
+    });
+  }
+
+  const handleSubmitEdit = (e) => {
+    e.preventDefault()
+    console.log('Edit has been posted')
+    // if (!value) return;
+    // axios.post('http://localhost:8000/wel/', value, {
+    // headers: {
+    //       Authorization: `JWT ${localStorage.getItem('token')}`
+    //     }})
+    // .then( res => {
+    //   console.log(res.data)
+    //   setTodos([...todos,
+    //   {
+    //     'text': res.data.task,
+    //     'details': res.data.details,
+    //     'completed': res.data.completed
+    //   }])
+    // }
+    // )
+    // .catch(e => console.log(e))
+    // addTodo(value);
+    // setValue({
+    //   'task': '',
+    //   'details': '',
+    //   'completed': false
+    // });
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={() => {formState.edit ? handleSubmitEdit : handleSubmit}}>
       <Input
       type='text'
       value={value.task}
@@ -53,7 +87,7 @@ function TodoForm({value, setValue, todos, setTodos, setFormState}) {
       />
       <Input 
       type="submit"
-      value="Create"
+      value={formState.edit ? 'Edit' : 'Create'}
       >
       </Input>
     </Form>

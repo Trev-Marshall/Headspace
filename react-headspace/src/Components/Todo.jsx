@@ -1,23 +1,40 @@
 import React from 'react'
 import styled from 'styled-components'
+import EditIcon from '@material-ui/icons/Edit';
 
-function Todo({todo, index, todos, setTodos}) {
+function Todo({todo, index, todos, setTodos, setFormState, setValue}) {
 
   const completeTodo = index => {
     const newTodo = [...todos];
-    newTodo[index].isCompleted = true;
+    newTodo[index].completed = !newTodo[index].completed;
     setTodos(newTodo)
+  }
+
+  const handleEdit = index => {
+    console.log(index)
+    const newTodo = [...todos];
+    console.log(newTodo[index])
+    setFormState({
+    'display': true,
+    'edit': true
+    })
+    setValue({
+    'task': newTodo[index].text,
+    'details': newTodo[index].details,
+    'completed': newTodo[index].completed,
+    })
   }
 
   return (
     <Container>
-      <Li style={{ display: todo.completed ? "none" : "block" }} >
+      <Li style={{ textDecoration: todo.completed ? "line-through" : "none" }} >
         {todo.text}
       </Li>
       <Span 
       onClick={() => completeTodo(index)}
-      style={{ display: todo.completed ? "none" : "block" }}
+      style={{ textDecoration: todo.completed ? "line-through" : "none" }}
       >x</Span>
+      <Span onClick={() => handleEdit(index)}><EditIcon /></Span>
     </Container>
   )
 }
@@ -34,6 +51,7 @@ const Span = styled.span`
   font-size: 1.5em;
   opacity: .5;
   transition: opacity 250ms;
+  margin-right: 10px;
 `
 
 const Container = styled.div`

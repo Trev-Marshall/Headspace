@@ -19,7 +19,10 @@ function TodoList() {
     'details': '',
     'completed': false,
   })
-  const [formState, setFormState] = useState(false)
+  const [formState, setFormState] = useState({
+    display: false,
+    edit: false
+  })
 
   useEffect(() => {
     axios.get('http://localhost:8000/todos/',  {
@@ -29,6 +32,7 @@ function TodoList() {
     .then(res => {
       console.log(res)
     })
+    .catch(e => console.log(e))
   }, [])
 
   return (
@@ -40,23 +44,29 @@ function TodoList() {
           key={index}
           index={index}
           todo={todo}
+          setFormState={setFormState}
+          setValue={setValue}
           setTodos={setTodos}
           todos={todos}
           />
         ))}
       </Ul>
-      {formState ? 
+      {formState.display ? 
       (
         <TodoForm 
       value={value} 
       setValue={setValue}
       setTodos={setTodos}
+      formState={formState}
       todos={todos}
       setFormState={setFormState}
       />
       ) : (
         <Span
-        onClick={() => setFormState(true)}
+        onClick={() => setFormState({
+          'display': true,
+          'edit': false
+        })}
         >+</Span>
       )
     }
