@@ -22,7 +22,12 @@ function Todo({todo, index, todos, setTodos, setFormState, setValue}) {
     'task': newTodo[index].task,
     'details': newTodo[index].details,
     'completed': newTodo[index].completed,
+    'id': newTodo[index].id,
+    'user': newTodo[index].user
     })
+    const array = [...todos]
+    array.splice(index, 1)
+    setTodos(array)
   }
 
   return (

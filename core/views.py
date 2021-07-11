@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from rest_framework import permissions, status, generics
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.serializers import Serializer
 from rest_framework.views import APIView
 from .models import *
 from rest_framework.response import Response
@@ -29,6 +30,18 @@ class TaskList(generics.ListAPIView):
     def get_queryset(self):
         user = self.request.user
         return Task.objects.filter(user=user)
+
+
+@api_view(['POST'])
+def update_task(request, pk):
+    permission_classes = (permissions.IsAuthenticated,)
+    task = Task.objects.get(id=pk)
+    serializer = TaskUpdateSerializer(instance=task, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
 
 
 class UserList(APIView):

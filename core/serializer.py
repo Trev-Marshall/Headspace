@@ -9,7 +9,13 @@ from . models import *
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ['task', 'details', 'completed', 'dateCreated']
+        fields = '__all__'
+
+
+class TaskUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = ['task', 'details', 'completed', 'id', 'user']
 
 
 class ReflectionsSerializer(serializers.ModelSerializer):

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
+import { array } from 'prop-types'
 
 function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
 
@@ -14,6 +15,13 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
     })
   }
 
+  const resetEditForm = () => {
+  setFormState({
+    display: false,
+    edit: false
+  })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!value) return;
@@ -24,11 +32,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
     .then( res => {
       console.log(res.data)
       setTodos([...todos,
-      {
-        'task': res.data.task,
-        'details': res.data.details,
-        'completed': res.data.completed
-      }])
+      res.data])
     }
     )
     .catch(e => console.log(e))
@@ -36,39 +40,37 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
     setValue({
       'task': '',
       'details': '',
-      'completed': false
+      'completed': false,
+      'value': null
     });
   }
 
   const handleSubmitEdit = (e) => {
     e.preventDefault()
-    console.log('Edit has been posted')
-    // if (!value) return;
-    // axios.post('http://localhost:8000/wel/', value, {
-    // headers: {
-    //       Authorization: `JWT ${localStorage.getItem('token')}`
-    //     }})
-    // .then( res => {
-    //   console.log(res.data)
-    //   setTodos([...todos,
-    //   {
-    //     'text': res.data.task,
-    //     'details': res.data.details,
-    //     'completed': res.data.completed
-    //   }])
-    // }
-    // )
-    // .catch(e => console.log(e))
-    // addTodo(value);
-    // setValue({
-    //   'task': '',
-    //   'details': '',
-    //   'completed': false
-    // });
+    console.log(value.id)
+    if (!value) return;
+    axios.post(`http://localhost:8000/edit-todo/${value.id}/`, value, {
+    headers: {
+          Authorization: `JWT ${localStorage.getItem('token')}`
+        }})
+    .then( res => {
+      console.log(res)
+      
+      setTodos([...todos, todos[value.id] = res.data])
+    }
+    )
+    .catch(e => console.log(e))
+    resetEditForm(value);
+    setValue({
+      'task': '',
+      'details': '',
+      'completed': false,
+      'value': null
+    });
   }
 
   return (
-    <Form onSubmit={() => {formState.edit ? handleSubmitEdit : handleSubmit}}>
+    <Form onSubmit={(e) => {formState.edit ? handleSubmitEdit(e) : handleSubmit(e)}}>
       <Input
       type='text'
       value={value.task}

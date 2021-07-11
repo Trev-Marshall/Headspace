@@ -23,6 +23,7 @@ function TodoList() {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
     .then(res => {
+      console.log(res.data)
       setTodos(res.data)
     })
     .catch(e => console.log(e))
@@ -34,7 +35,7 @@ function TodoList() {
         {todos && 
         todos.map((todo, index) => (
           <Todo
-          key={index}
+          key={todo.id}
           index={index}
           todo={todo}
           setFormState={setFormState}
