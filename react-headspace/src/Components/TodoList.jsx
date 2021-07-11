@@ -6,14 +6,7 @@ import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 
 function TodoList() {
-  const [todos, setTodos] = useState([
-    {text: 'this is the text of a todo',
-    completed: false},
-    {text: 'This is the second todo on the list',
-    completed: false},
-    {text: 'This is the third todo on the list',
-    completed: false}
-  ])
+  const [todos, setTodos] = useState([])
   const [value, setValue] = useState({
     'task': '',
     'details': '',
@@ -30,7 +23,7 @@ function TodoList() {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
     .then(res => {
-      console.log(res)
+      setTodos(res.data)
     })
     .catch(e => console.log(e))
   }, [])

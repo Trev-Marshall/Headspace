@@ -25,7 +25,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
       console.log(res.data)
       setTodos([...todos,
       {
-        'text': res.data.task,
+        'task': res.data.task,
         'details': res.data.details,
         'completed': res.data.completed
       }])
@@ -79,6 +79,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
       <Input
       type='text'
       name='details'
+      value={value.details}
       onChange={e => setValue({...value, 'details': e.target.value})}
       placeholder="Description..." />
       <Input

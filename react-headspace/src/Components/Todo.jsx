@@ -19,7 +19,7 @@ function Todo({todo, index, todos, setTodos, setFormState, setValue}) {
     'edit': true
     })
     setValue({
-    'task': newTodo[index].text,
+    'task': newTodo[index].task,
     'details': newTodo[index].details,
     'completed': newTodo[index].completed,
     })
@@ -28,7 +28,7 @@ function Todo({todo, index, todos, setTodos, setFormState, setValue}) {
   return (
     <Container>
       <Li style={{ textDecoration: todo.completed ? "line-through" : "none" }} >
-        {todo.text}
+        {todo.task}
       </Li>
       <Span 
       onClick={() => completeTodo(index)}
