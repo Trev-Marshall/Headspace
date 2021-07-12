@@ -14,11 +14,13 @@
 }
 
 .left_item {
-    float: left;
+    right: auto;
+    left: 0;
     width: 500px;
 }
 
 .right_item {
-    float: right;
+    left: auto;
+    right: 0;
     width: 500px;
 }
