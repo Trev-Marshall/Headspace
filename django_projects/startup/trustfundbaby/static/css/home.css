@@ -10,9 +10,9 @@
     display: block;
 }
 
-.heading {
-    margin:auto;
-    align-items: center;
+.center_items {
+    display: inline-block;
+    margin: auto;
 }
 
 .security_box{
