@@ -4,6 +4,11 @@
     list-style: none;
 }
 /* FAQ Styles. */
+h1{
+    align-items: center;
+    margin: 1.5rem;
+}
+
 *,
 *::before,
 *::after{
@@ -20,6 +25,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: auto;
 }
 
 .container{
@@ -46,7 +52,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 1rem;
+    margin: auto;
 }
 
 .accordion-link ion-icon{
@@ -64,7 +71,7 @@
     position: relative;
     background-color:cornsilk;
     font-size: 1.4rem; 
-    color: rgba(255,255,255,.6);
+    color: rgba(0,0,0,.6);
     transition: max-height 650ms;
 }
 
@@ -80,13 +87,13 @@
 }
 
 .answer p{
-    color: rgba(255,255,255,.6);
+    color: rgba(0,0,255,.6);
     font-size: 1.4rem;
     padding: 2rem;
 }
 
 .accordion-item:target .answer{
-    max-height: 20rem;
+    max-height: 50rem;
 }
 
 .accordion-item:target .accordion-link .down{
@@ -96,3 +103,12 @@
 .accordion-item:target .accordion-link .up{
     display: block;
 }
+
+.nicole{
+    background-color: #2B4162;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ 
