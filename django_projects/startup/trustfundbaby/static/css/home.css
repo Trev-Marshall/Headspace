@@ -14,13 +14,13 @@
 }
 
 .security_1 {
-    position: relative; left: 15px; width: 310px;
+    position: relative; left: 15px; width: 310px; white-space: nowrap;
 }
 
 .security_2 {
-    position: relative; left: 335px; width: 310px;
+    position: relative; left: 335px; width: 310px; white-space: nowrap;
 }
 
 .security_3 {
-    position: relative; left: 675px; width: 310px;
+    position: relative; left: 675px; width: 310px; white-space: nowrap;
 }
