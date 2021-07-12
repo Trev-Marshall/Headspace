@@ -11,8 +11,8 @@
 }
 
 .heading {
-    display:inline-block;
     margin:auto;
+    align-items: center;
 }
 
 .security_box{
