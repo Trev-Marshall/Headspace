@@ -12,3 +12,13 @@
     margin: auto;
     width: 600px;
 }
+
+.left_item {
+    align-items: left;
+    width: 50%;
+}
+
+.right_item {
+    align-items: right;
+    width: 50%;
+}
