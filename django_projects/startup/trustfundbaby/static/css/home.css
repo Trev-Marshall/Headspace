@@ -13,11 +13,11 @@
 }
 
 .left_item {
-    left: auto;
+    left: 15px;
     width: 50%;
 }
 
 .right_item {
-    right:auto;
+    right:15px;
     width: 50%;
 }
