@@ -13,7 +13,7 @@
     width: 600px;
 }
 
-block {
+.block {
     float:left;
     width: 33.3%;
 }
