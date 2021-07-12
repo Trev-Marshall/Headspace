@@ -13,9 +13,11 @@
 }
 
 .left_item {
-
+    left: auto;
+    width: 50%;
 }
 
 .right_item {
-    float: right;
+    right:auto;
+    width: 50%;
 }
