@@ -13,6 +13,10 @@
     width: 600px;
 }
 
+.left_item {
+    width: 50%;
+}
+
 .right_item {
     float: right;
     width: 50%;
