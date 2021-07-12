@@ -24,8 +24,9 @@
     background-color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: normal;
     margin: auto;
+    
 }
 
 .container{
@@ -93,7 +94,7 @@
 }
 
 .accordion-item:target .answer{
-    max-height: 50rem;
+    max-height: 500rem;
 }
 
 .accordion-item:target .accordion-link .down{
