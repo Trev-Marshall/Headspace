@@ -13,11 +13,7 @@
     width: 600px;
 }
 
-.left_item {
-    width: 500px;
-}
-
-.right_item {
-    float: right;
-    width: 500px;
+block {
+    float:left;
+    width: 33.3%;
 }
