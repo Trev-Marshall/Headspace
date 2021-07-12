@@ -107,7 +107,8 @@ h1{
 .nicole{
     background-color: #2B4162;
     width: 100%;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     align-items: center;
     justify-content: center;
 }
