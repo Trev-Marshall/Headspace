@@ -7,6 +7,12 @@
 .containter {
     margin: auto;
     align-items: center;
+    display: block;
+}
+
+.heading {
+    display:inline-block;
+    margin:auto;
 }
 
 .security_box{
