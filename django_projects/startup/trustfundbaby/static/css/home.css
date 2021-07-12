@@ -13,9 +13,23 @@
     width: 600px;
 }
 
+.clear {
+    clear: both;
+}
+
+.right {
+    float:right;
+    width: 50%;
+}
+
+.left {
+    float:left;
+    width: 50%;
+}
+
 .block {
     float:left;
-    width: 33.3%;
+    width: 30%;
 }
 
 .fin {
