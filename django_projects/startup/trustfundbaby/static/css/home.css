@@ -18,7 +18,6 @@
 }
 
 .right_item {
-    left: auto;
-    right: 0;
+    float: right;
     width: 500px;
 }
