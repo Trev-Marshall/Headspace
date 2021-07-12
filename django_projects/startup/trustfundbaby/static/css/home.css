@@ -5,6 +5,6 @@
 }
 
 .containter {
-    width: 400px;
     margin: auto;
+    align-items: center;
 }
