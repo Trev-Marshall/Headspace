@@ -13,14 +13,7 @@
     width: 600px;
 }
 
-.left_item {
-    margin: auto;
-    align-items: left;
-    width: 50%;
-}
-
 .right_item {
-    margin: auto;
-    align-items: right;
+    float: right;
     width: 50%;
 }
