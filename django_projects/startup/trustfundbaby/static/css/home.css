@@ -5,16 +5,12 @@
 }
 
 .containter {
-    margin: auto;
-    align-items: center;
-    display: block;
-    width: 50%;
+    
 }
 
 .center_items {
-    margin: auto;
 }
-
+/*
 .security_box{
     width: 1020px;
 }
@@ -30,3 +26,4 @@
 .security_3 {
     position: relative; left: 675px; width: 310px;
 }
+*/
