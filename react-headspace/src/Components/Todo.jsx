@@ -1,13 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import EditIcon from '@material-ui/icons/Edit';
+import axios from 'axios';
 
 function Todo({todo, index, todos, setTodos, setFormState, setValue}) {
 
   const completeTodo = index => {
     const newTodo = [...todos];
-    newTodo[index].completed = !newTodo[index].completed;
-    setTodos(newTodo)
+    const completedTodo = newTodo[index]
+    completedTodo.completed = true
+    axios.post(`http://localhost:8000/edit-todo/${completedTodo.id}/`, completedTodo, {
+    headers: {
+          Authorization: `JWT ${localStorage.getItem('token')}`
+        }})
+        .then(res => {
+          newTodo.splice(index, 1)
+          setTodos([...newTodo,
+            res.data
+          ])
+        })
+        .catch(e => {
+          console.log(e)
+        })
   }
 
   const handleEdit = index => {
