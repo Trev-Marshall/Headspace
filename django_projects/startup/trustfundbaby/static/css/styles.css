@@ -48,7 +48,7 @@
     color: black;
     text-decoration: none;
     background-color: azure;
-    width: 100%;
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
