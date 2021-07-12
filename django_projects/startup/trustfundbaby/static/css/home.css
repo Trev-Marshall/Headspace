@@ -10,14 +10,14 @@
 
 .center_items {
     margin: auto;
+    width: 600px;
 }
 
 .left_item {
-    left: 15px;
-    width: 50%;
+    width: 500px;
 }
 
 .right_item {
-    right:15px;
-    width: 50%;
+    float: right;
+    width: 500px;
 }
