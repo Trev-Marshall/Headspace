@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+.security_box{
+    width: 1020px;
+}
+
 .security_1 {
     left: 15px; width: 310px;
 }
