@@ -14,11 +14,13 @@
 }
 
 .left_item {
+    margin: auto;
     align-items: left;
     width: 50%;
 }
 
 .right_item {
+    margin: auto;
     align-items: right;
     width: 50%;
 }
