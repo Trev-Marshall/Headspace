@@ -87,11 +87,7 @@ h1{
 }
 
 .answer p{
-<<<<<<< HEAD
     color: rgba(0,0,2055,.6);
-=======
-    color: rgba(0,0,255,.6);
->>>>>>> 2696be42b7a23aaad022b8b8594286e37acf1131
     font-size: 1.4rem;
     padding: 2rem;
 }
