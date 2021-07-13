@@ -12,19 +12,10 @@
     margin: auto;
 }
 
-.test {
-    float: left;
-    width: 33%;
-}
-
 .center_items {
     margin: auto;
     width:fit-content;
     align-items: center;
-}
-
-.clear {
-    clear: both;
 }
 
 .right {
@@ -37,6 +28,10 @@
     width: 40%;
 }
 
+.clear {
+    clear: both;
+}
+
 .block {
     float:left;
     width: 30%;
@@ -46,3 +41,7 @@
     text-align: center;
 }
 
+.test {
+    float: left;
+    width: 33%;
+}
