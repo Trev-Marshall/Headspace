@@ -77,16 +77,38 @@
 
 .save {
     background-color: white;
-    width: 300px;
-    left: 200px;
+    width: 350px;
+    left: 400px;
+    border-radius: 35px;
 }
 
 .security {
-    height: 700px;
+    height: 500px;
 
 }
 
 .start {
-    height: 850px;
+    height: 500px;
     background-color:orchid;
+}
+
+.start_text {
+    margin: auto;
+}
+
+.questions {
+    margin: auto;
+    background-color: lightgray;
+}
+
+.qbutton {
+    float: left;
+    width: 40%;
+    margin: auto;
+}
+
+.qlink {
+    float: left;
+    width: 20%;
+    margin: auto;
 }
