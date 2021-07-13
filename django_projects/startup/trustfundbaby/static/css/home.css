@@ -4,19 +4,9 @@
     list-style: none;
 }
 
-* {
-    box-sizing: border-box;
-  }
-
 .containter {
     margin: auto;
     width: 90%;
-}
-
-.center_items {
-    margin: auto;
-    width:fit-content;
-    align-items: center;
 }
 
 .left {
@@ -24,13 +14,13 @@
     width: 40%;
 }
 
-.clear {
-    clear: both;
-}
-
 .right {
     float:right;
     width:40%;
+}
+
+.clear {
+    clear: both;
 }
 
 .fin {
@@ -48,8 +38,8 @@
     width: 30%;
 }
 
-.test {
-    float: left;
-    width: 33%;
-    padding: 15px;
+.center_items {
+    margin: auto;
+    width:fit-content;
+    align-items: center;
 }
