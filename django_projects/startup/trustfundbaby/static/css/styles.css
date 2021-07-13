@@ -105,6 +105,8 @@
     display: block;
 }
 
+
+/* Blog page styles */
 .nicole{
     background-color: #2B4162;
     width: 100%;
@@ -112,8 +114,13 @@
     margin-right: auto;
     min-height: 24rem;
    /* text-align: center; */
-    
-    
+     
 }
 
+.title{}
+    font-size: 1.5 rem;
+    font-weight: bold;
+    color: white;
+
+}
  
