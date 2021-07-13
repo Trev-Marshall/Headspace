@@ -47,6 +47,11 @@
     padding: 15px;
     box-sizing: border-box;
 }
+.compare {
+    background-color: orchid;
+    width: 100%;
+    height: 1400px;
+}
 
 .calc {
     margin: auto;
@@ -54,15 +59,23 @@
     height: 500px;
     padding: 20px;
     border-radius: 35px;
-    background-color: mintcream;
+    background-color: white;
+}
+
+.table {
+    width: 100%;
+    height:1000px;
+    background-color:orchid;
 }
 
 .tbl {
+    margin: auto;
     padding: 1px;
     border-radius: 35px;
 }
 
 .save {
+    background-color: white;
     width: 300px;
 }
 
