@@ -5,7 +5,8 @@
 }
 
 .containter {
-    margin: auto;
+    left: 0;
+    right: 0;
 }
 
 .center_items {
@@ -90,10 +91,11 @@
 .start {
     height: 500px;
     background-color:orchid;
+    padding: 20px;
 }
 
-.start_text {
-    margin: auto;
+.form {
+    align-items: center;
 }
 
 .questions {
