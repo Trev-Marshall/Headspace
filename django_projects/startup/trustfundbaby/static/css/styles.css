@@ -105,15 +105,39 @@
     display: block;
 }
 
-.nicole{
+
+/* Blog page styles */
+.top{
     background-color: #2B4162;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     min-height: 24rem;
    /* text-align: center; */
-    
-    
+     
 }
 
+.title{
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    padding: 110px 0;
+    text-align: center;
+
+}
  
+.second-title{
+    font-size: 2rem;
+    font-weight: bold;
+    color:  #2B4162;
+    text-align: center;
+}
+
+.third-title{
+    font-size: 2.5rem;
+    color:  #2B4162;
+    padding: 40px 0;
+    text-align: center;
+
+}
+
