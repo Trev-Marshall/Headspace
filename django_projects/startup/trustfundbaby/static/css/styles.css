@@ -85,14 +85,14 @@
     position: absolute;
     width: .6rem;
     height: 90%;
-    background-color:darkgrey;
+    background-color:rgb(66, 160, 155);
     top: 50%;
     left: 0;
     transform: translateY(-50%);
 }
 
 .answer p{
-    color: black;
+    color: #130a38;
     font-size: 1.4rem;
     padding: 2rem;
 }
