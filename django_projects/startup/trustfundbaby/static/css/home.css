@@ -8,6 +8,11 @@
     margin: auto;
 }
 
+.chart {
+    float:left;
+    width:30px;
+}
+
 .center_items {
     margin: auto;
     width:fit-content;
@@ -26,11 +31,6 @@
 .left {
     float:left;
     width: 40%;
-}
-
-.chart {
-    float:left;
-    width:30px;
 }
 
 .fin {
