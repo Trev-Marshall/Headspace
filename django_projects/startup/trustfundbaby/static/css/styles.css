@@ -11,6 +11,22 @@
     color: beige;
 }
 
+.faq_collapse{
+    text-align: right;
+    margin: 1.2rem;
+    color: beige;
+}
+
+.faq_collapse:target .answer{
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    background-color:#fbf7ff;
+    font-size: 1.4rem; 
+    color: black;
+    transition: max-height 700ms;
+}
+
 *,
 *::before,
 *::after{
@@ -54,7 +70,7 @@
     width: auto;
     display: flex;
     align-items: center;    
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 1rem;
     margin: auto;
 }
@@ -76,8 +92,9 @@
     background-color:#fbf7ff;
     font-size: 1.4rem; 
     color: black;
-    transition: max-height 650ms;
+    transition: max-height 700ms;
 }
+
 
 .answer::before{
     content:"";
@@ -107,7 +124,6 @@
 .accordion-item:target .accordion-link .up{
     display: block;
 }
-
 
 /* Blog page styles */
 .top{
