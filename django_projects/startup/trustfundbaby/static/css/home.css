@@ -50,13 +50,13 @@
     padding: 20px;
     background-color: orchid;
     width: 100%;
-    height: 1000px;
+    height: 1200px;
 }
 
 .calc {
     margin: auto;
     width: 700px;
-    height: 450px;
+    height: 350px;
     padding: 20px;
     border-radius: 35px;
     background-color: white;
@@ -78,6 +78,7 @@
 .save {
     background-color: white;
     width: 300px;
+    left: 200px;
 }
 
 .security {
