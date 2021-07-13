@@ -50,7 +50,7 @@
     text-decoration: none;
     background-color: azure;
     width: auto;
-    display: flex;
+    display: block;
     align-items: center;
     text-align:left;
     justify-content: space-between;
