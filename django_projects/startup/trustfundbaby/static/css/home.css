@@ -29,7 +29,8 @@
 }
 
 .chart {
-    width: 30px;
+    float:left;
+    width:30px;
 }
 
 .fin {
