@@ -53,10 +53,8 @@
     background-color: #ddebea;
     width: auto;
     display: flex;
-    align-items: center;
-    text-align:center;
-    
-    justify-content: space-between;
+    align-items: center;    
+    justify-content: start;
     padding: 1rem;
     margin: auto;
 }
