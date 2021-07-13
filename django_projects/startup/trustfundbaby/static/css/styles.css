@@ -39,7 +39,7 @@
 }
 
 .accordion-item{
-    background-color: #677b8f;
+    background-color: #c5d1d1;
     border-radius: .4rem;
     margin-bottom: 1rem;
     padding: 1rem;
@@ -92,7 +92,7 @@
 }
 
 .answer p{
-    color: rgba(0,0,2055,.6);
+    color: black;
     font-size: 1.4rem;
     padding: 2rem;
 }
