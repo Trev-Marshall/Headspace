@@ -5,6 +5,7 @@
 }
 
 .containter {
+    margin: auto;
     width: 100%;
 }
 
@@ -39,5 +40,5 @@
 
 .block {
     float: left;
-    width:30;
+    width:30%;
 }
