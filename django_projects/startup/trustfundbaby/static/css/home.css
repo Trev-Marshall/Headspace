@@ -29,9 +29,7 @@
 }
 
 .block {
-    float:left;
-    display: block;
-    width:20%;
+    width: 30%;
 }
 
 .fin {
