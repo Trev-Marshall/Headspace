@@ -101,6 +101,7 @@
 .questions {
     margin: auto;
     background-color: lightgray;
+    height: 350px;
 }
 
 .qbutton {
