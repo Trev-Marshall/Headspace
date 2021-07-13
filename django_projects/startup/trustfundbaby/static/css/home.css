@@ -33,9 +33,11 @@
     text-align: center;
 }
 .finance {
-    border: 1px #ccc solid;
+    width: 800px;
+    height:400px;
     padding: 10px;
     border-radius: 35px;
+    background-color:mediumorchid;
 }
 
 .block {
