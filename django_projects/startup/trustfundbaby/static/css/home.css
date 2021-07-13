@@ -8,6 +8,11 @@
     margin: auto;
 }
 
+.test {
+    float: left;
+    width: 33%;
+}
+
 .center_items {
     margin: auto;
     width:fit-content;
@@ -37,7 +42,3 @@
     text-align: center;
 }
 
-.test {
-    float: left;
-    width: 33%;
-}
