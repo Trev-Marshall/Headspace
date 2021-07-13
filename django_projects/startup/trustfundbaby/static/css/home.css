@@ -9,6 +9,12 @@
     width: 100%;
 }
 
+.center_items {
+    margin: auto;
+    width:fit-content;
+    align-items: center;
+}
+
 .left {
     float:left;
     width: 40%;
@@ -26,20 +32,14 @@
 .fin {
     text-align: center;
 }
-
+/* idk why this isn't working @.@ */
 .finance {
     border: 1px #ccc solid;
     padding: 10px;
     border-radius: 35px;
 }
-
-.block {
+/* idk why this isn't working @.@ */
+.block{
     float:left;
-    width: 30%;
-}
-
-.center_items {
-    margin: auto;
-    width:fit-content;
-    align-items: center;
+    width:25%;
 }
