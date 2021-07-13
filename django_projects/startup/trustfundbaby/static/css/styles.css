@@ -4,8 +4,9 @@
     list-style: none;
 }
 /* FAQ Styles. */
+
 .faq_Title{
-    align-content: center;
+    text-align: center;
     margin: 1.5rem;
 }
 
