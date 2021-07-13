@@ -25,7 +25,12 @@
 
 .left {
     float:left;
-    width: 20%;
+    width: 40%;
+}
+
+.block {
+    float:left;
+    width: 30%;
 }
 
 .fin {
