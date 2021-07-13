@@ -54,7 +54,7 @@
     width: auto;
     display: flex;
     align-items: center;    
-    justify-content: start;
+    justify-content: stretch;
     padding: 1rem;
     margin: auto;
 }
