@@ -96,8 +96,8 @@
 }
 
 .form {
-    align-items: center;
     margin: auto;
+    width: fit-content;
 }
 
 .questions {
@@ -108,12 +108,10 @@
 
 .qbutton {
     float: left;
-    width: 40%;
     margin: auto;
 }
 
 .qlink {
     float: left;
-    width: 20%;
     margin: auto;
 }
