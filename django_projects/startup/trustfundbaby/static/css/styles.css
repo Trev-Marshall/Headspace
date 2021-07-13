@@ -54,7 +54,8 @@
     width: auto;
     display: flex;
     align-items: center;
-    text-align:left;
+    text-align:center;
+    
     justify-content: space-between;
     padding: 1rem;
     margin: auto;
