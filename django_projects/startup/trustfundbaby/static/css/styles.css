@@ -50,7 +50,7 @@
     text-decoration: none;
     background-color: azure;
     width: auto;
-    display: block;
+    display: flex;
     align-items: center;
     text-align:left;
     justify-content: space-between;
@@ -61,7 +61,7 @@
 .accordion-link ion-icon{
     color: black;
     padding: .5rem;
-    align-self: right;
+    align-self: right
 }
 
 .accordion-link .up{
