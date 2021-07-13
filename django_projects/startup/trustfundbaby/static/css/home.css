@@ -36,3 +36,8 @@
 .fin {
     text-align: center;
 }
+
+.test {
+    float: left;
+    width: 33%;
+}
