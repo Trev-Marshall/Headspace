@@ -20,7 +20,7 @@ class TaskUpdateSerializer(serializers.ModelSerializer):
 
 class ReflectionsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Relfection
+        model = Reflection
         fields = ['reflection', 'dateCreated']
 
 

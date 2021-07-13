@@ -1,39 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
 import PageHeading from './PageHeading'
 import BackButton from './BackButton'
+import Reflection from './Reflection'
+import axios from 'axios'
 
 function Reflections() {
 
-  const [todos, setTodos] = useState([
-    {text: 'this is the text of a reflection',
-    isCompleted: false},
-    {text: 'This is the second reflection on the list',
-    isCompleted: false},
-    {text: 'This is the third reflection on the list',
-    isCompleted: false}
-  ])
-  const [value, setValue] = useState("")
+  const [reflection, setReflection] = useState({})
+  const [value, setValue] = useState({
+    'reflection': '',
+  })
   const [formState, setFormState] = useState(false)
+
+  const d = new Date();
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/current-reflection/', { headers: {
+          Authorization: `JWT ${localStorage.getItem('token')}`
+        }})
+        .then(res => setReflection(res.data))
+  }, [])
 
   return (
     <Container>
       <BackButton />
-      <PageHeading value={"Reflections"} headingSizeEm={"4em"}/>
+      <HeadingContainer>
+      <PageHeading value={"Reflection"} headingSizeEm={"4em"}/>
+      <PageHeading value={`${months[d.getMonth()]} ${d.getDate()}`} headingSizeEm={"2em"}/>
+      </HeadingContainer>
       <Ul>
-        {todos && 
-        todos.map((todo, index) => (
-          <Todo
-          key={index}
-          index={index}
-          todo={todo}
-          setTodos={setTodos}
-          todos={todos}
-          />
-        ))}
+        {reflection[0] && 
+        <Reflection
+          reflection={reflection[0]}
+          setFormState={setFormState}
+        ></Reflection>
+        }
       </Ul>
       {formState ? 
       (
@@ -60,7 +66,7 @@ const Container = styled.div`
   background-color: ${COLORS1.main};
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   color: white;
   flex-direction: column;
@@ -78,4 +84,8 @@ const Span = styled.span`
     color: ${COLORS1.secondary_accent};
     transform: rotate(90deg);
   }
+`
+
+const HeadingContainer = styled.div`
+  text-align: center;
 `

@@ -7,6 +7,7 @@ from rest_framework.serializers import Serializer
 from rest_framework.views import APIView
 from .models import *
 from rest_framework.response import Response
+from datetime import date
 from .serializer import *
 # Create your views here.
 
@@ -44,6 +45,15 @@ def update_task(request, pk):
     return Response(serializer.data)
 
 
+class ReflectionAPIView(generics.ListAPIView):
+    serializer_class = ReflectionsSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get_queryset(self):
+        user = self.request.user
+        return Reflection.objects.filter(user=user, dateCreated=date.today())
+
+
 class UserList(APIView):
     """
     Create a new user.
@@ -65,12 +75,6 @@ class TodoView(APIView):
 
     serializer_class = TaskSerializer
     permission_classes = (permissions.IsAuthenticated,)
-
-    # def get(self, request, format=None):
-    #     tasks = [Task.objects.all()]
-    #     # queryset = Task.objects.all()
-    #     # serializer_class = TaskSerializer(queryset)
-    #     return Response(tasks)
 
     def post(self, request):
         serializer = TaskSerializer(data=request.data)

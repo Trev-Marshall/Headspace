@@ -12,8 +12,8 @@ class Task(models.Model):
         User, default=None, on_delete=models.CASCADE, related_name="task")
 
 
-class Relfection(models.Model):
-    reflection = models.CharField(max_length=150)
+class Reflection(models.Model):
+    reflection = models.TextField(max_length=600)
     dateCreated = models.DateField(auto_now_add=True)
     user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
 
