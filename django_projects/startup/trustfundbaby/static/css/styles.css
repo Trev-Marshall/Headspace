@@ -7,7 +7,10 @@
 
 .faq_Title{
     text-align: center;
-    margin: 1.5rem;
+}
+
+.faq_Info{
+    text-align: center;
 }
 
 *,
