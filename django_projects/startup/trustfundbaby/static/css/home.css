@@ -6,7 +6,6 @@
 
 .containter {
     margin: auto;
-    width: 100%;
 }
 
 .center_items {
@@ -32,7 +31,7 @@
 .fin {
     text-align: center;
 }
-.finance {
+.fin_sec {
     margin: auto;
     width: 800px;
     height:250px;
@@ -64,8 +63,9 @@
 }
 
 .table {
+    margin: auto;
     width: fit-content;
-    height:500px;
+    height:350px;
     background-color:white;
     border-radius: 35px;
 }
@@ -80,7 +80,12 @@
     width: 300px;
 }
 
+.security {
+    height: 700px;
+
+}
+
 .start {
-    width: 100%;
     height: 850px;
+    background-color:orchid;
 }
