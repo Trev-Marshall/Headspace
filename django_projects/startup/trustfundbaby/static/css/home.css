@@ -43,4 +43,5 @@
 .block {
     float: left;
     width:30%;
+    padding: 20px;
 }
