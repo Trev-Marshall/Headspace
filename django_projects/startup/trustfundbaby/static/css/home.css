@@ -44,4 +44,5 @@
     float: left;
     width:30%;
     padding: 20px;
+    box-sizing: border-box;
 }
