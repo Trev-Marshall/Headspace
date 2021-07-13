@@ -118,6 +118,7 @@
 }
 
 .title{
+    font-family:arial;
     font-size: 4rem;
     font-weight: bold;
     color: white;
@@ -127,6 +128,7 @@
 }
  
 .second-title{
+    font-family:arial;
     font-size: 2rem;
     font-weight: bold;
     color:  #2B4162;
@@ -141,12 +143,13 @@
 
 }
 .ion-icon {
+    font-family:arial;
     font-size: 230px;
     color: #186B3F;
     text-align: center;
   }
 .blog-content{
-    
+    font-family:arial;
     font-size: 24px;
     color: #2B4162;
     text-align: center;
