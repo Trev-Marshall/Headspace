@@ -33,7 +33,17 @@
     border-radius: 35px;
 }
 
-.block {
+.block1 {
+    float:left;
+    width: 30%;
+}
+
+.block2 {
+    float:left;
+    width: 30%;
+}
+
+.block3 {
     float:left;
     width: 30%;
 }
