@@ -38,8 +38,12 @@
     padding: 10px;
     border-radius: 35px;
 }
+
+.block {
+    width:30%
+}
 /* idk why this isn't working @.@ */
 .blocks{
     float:left;
-    width:25%;
+    width:30%;
 }
