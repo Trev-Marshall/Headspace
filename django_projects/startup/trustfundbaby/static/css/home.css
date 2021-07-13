@@ -30,6 +30,7 @@
 
 .block {
     float:left;
+    display: block;
     width:20%;
 }
 
