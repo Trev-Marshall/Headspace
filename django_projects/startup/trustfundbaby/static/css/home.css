@@ -95,11 +95,16 @@
 }
 
 .start {
-    margin-top: 200px;
+    margin-top: 50px;
     height: 500px;
     background-color:orchid;
     padding: 20px;
     line-height: 150%;
+}
+
+.start_text {
+    text-align: center;
+    margin-top: 100px;
 }
 
 .form {
