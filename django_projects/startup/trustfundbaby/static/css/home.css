@@ -68,11 +68,11 @@
     border-radius: 35px;
     line-height: 200%;
     background-color: white;
+    list-style: none;
 }
 
-.calc br {
-    display: block;
-    margin: 5px 0;
+.calc li {
+    padding: 10px;
 }
 .c1 {
     margin: auto;
