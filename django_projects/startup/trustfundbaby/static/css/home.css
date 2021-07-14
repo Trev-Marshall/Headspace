@@ -70,41 +70,42 @@
     background-color: white;
 }
 
-.calc br {
-    line-height: 15px;
-}
-
 .c1 {
     margin: auto;
     width: fit-content;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: indigo;
     color: white;
+    padding-bottom: 10px;
 }
 .c2 {
     margin: auto;
     width: fit-content;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color:mediumorchid;
     color: white;
+    padding-bottom: 10px;
 }
 .c3 {
     width: 350px;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color:mediumpurple;
     color: white;
+    padding-bottom: 10px;
 }
 .c4 {
     width: 300px;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color:mediumseagreen;
     color: white;
+    padding-bottom: 10px;
 }
 .c5 {
     width: 250px;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: wheat;
     color: white;
+    padding-bottom: 10px;
 }
 
 .table {
