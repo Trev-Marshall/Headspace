@@ -5,7 +5,9 @@
 }
 
 .containter {
-    max-width: 100rem;
+    margin: 0 0;
+    padding: 0 0;
+    width: 100%;
 }
 
 .center_items {
