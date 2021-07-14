@@ -16,11 +16,13 @@
 }
 
 .left {
+    margin-top: 20px;
     float:left;
     width: 40%;
 }
 
 .right {
+    margin-top: 20px;
     float:right;
     width:40%;
 }
@@ -32,6 +34,7 @@
 .fin {
     text-align: center;
 }
+
 .fin_sec {
     margin: auto;
     width: 800px;
@@ -48,6 +51,7 @@
     box-sizing: border-box;
 }
 .compare {
+    margin-top: 20px;
     padding: 20px;
     background-color: orchid;
     width: 100%;
@@ -56,6 +60,7 @@
 
 .calc {
     margin: auto;
+    margin-top: 20px;
     width: 700px;
     height: 350px;
     padding: 20px;
@@ -65,6 +70,7 @@
 
 .table {
     margin: auto;
+    margin-top: 10px;
     width: fit-content;
     height:350px;
     background-color:white;
@@ -84,12 +90,12 @@
 }
 
 .security {
-    height: 500px;
+    height: 450px;
 
 }
 
 .start {
-    margin-top: 100px;
+    margin-top: 50px;
     height: 500px;
     background-color:orchid;
     padding: 20px;
@@ -103,9 +109,8 @@
 
 .questions {
     margin: auto;
-    margin-top: 100px;
     background-color: lightgray;
-    height: 450px;
+    height: 550px;
 }
 
 .qbutton {
