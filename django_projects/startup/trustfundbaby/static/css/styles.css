@@ -148,6 +148,13 @@
      
 }
 
+.buttons{
+   min-height: 10rem;
+}
+
+.first_button{
+    background-color: aqua;
+}
 .title{
     font-family:arial;
     font-size: 4rem;
