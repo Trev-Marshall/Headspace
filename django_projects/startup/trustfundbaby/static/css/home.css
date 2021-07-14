@@ -72,36 +72,40 @@
     background-color: white;
 }
 
+.calc br {
+    line-height: 50%;
+}
+
 .c1 {
     margin: auto;
     width: fit-content;
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: indigo;
     color: white;
 }
 .c2 {
     margin: auto;
     width: fit-content;
-    border-radius: 25px;
+    border-radius: 15px;
     background-color:mediumorchid;
     color: white;
 }
 .c3 {
     margin: auto;
     width: 350px;
-    border-radius: 25px;
+    border-radius: 15px;
     background-color:mediumpurple;
     color: white;
 }
 .c4 {
     width: 300px;
-    border-radius: 25px;
+    border-radius: 15px;
     background-color:mediumseagreen;
     color: white;
 }
 .c5 {
     width: fit-content;
-    border-radius: 250px;
+    border-radius: 15px;
     background-color: wheat;
     color: white;
 }
