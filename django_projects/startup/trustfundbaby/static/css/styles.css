@@ -23,6 +23,7 @@
     background-color:#fbf7ff;
     font-size: 1.4rem; 
     color: black;
+    transition: max-height 700ms;
 }
 
 .topic{
