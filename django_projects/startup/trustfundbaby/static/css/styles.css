@@ -149,7 +149,13 @@
 }
 
 .buttons{
-   min-height: 10rem;
+   padding: 24px 38px;
+   font-size: 25px;
+   cursor: pointer;
+   display: inline-block;
+}
+.btn:hover{
+    background: grey;
 }
 
 .first_button{
