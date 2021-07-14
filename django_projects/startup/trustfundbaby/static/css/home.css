@@ -51,6 +51,10 @@
     box-sizing: border-box;
 }
 
+a.button {
+    appearance: button;
+}
+
 .compare {
     margin-top: 20px;
     padding: 20px;
