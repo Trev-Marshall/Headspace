@@ -51,11 +51,7 @@
     box-sizing: border-box;
 }
 
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-}
+
 
 .compare {
     margin-top: 20px;
