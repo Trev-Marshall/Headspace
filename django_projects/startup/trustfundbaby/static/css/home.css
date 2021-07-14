@@ -5,8 +5,8 @@
 }
 
 .containter {
-    margin: 0 0;
-    padding: 0 0;
+    margin: auto;
+    max-width: 95rem;
 }
 
 .center_items {
