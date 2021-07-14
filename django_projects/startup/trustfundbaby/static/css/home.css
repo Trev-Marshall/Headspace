@@ -68,7 +68,7 @@
     height: 350px;
     padding: 20px;
     border-radius: 35px;
-    line-height: 200%;
+    line-height: 15px;
     background-color: white;
 }
 
@@ -77,33 +77,33 @@
     width: fit-content;
     border-radius: 25px;
     background-color: indigo;
-    text-decoration-color: white;
+    color: white;
 }
 .c2 {
     margin: auto;
     width: fit-content;
     border-radius: 25px;
     background-color:mediumorchid;
-    text-decoration-color: white;
+    color: white;
 }
 .c3 {
     margin: auto;
     width: 350px;
     border-radius: 25px;
     background-color:mediumpurple;
-    text-decoration-color: white;
+    color: white;
 }
 .c4 {
     width: 300px;
     border-radius: 25px;
     background-color:mediumseagreen;
-    text-decoration-color: white;
+    color: white;
 }
 .c5 {
     width: fit-content;
     border-radius: 250px;
     background-color: wheat;
-    text-decoration-color: white;
+    color: white;
 }
 
 .table {
