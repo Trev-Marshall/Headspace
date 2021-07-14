@@ -102,11 +102,6 @@
     line-height: 150%;
 }
 
-.start_text {
-    text-align: center;
-    margin-top: 100px;
-}
-
 .form {
     margin: auto;
 
@@ -117,11 +112,11 @@
 .questions {
     margin: auto;
     background-color: lightgray;
-    height: 550px;
+    height: 650px;
 }
 
 .qbutton {
-    width: 35%;
+    width: 50%;
     float: left;
     margin: auto;
     padding: 30px;
