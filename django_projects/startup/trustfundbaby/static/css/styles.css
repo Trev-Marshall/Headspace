@@ -23,6 +23,7 @@
     background-color:#fbf7ff;
     font-size: 1.4rem; 
     color: black;
+    transition: max-height 650ms;
 }
 
 .topic{
@@ -93,7 +94,7 @@
 
 .answer{
     max-height: 0;
-    overflow: hidden;
+    overflow: hidden; 
     position: initial;
     background-color:#fbf7ff;
     font-size: 1.4rem; 
@@ -101,9 +102,10 @@
     transition: max-height 650ms;
 }
 
+
 .answer::before{
     content:"";
-    position:absolute;
+    position: absolute;
     width: .6rem;
     height: 90%;
     background-color:rgb(145, 177, 175);
@@ -149,24 +151,24 @@
 }
 
 .buttons{
-    width: 100%;
-    padding: 50px;
+    /*width: 100%;*/
+    padding: 90px;
     font-size: 25px;
     display: inline-block;
     border: none;
-    /*text-align: center;*/
+    
 }
 .btn:hover{
     background: grey;
 }
 
 .button-style{
+    width: 200px;
+   /* height: 80px;*/
     background-color: aqua;
     border-radius: 10px;
-    margin-left: 100px;
-    
+    margin-left: 80px;    
 }
-
 
 .title{
     font-family:arial;
@@ -175,7 +177,6 @@
     color: white;
     padding: 110px 0;
     text-align: center;
-
 }
  
 .second-title{
