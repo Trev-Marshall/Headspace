@@ -149,7 +149,9 @@
 }
 
 .buttons{
-    background-color: green;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
    padding: 40px;
    font-size: 25px;
    display: inline-block;
