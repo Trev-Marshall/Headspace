@@ -149,11 +149,13 @@
 }
 
 .buttons{
-   padding: 30px 38px;
+   padding: 40px;
    font-size: 25px;
    cursor: pointer;
    display: inline-block;
    border: inherit;
+   margin: 30px 20px;
+   text-align: center;
 }
 .btn:hover{
     background: grey;
