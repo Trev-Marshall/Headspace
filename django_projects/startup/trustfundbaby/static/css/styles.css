@@ -154,7 +154,7 @@
     font-size: 25px;
     display: inline-block;
     border: none;
-    text-align: center;
+    /*text-align: center;*/
 }
 .btn:hover{
     background: grey;
@@ -162,8 +162,8 @@
 
 .button-style{
     background-color: aqua;
-    border-radius: 8px;
-    margin-right: 30px;
+    border-radius: 10px;
+    margin-left: 100px;
     
 }
 
