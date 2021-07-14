@@ -23,6 +23,7 @@
     background-color:#fbf7ff;
     font-size: 1.4rem; 
     color: black;
+    transition: max-height 650ms;
 }
 
 .topic{
@@ -93,13 +94,14 @@
 
 .answer{
     max-height: 0;
-    overflow: hidden;
+    overflow: hidden; 
     position: initial;
     background-color:#fbf7ff;
     font-size: 1.4rem; 
     color: black;
     transition: max-height 650ms;
 }
+
 
 .answer::before{
     content:"";
