@@ -50,9 +50,6 @@
     padding: 15px;
     box-sizing: border-box;
 }
-.block.img {
-    margin: auto;
-}
 
 .compare {
     margin-top: 20px;
@@ -98,7 +95,7 @@
 }
 
 .start {
-    margin-top: 50px;
+    margin-top: 200px;
     height: 500px;
     background-color:orchid;
     padding: 20px;
