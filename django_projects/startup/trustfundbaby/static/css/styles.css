@@ -105,7 +105,7 @@
 
 .answer::before{
     content:"";
-    position: absolute;
+    position:absolute;
     width: .6rem;
     height: 90%;
     background-color:rgb(145, 177, 175);
@@ -151,23 +151,28 @@
 }
 
 .buttons{
-    /*width: 100%;*/
-    padding: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: fit-content;
+    align-content: space-between;
+    display: flex;
+    width: 90%;
+    padding: 85px 15px;
     font-size: 25px;
-    display: inline-block;
-    border: none;
-    
 }
-.btn:hover{
-    background: grey;
+.button-style:hover {
+    background-color: grey;
 }
 
 .button-style{
-    width: 200px;
-   /* height: 80px;*/
+    width: 250px;
+    /* height: 80px;*/
+    align-content: center;
+    height: 4.5rem;
     background-color: aqua;
     border-radius: 10px;
-    margin-left: 80px;    
+    margin: 10px;   
+
 }
 
 .title{
