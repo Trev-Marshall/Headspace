@@ -112,14 +112,13 @@
 .questions {
     margin: auto;
     background-color: lightgray;
-    height: 650px;
+    height: 350px;
 }
 
 .qbutton {
     width: 50%;
     float: left;
     margin: auto;
-    box-sizing: border-box;
 }
 
 .qlink {
