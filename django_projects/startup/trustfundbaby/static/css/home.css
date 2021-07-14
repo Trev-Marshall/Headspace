@@ -70,10 +70,14 @@
     background-color: white;
 }
 
+.calc br {
+    display: block;
+    margin: 10px 0;
+}
 .c1 {
     margin: auto;
     width: fit-content;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: indigo;
     color: white;
     
@@ -81,28 +85,28 @@
 .c2 {
     margin: auto;
     width: fit-content;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color:mediumorchid;
     color: white;
     padding: 3px;
 }
 .c3 {
     width: 350px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color:mediumpurple;
     color: white;
     padding: 3px;
 }
 .c4 {
     width: 300px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color:mediumseagreen;
     color: white;
     padding: 3px;
 }
 .c5 {
     width: 250px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: wheat;
     color: white;
     padding: 3px;
