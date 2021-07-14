@@ -149,10 +149,11 @@
 }
 
 .buttons{
-   padding: 24px 38px;
+   padding: 30px 38px;
    font-size: 25px;
    cursor: pointer;
    display: inline-block;
+   border: inherit;
 }
 .btn:hover{
     background: grey;
@@ -161,6 +162,8 @@
 .first_button{
     background-color: aqua;
 }
+
+
 .title{
     font-family:arial;
     font-size: 4rem;
