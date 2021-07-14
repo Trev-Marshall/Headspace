@@ -149,9 +149,9 @@
 }
 
 .buttons{
+    background-color: green;
    padding: 40px;
    font-size: 25px;
-   cursor: pointer;
    display: inline-block;
    border: none;
    margin: 30px 20px;
@@ -163,6 +163,7 @@
 
 .first_button{
     background-color: aqua;
+    border-radius: 8px;
 }
 
 
