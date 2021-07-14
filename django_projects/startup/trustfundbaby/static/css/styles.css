@@ -4,9 +4,33 @@
     list-style: none;
 }
 /* FAQ Styles. */
-.faq_Title{
-    align-content: center;
-    margin: 1.5rem;
+
+.faq_Info{
+    text-align: center;
+    margin-bottom: 1.2rem;
+    color: beige;
+}
+
+.faq_collapse{
+    color: rgb(27, 55, 114);
+    float:right;
+}
+
+.faq_collapse:target .answer{
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    background-color:#fbf7ff;
+    font-size: 1.4rem; 
+    color: black;
+}
+
+.topic{
+    align-items: center;
+    text-align: center;
+    color: rgb(30, 44, 58);
+    font-family: Arial;
+    padding: 1.2rem;
 }
 
 *,
@@ -20,7 +44,7 @@
 /* Section for centering */
 .faq{
     width: 100%;
-    height: 100vh;
+    height: fit-content;
     background-color: white;
     display: flex;
     align-items: normal;
@@ -30,14 +54,14 @@
 }
 
 .container{
-    width: 100%;
+    width: 85%;
     max-width: 80rem;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
 .accordion-item{
-    background-color: beige;
+    background-color: #c5d1d1;
     border-radius: .4rem;
     margin-bottom: 1rem;
     padding: 1rem;
@@ -45,13 +69,13 @@
 }
 
 .accordion-link{
-    font-size: 1.6rem;
+    font-size: 1.43rem;
     color: black;
     text-decoration: none;
-    background-color: azure;
+    background-color: #ddebea;
     width: auto;
     display: flex;
-    align-items: center;
+    align-items: center;    
     justify-content: space-between;
     padding: 1rem;
     margin: auto;
@@ -60,6 +84,7 @@
 .accordion-link ion-icon{
     color: black;
     padding: .5rem;
+    align-self: right
 }
 
 .accordion-link .up{
@@ -69,32 +94,32 @@
 .answer{
     max-height: 0;
     overflow: hidden;
-    position: relative;
-    background-color:cornsilk;
+    position: initial;
+    background-color:#fbf7ff;
     font-size: 1.4rem; 
-    color: rgba(0,0,0,.6);
+    color: black;
     transition: max-height 650ms;
 }
 
 .answer::before{
     content:"";
-    position: absolute;
+    position:absolute;
     width: .6rem;
     height: 90%;
-    background-color:darkgrey;
+    background-color:rgb(145, 177, 175);
     top: 50%;
     left: 0;
     transform: translateY(-50%);
 }
 
 .answer p{
-    color: rgba(0,0,2055,.6);
+    color: #130a38;
     font-size: 1.4rem;
     padding: 2rem;
 }
 
 .accordion-item:target .answer{
-    max-height: 500rem;
+    max-height: fit-content;
 }
 
 .accordion-item:target .accordion-link .down{
@@ -104,6 +129,12 @@
 .accordion-item:target .accordion-link .up{
     display: block;
 }
+
+
+
+
+
+
 
 
 /* Blog page styles */
@@ -116,6 +147,27 @@
    /* text-align: center; */
      
 }
+
+.buttons{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+   padding: 50px;
+   font-size: 25px;
+   display: inline-block;
+   border: none;
+   margin: 30px 0px;
+   text-align: center;
+}
+.btn:hover{
+    background: grey;
+}
+
+.first_button{
+    background-color: aqua;
+    border-radius: 8px;
+}
+
 
 .title{
     font-family:arial;
