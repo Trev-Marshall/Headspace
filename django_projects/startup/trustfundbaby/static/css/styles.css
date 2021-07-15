@@ -96,6 +96,7 @@
     max-height: 0;
     overflow: hidden; 
     position: initial;
+    position:absolute;
     background-color:#fbf7ff;
     font-size: 1.4rem; 
     color: black;
@@ -108,11 +109,14 @@
     position:absolute;
     width: .6rem;
     height: 90%;
-    background-color:rgb(145, 177, 175);
+    /*background-color:rgb(145, 177, 175); */
+    background-color: palevioletred;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
 }
+
+
 
 .answer p{
     color: #130a38;

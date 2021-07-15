@@ -48,6 +48,26 @@ def faq(request):
 
     return render(request, 'faq.html')
 
+def state(request):
+    
+    return render(request, 'state.html')
+
+def state(request):
+
+    return render(request, 'tax.html')
+
+def state(request):
+
+    return render(request, 'investment.html')
+
+def state(request):
+
+    return render(request, 'strats.html')
+
+def state(request):
+
+    return render(request, 'extra.html')
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
