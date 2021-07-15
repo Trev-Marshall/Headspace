@@ -5,14 +5,31 @@
 
 
 {% block content %}
+<body>
+    <div class = "top">
+        <div class = "title" >
+            The Wallet.
+        </div>
+    </div>
 
-<div class = "second-title">
-    State Sponsored Savings Investments
-</div>
+    <!-- We will work on buttons later-->
+    <div class = "buttons">
+        <a class = "button-style" href="{% url 'state' %}">State Sponsered Savings</a>
+        <a class = "button-style">Tax Savings</a>
+        <button class = "button-style">Investment Plans</button>
+        <button class = "button-style">Financial Strategies</button>
+        <button class = "button-style">Extra</button>
+    </div>
 
-<div class = "third-title">
-    .....work in progress....
-    
-</div>
 
+    <div class = "second-title">
+        State Sponsored Savings Investments
+    </div>
+
+    <div class = "third-title">
+        .....work in progress....
+        
+    </div>
+
+</body>
 {% end block %} 
