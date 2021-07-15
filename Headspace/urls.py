@@ -29,5 +29,7 @@ urlpatterns = [
     path('update-reflection/<str:pk>/',
          update_reflection, name="update reflection"),
     path('token-auth/', obtain_jwt_token),
-    path('core/', include('core.urls'))
+    path('core/', include('core.urls')),
+    path('create-reflection/', CreateReflectionView.as_view(),
+         name="create reflection")
 ]

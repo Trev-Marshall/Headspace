@@ -27,9 +27,29 @@ function ReflectionForm({ setValue, value, formState, setReflection, setFormStat
     setValue('');
   }
 
+  const handleCreateReflection = (e) => {
+    e.preventDefault()
+    if (!value) return;
+    axios.post('http://localhost:8000/create-reflection/', value, {
+    headers: {
+          Authorization: `JWT ${localStorage.getItem('token')}`
+        }})
+    .then( res => {
+      console.log(res.data)
+      setReflection([res.data])
+    }
+    )
+    .catch(e => console.log(e))
+    setFormState({
+      display: false,
+      edit: false
+    })
+    setValue('');
+  }
+
 
   return (
-    <Form onSubmit={(e) => handleReflectionEdit(e)}>
+    <Form onSubmit={(e) => {formState.edit ? handleReflectionEdit(e) : handleCreateReflection(e)}}>
       <TextArea
       value={value.reflection}
       name="task"

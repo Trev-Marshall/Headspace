@@ -55,7 +55,7 @@ function Reflections() {
         ></Reflection>
         }
       </Ul>
-      {formState &&
+      {formState.display &&
         <ReflectionForm 
       value={value} 
       setValue={setValue}
