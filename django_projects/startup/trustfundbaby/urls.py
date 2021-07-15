@@ -1,4 +1,5 @@
 from django.urls import path
+from django.urls import include
 from . import views
 
 urlpatterns = [
@@ -9,10 +10,19 @@ urlpatterns = [
     path('edu/', views.edu, name='edu'),
     path('faq/', views.faq, name='faq'),
     path('achv/', views.achv, name='achv'),
+<<<<<<< HEAD
     path('state/', views.state, name='state'),
     path('tax/', views.tax, name='tax'),
     path('investment/', views.investment, name='investment'),
     path('strats/', views.strats, name='strats'),
     path('extra/', views.extra, name='extra'),
     path('signup/', views.signup, name='signup')
+=======
+
+    path('accounts/signup/', views.signup, name='signup'), #deprecated
+    path('test/', views.test, name='test'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    
+    path('dashboard', views.dashboard, name='dashboard')
+>>>>>>> fe714bbc93579672ebfa8ebc5f724377badc9832
 ]
