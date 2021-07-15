@@ -96,6 +96,7 @@
     max-height: 0;
     overflow: hidden; 
     position: initial;
+    position:absolute;
     background-color:#fbf7ff;
     font-size: 1.4rem; 
     color: black;
