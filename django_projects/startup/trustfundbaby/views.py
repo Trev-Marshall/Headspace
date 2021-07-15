@@ -80,3 +80,6 @@ def test(request):
 
 def dashboard(request):
     return render(request, 'dashboard/dashboard.html')
+
+def logout(request):
+    return render(request, 'registration/logged_out.html')

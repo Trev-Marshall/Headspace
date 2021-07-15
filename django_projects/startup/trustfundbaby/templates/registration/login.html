@@ -36,4 +36,7 @@
   
   <p><a href="{% url 'signup' %}">Create Account</a></p>
 
+  {% load socialaccount %}
+  <a href="{% provider_login_url 'google' %}">Login With Google</a>
+
 {% endblock %}
