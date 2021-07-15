@@ -6,9 +6,9 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm
 def home(request):
     
-    #pass
+    pass
 
-    #return render(request, 'home.html')
+    return render(request, 'home.html')
     
 
 def works(request):  
