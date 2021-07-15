@@ -8,8 +8,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
-
-<div class="container">
+<div class="all">
     <div class="center_items">
         <br>
         <h1><strong>We are the future of gifting</strong></h1>
@@ -185,7 +184,6 @@
                 </tbody>
             </table>
         </div>
-        <br>
         <div class="save">
             <div class="fin">
                 How much more will I save?
@@ -240,7 +238,8 @@
             <h3>Get started in 2 minutes.</h3>
             <h3>It is totally FREE!</h3>
         </div>
-        <!-- form but no function -->
+
+    <!-- form but no function-->
         <div class="form">
             <form action="TBD.php" method="POST">
                 <div>
@@ -263,6 +262,27 @@
                 <input type="submit" value="Get Started">
             </form>
         </div>
+    
+    <!--
+    <div class="form">
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.help_text %}
+                  <small style="color: grey">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+                {% endfor %}
+
+            {% endfor %}
+            <button type="submit">Sign up</button>
+          </form>
+    </div>
+    -->
     </section>
     <section class="questions">
         <br>
