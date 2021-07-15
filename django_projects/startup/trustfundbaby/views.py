@@ -33,23 +33,25 @@ def faq(request):
 
     return render(request, 'faq.html')
 
+
+
 def state(request):
     
     return render(request, 'state.html')
 
-def state(request):
+def tax(request):
 
     return render(request, 'tax.html')
 
-def state(request):
+def investment(request):
 
     return render(request, 'investment.html')
 
-def state(request):
+def strats(request):
 
     return render(request, 'strats.html')
 
-def state(request):
+def extra(request):
 
     return render(request, 'extra.html')
 
