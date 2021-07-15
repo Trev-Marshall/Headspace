@@ -14,5 +14,5 @@ urlpatterns = [
     #path('investment/', views.investment, name='investment'),
     #path('strats/', views.strats, name='strats'),
     #path('extra/', views.strats, name='extra'),
-    #path('signup/', views.signup, name='signup')
+    path('signup/', views.signup, name='signup')
 ]
