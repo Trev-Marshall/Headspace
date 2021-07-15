@@ -33,12 +33,18 @@
        <li class="nav-item">
         <a class="nav-link" href="{% url 'achv' %}">Achievements</a>
      </li>
-
-     <li class="nav-item">
-      <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
-    </li>
         
-  
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'test' %}">TEst</a>
+    </li>
+
+    {% if user.is_authenticated %}
+     <li><a class="nav-link" href="{% url 'dashboard' %}?next={{request.path}}"> User: {{ user.get_username }} </a></li>
+     <li><a class="nav-link" href="{% url 'logout' %}?next={{request.path}}">Logout</a></li>
+   {% else %}
+     <li><a class="nav-link" href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+   {% endif %} 
+    
     </ul>
   </div>
 </nav>
