@@ -102,7 +102,7 @@
     transition: max-height 650ms;
 }
 
-
+/*
 .answer::before{
     content:"";
     position:absolute;
@@ -113,6 +113,7 @@
     left: 0;
     transform: translateY(-50%);
 }
+*/
 
 .answer p{
     color: #130a38;
