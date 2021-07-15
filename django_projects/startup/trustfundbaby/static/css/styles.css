@@ -111,6 +111,7 @@
     height: 90%;
     /*background-color:rgb(145, 177, 175); */
     background-color: palevioletred;
+    color: blueviolet;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
