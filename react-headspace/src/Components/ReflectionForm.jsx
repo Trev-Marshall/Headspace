@@ -4,7 +4,7 @@ import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 import { array } from 'prop-types'
 
-function ReflectionForm({ setValue, value, setReflection, setFormState }) {
+function ReflectionForm({ setValue, value, formState, setReflection, setFormState }) {
 
   const handleReflectionEdit = e => {
     e.preventDefault()
@@ -20,7 +20,10 @@ function ReflectionForm({ setValue, value, setReflection, setFormState }) {
     }
     )
     .catch(e => console.log(e))
-    setFormState(false)
+    setFormState({
+      display: false,
+      edit: false
+    })
     setValue('');
   }
 
@@ -35,7 +38,7 @@ function ReflectionForm({ setValue, value, setReflection, setFormState }) {
       />
       <Input 
       type="submit"
-      value='Update'
+      value={formState.edit ? 'Edit' : 'Create'}
       >
       </Input>
     </Form>

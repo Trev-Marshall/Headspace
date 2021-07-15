@@ -15,7 +15,11 @@ function Reflections() {
   const [value, setValue] = useState({
     'reflection': '',
   })
-  const [formState, setFormState] = useState(false)
+  const [formState, setFormState] = useState({
+    display: false,
+    edit: false
+  })
+
 
   const d = new Date();
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -25,8 +29,12 @@ function Reflections() {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
         .then(res => {
-          console.log(res) 
+          console.log(res.data) 
           setReflection(res.data)
+          if(!res.data[0]){
+            alert('You have no new todo today! Would you like to add a new one?')
+            
+          }
         })
   }, [])
 
@@ -52,6 +60,7 @@ function Reflections() {
       value={value} 
       setValue={setValue}
       setFormState={setFormState}
+      formState={formState}
       reflection={reflection}
       setReflection={setReflection}
       />

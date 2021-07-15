@@ -6,7 +6,10 @@ import axios from 'axios';
 function Reflection({ reflection, setFormState, setValue, setReflection }) {
 
   const handleEdit = index => {
-    setFormState(true)
+    setFormState({
+      display: true,
+      edit: true
+    })
     setValue(reflection)
     setReflection({})
   }
