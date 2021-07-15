@@ -42,7 +42,7 @@
     height:250px;
     padding: 10px;
     border-radius: 35px;
-    background-color:mediumorchid;
+    background-color:rgb(218, 127, 215);
 }
 
 .block {
@@ -55,7 +55,7 @@
 .compare {
     margin-top: 20px;
     padding: 20px;
-    background-color: orchid;
+    background-color: rgb(218, 127, 215);
     width: 100%;
     height: 1350px;
 }
@@ -79,7 +79,7 @@
     margin: auto;
     width: fit-content;
     border-radius: 10px;
-    background-color: indigo;
+    background-color: rgb(118, 45, 170);
     color: white;
     
 }
@@ -87,35 +87,34 @@
     margin: auto;
     width: fit-content;
     border-radius: 10px;
-    background-color:mediumorchid;
+    background-color:rgb(218, 127, 215);
     color: white;
     padding: 1px;
 }
 .c3 {
     width: 350px;
     border-radius: 10px;
-    background-color:mediumpurple;
+    background-color:rgb(163, 140, 207);
     color: white;
     padding: 1px;
 }
 .c4 {
     width: 300px;
     border-radius: 10px;
-    background-color:mediumseagreen;
+    background-color:rgb(129, 180, 152);
     color: white;
     padding: 1px;
 }
 .c5 {
     width: 250px;
     border-radius: 10px;
-    background-color: wheat;
+    background-color: rgb(241, 214, 163);
     color: white;
     padding: 1px;
 }
 
 .table {
     margin-top: 10px;
-    width: fit-content;
     height:330px;
     background-color:white;
     border-radius: 35px;
@@ -124,7 +123,6 @@
 .tbl {
     margin: auto;
     padding: 1px;
-    width: 60%;
 }
 
 .save {
@@ -141,8 +139,8 @@
 
 .start {
     margin-top: 50px;
-    height: 500px;
-    background-color:orchid;
+    height: 650px;
+    background-color:rgb(218, 127, 215);
     padding: 20px;
     line-height: 150%;
 }
@@ -150,12 +148,11 @@
 .form {
     margin: auto;
     width: fit-content;
-    
 }
 
 .questions {
     margin: auto;
-    background-color: lightgray;
+    background-color: rgb(228, 225, 225);
     height: 550px;
 }
 
