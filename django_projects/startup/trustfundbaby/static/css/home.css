@@ -55,9 +55,9 @@
 
 .compare {
     margin-top: 20px;
-    padding: 20px;
     background-color: rgb(218, 127, 215);
-    width: 100%;
+    margin: auto;
+    width: auto;
     height: 1350px;
 }
 
