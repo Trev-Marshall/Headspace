@@ -116,6 +116,7 @@
 .table {
     margin-top: 10px;
     height:330px;
+    width: fit-content;
     background-color:white;
     border-radius: 35px;
 }
