@@ -1,4 +1,3 @@
-
 {% extends "base_generic.html" %}
 
 {% block title %} The Wallet.{% endblock %}
@@ -14,8 +13,8 @@
 
     <!-- We will work on buttons later-->
     <div class = "buttons">
-        <button class = "button-style">State Sponsered Savings</button>
-        <button class = "button-style">Tax Savings</button>
+        <a class = "button-style" href="{% url 'state' %}">State Sponsered Savings</a>
+        <a class = "button-style">Tax Savings</a>
         <button class = "button-style">Investment Plans</button>
         <button class = "button-style">Financial Strategies</button>
         <button class = "button-style">Extra</button>
