@@ -95,8 +95,7 @@
 .answer{
     max-height: 0;
     overflow: hidden; 
-    position: initial;
-    position:absolute;
+    position: sticky;
     background-color:#fbf7ff;
     font-size: 1.4rem; 
     color: black;
@@ -106,18 +105,15 @@
 
 .answer::before{
     content:"";
-    position:absolute;
+    position: absolute;
     width: .6rem;
     height: 90%;
     /*background-color:rgb(145, 177, 175); */
     background-color: palevioletred;
-    color: blueviolet;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
 }
-
-
 
 .answer p{
     color: #130a38;
