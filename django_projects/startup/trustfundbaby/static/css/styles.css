@@ -163,6 +163,7 @@
     width: 90%;
     padding: 85px 15px;
     font-size: 25px;
+   
 }
 .button-style:hover {
     background-color: grey;
@@ -175,7 +176,7 @@
     height: 4.5rem;
     background-color: aqua;
     border-radius: 10px;
-    margin: 10px;   
+    margin: 10px;  
 
 }
 
