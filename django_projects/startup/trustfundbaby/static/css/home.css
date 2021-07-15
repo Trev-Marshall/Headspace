@@ -17,14 +17,14 @@
 
 .left {
     margin-top: 20px;
-    padding-bottom: 20px;
+    margin-left: 20px;
     float:left;
     width: 40%;
 }
 
 .right {
     margin-top: 20px;
-    padding: 20px;
+    margin-right: 20px;
     float:right;
     width:40%;
 }
@@ -121,6 +121,7 @@
 }
 
 .tbl {
+    align-items: center;
     margin: auto;
     padding: 1px;
 }
@@ -130,6 +131,7 @@
     width: 250px;
     padding: 10px;
     border-radius: 35px;
+    margin: 50px;
 }
 
 .security {
