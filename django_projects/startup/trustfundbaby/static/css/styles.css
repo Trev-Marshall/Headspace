@@ -62,7 +62,8 @@
 }
 
 .accordion-item{
-    background-color: #c5d1d1;
+    /*background-color: #c5d1d1; */
+    background-color: purple;
     border-radius: .4rem;
     margin-bottom: 1rem;
     padding: 1rem;
@@ -109,7 +110,8 @@
     position:absolute;
     width: .6rem;
     height: 90%;
-    background-color:rgb(145, 177, 175);
+    /*background-color:rgb(145, 177, 175); */
+    background-color: palevioletred;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
