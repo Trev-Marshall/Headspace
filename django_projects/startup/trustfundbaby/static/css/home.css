@@ -5,8 +5,7 @@
 }
 
 .containter {
-    left: 0;
-    right: 0;
+    margin: 0 0;
 }
 
 .center_items {
@@ -56,7 +55,7 @@
     padding: 20px;
     background-color: orchid;
     width: 100%;
-    height: 1200px;
+    height: 1350px;
 }
 
 .calc {
@@ -66,14 +65,56 @@
     height: 350px;
     padding: 20px;
     border-radius: 35px;
+    line-height: 200%;
     background-color: white;
+    list-style: none;
+}
+
+.calc li {
+    padding: 10px;
+}
+.c1 {
+    margin: auto;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: indigo;
+    color: white;
+    
+}
+.c2 {
+    margin: auto;
+    width: fit-content;
+    border-radius: 10px;
+    background-color:mediumorchid;
+    color: white;
+    padding: 1px;
+}
+.c3 {
+    width: 350px;
+    border-radius: 10px;
+    background-color:mediumpurple;
+    color: white;
+    padding: 1px;
+}
+.c4 {
+    width: 300px;
+    border-radius: 10px;
+    background-color:mediumseagreen;
+    color: white;
+    padding: 1px;
+}
+.c5 {
+    width: 250px;
+    border-radius: 10px;
+    background-color: wheat;
+    color: white;
+    padding: 1px;
 }
 
 .table {
-    margin: auto;
     margin-top: 10px;
     width: fit-content;
-    height:350px;
+    height:330px;
     background-color:white;
     border-radius: 35px;
 }
@@ -81,17 +122,19 @@
 .tbl {
     margin: auto;
     padding: 1px;
+    width: fit-content;
 }
 
 .save {
     background-color: white;
-    width: 400px;
+    width: 250px;
+    padding: 10px;
     border-radius: 35px;
 }
 
 .security {
+    margin-top: 50px;
     height: 450px;
-
 }
 
 .start {
@@ -104,7 +147,6 @@
 
 .form {
     margin: auto;
-
     width: fit-content;
     
 }
@@ -112,15 +154,13 @@
 .questions {
     margin: auto;
     background-color: lightgray;
-    height: 650px;
+    height: 550px;
 }
 
 .qbutton {
     width: 50%;
     float: left;
     margin: auto;
-    padding: 30px;
-    box-sizing: border-box;
 }
 
 .qlink {
