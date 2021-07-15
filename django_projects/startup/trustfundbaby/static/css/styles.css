@@ -103,18 +103,19 @@
     transition: max-height 650ms;
 }
 
-
+/*
 .answer::before{
     content:"";
     position:absolute;
     width: .6rem;
     height: 90%;
-    /*background-color:rgb(145, 177, 175); */
+    /*background-color:rgb(145, 177, 175); 
     background-color: palevioletred;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-}
+}*/
+
 
 
 .answer p{
