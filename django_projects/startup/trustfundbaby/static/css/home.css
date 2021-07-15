@@ -121,9 +121,8 @@
 }
 
 .tbl {
-    align-items: center;
-    margin: auto;
-    padding: 1px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .save {
