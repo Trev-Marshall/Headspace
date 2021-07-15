@@ -3,36 +3,20 @@ import styled from 'styled-components'
 import EditIcon from '@material-ui/icons/Edit';
 import axios from 'axios';
 
-function Reflection({ reflection }) {
+function Reflection({ reflection, setFormState, setValue, setReflection }) {
 
-  console.log(reflection)
-
-  // const handleEdit = index => {
-  //   console.log(index)
-  //   const newTodo = [...todos];
-  //   console.log(newTodo[index])
-  //   setFormState({
-  //   'display': true,
-  //   'edit': true
-  //   })
-  //   setValue({
-  //   'task': newTodo[index].task,
-  //   'details': newTodo[index].details,
-  //   'completed': newTodo[index].completed,
-  //   'id': newTodo[index].id,
-  //   'user': newTodo[index].user
-  //   })
-  //   const array = [...todos]
-  //   array.splice(index, 1)
-  //   setTodos(array)
-  // }
+  const handleEdit = index => {
+    setFormState(true)
+    setValue(reflection)
+    setReflection({})
+  }
 
   return (
     <Container>
       <Li>
         {reflection.reflection}
       </Li>
-      <Span onClick={() => handleEdit()}><EditIcon /></Span>
+      <Span onClick={handleEdit}><EditIcon /></Span>
     </Container>
   )
 }

@@ -45,6 +45,18 @@ def update_task(request, pk):
     return Response(serializer.data)
 
 
+@api_view(['POST'])
+def update_reflection(request, pk):
+    permission_classes = (permissions.IsAuthenticated,)
+    reflection = Reflection.objects.get(id=pk)
+    serializer = ReflectionsSerializer(instance=reflection, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+
 class ReflectionAPIView(generics.ListAPIView):
     serializer_class = ReflectionsSerializer
     permission_classes = (permissions.IsAuthenticated,)

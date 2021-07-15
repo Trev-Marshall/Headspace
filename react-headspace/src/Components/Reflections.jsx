@@ -6,6 +6,7 @@ import {COLORS1} from '../Design/Constants'
 import PageHeading from './PageHeading'
 import BackButton from './BackButton'
 import Reflection from './Reflection'
+import ReflectionForm from './ReflectionForm'
 import axios from 'axios'
 
 function Reflections() {
@@ -23,7 +24,10 @@ function Reflections() {
     axios.get('http://localhost:8000/current-reflection/', { headers: {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
-        .then(res => setReflection(res.data))
+        .then(res => {
+          console.log(res) 
+          setReflection(res.data)
+        })
   }, [])
 
   return (
@@ -37,24 +41,25 @@ function Reflections() {
         {reflection[0] && 
         <Reflection
           reflection={reflection[0]}
+          setReflection={setReflection}
           setFormState={setFormState}
+          setValue={setValue}
         ></Reflection>
         }
       </Ul>
-      {formState ? 
-      (
-        <TodoForm 
+      {formState &&
+        <ReflectionForm 
       value={value} 
       setValue={setValue}
-      setTodos={setTodos}
-      todos={todos}
       setFormState={setFormState}
+      reflection={reflection}
+      setReflection={setReflection}
       />
-      ) : (
-        <Span
-        onClick={() => setFormState(true)}
-        >+</Span>
-      )
+      // ) : (
+      //   <Span
+      //   onClick={() => setFormState(true)}
+      //   >+</Span>
+      // )
     }
     </Container>
   )
@@ -66,7 +71,6 @@ const Container = styled.div`
   background-color: ${COLORS1.main};
   height: 100vh;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   color: white;
   flex-direction: column;
@@ -74,17 +78,18 @@ const Container = styled.div`
 
 const Ul = styled.ul`
   list-style-type: none;
+  margin-top: 15%;
 `
 
-const Span = styled.span`
-  font-size: 2.5em;
-  transition: all 250ms;
-  cursor: pointer;
-  &:hover {
-    color: ${COLORS1.secondary_accent};
-    transform: rotate(90deg);
-  }
-`
+// const Span = styled.span`
+//   font-size: 2.5em;
+//   transition: all 250ms;
+//   cursor: pointer;
+//   &:hover {
+//     color: ${COLORS1.secondary_accent};
+//     transform: rotate(90deg);
+//   }
+// `
 
 const HeadingContainer = styled.div`
   text-align: center;

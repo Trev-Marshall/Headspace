@@ -26,6 +26,8 @@ urlpatterns = [
     path('edit-todo/<str:pk>/', update_task, name="update task"),
     path('current-reflection/', ReflectionAPIView.as_view(),
          name="current reflection"),
+    path('update-reflection/<str:pk>/',
+         update_reflection, name="update reflection"),
     path('token-auth/', obtain_jwt_token),
     path('core/', include('core.urls'))
 ]
