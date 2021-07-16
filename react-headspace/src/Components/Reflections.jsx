@@ -33,7 +33,10 @@ function Reflections() {
           setReflection(res.data)
           if(!res.data[0]){
             alert('You have no new todo today! Would you like to add a new one?')
-            
+            setFormState({
+              display: true,
+              edit: false
+            })
           }
         })
   }, [])
@@ -55,6 +58,7 @@ function Reflections() {
         ></Reflection>
         }
       </Ul>
+      <FormContainer>
       {formState.display &&
         <ReflectionForm 
       value={value} 
@@ -64,12 +68,8 @@ function Reflections() {
       reflection={reflection}
       setReflection={setReflection}
       />
-      // ) : (
-      //   <Span
-      //   onClick={() => setFormState(true)}
-      //   >+</Span>
-      // )
     }
+      </FormContainer>
     </Container>
   )
 }
@@ -90,16 +90,10 @@ const Ul = styled.ul`
   margin-top: 15%;
 `
 
-// const Span = styled.span`
-//   font-size: 2.5em;
-//   transition: all 250ms;
-//   cursor: pointer;
-//   &:hover {
-//     color: ${COLORS1.secondary_accent};
-//     transform: rotate(90deg);
-//   }
-// `
-
 const HeadingContainer = styled.div`
   text-align: center;
+`
+
+const FormContainer = styled.div`
+  width: 70%;
 `

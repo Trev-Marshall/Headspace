@@ -52,7 +52,7 @@ function ReflectionForm({ setValue, value, formState, setReflection, setFormStat
     <Form onSubmit={(e) => {formState.edit ? handleReflectionEdit(e) : handleCreateReflection(e)}}>
       <TextArea
       value={value.reflection}
-      name="task"
+      name="New Reflection..."
       onChange={e => setValue({...value, 'reflection': e.target.value})}
       placeholder="Task..."
       />
@@ -75,7 +75,8 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
-  width: 80%;
+  width: 75%;
+  margin: auto;
   border: none;
   border-bottom: 3px solid ${COLORS1.bright_color};
   background-color: ${COLORS1.secondary_main};
@@ -87,8 +88,7 @@ const Input = styled.input`
 `
 
 const TextArea = styled.textarea`
-  width: 80%;
-  height: 500px;
+  margin-bottom: 7px;
   border: none;
   border-bottom: 3px solid ${COLORS1.bright_color};
   background-color: ${COLORS1.secondary_main};
