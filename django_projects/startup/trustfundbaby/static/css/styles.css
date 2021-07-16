@@ -95,7 +95,7 @@
 .answer{
     max-height: 0;
     overflow: hidden; 
-    position: sticky;
+    position: relative;
     background-color:#fbf7ff;
     font-size: 1.4rem; 
     color: black;
