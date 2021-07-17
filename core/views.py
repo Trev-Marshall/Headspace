@@ -79,6 +79,15 @@ def update_goal(request, pk):
     return Response(serializer.data)
 
 
+class GoalList(generics.ListAPIView):
+    serializer_class = GoalsSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get_queryset(self):
+        user = self.request.user
+        return Goals.objects.filter(user=user)
+
+
 @api_view(['POST'])
 def update_reflection(request, pk):
     permission_classes = (permissions.IsAuthenticated,)

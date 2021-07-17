@@ -1,52 +1,73 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
 import PageHeading from './PageHeading'
 import BackButton from './BackButton.jsx'
+import axios from 'axios'
+import Goal from './Goal'
+import GoalForm from './GoalForm'
 
 function Goals() {
 
-  const [todos, setTodos] = useState([
-    {text: 'this is the text of a goal',
-    isCompleted: false},
-    {text: 'This is the second goal on the list',
-    isCompleted: false},
-    {text: 'This is the third goal on the list',
-    isCompleted: false}
-  ])
-  const [value, setValue] = useState("")
-  const [formState, setFormState] = useState(false)
+  const [goals, setGoals] = useState([])
+  const [value, setValue] = useState({
+    'goal': '',
+    'completeBy': '',
+    'completed': false
+  })
+  const [formState, setFormState] = useState({
+    display: false,
+    edit: false
+  })
+
+  useEffect(() => {
+    axios('http://localhost:8000/get-goals/', {
+    headers: {
+          Authorization: `JWT ${localStorage.getItem('token')}`
+      }})
+      .then(res => {
+        console.log(res)
+        setGoals(res.data)
+      })
+      .catch(e => console.log(e))
+  }, [])
 
   return (
     <Container>
       <BackButton />
       <PageHeading value={"Goals"} headingSizeEm={"4em"}/>
       <Ul>
-        {todos && 
-        todos.map((todo, index) => (
-          <Todo
+        {goals && 
+        goals.map((goal, index) => (
+          <Goal
           key={index}
           index={index}
-          todo={todo}
-          setTodos={setTodos}
-          todos={todos}
+          goal={goal}
+          setValue={setValue}
+          setFormState={setFormState}
+          setGoals={setGoals}
+          goals={goals}
           />
         ))}
       </Ul>
-      {formState ? 
+      {formState.display ? 
       (
-        <TodoForm 
+        <GoalForm 
       value={value} 
       setValue={setValue}
-      setTodos={setTodos}
-      todos={todos}
+      setGoals={setGoals}
+      goals={goals}
+      formState={formState}
       setFormState={setFormState}
       />
       ) : (
         <Span
-        onClick={() => setFormState(true)}
+        onClick={() => setFormState({
+          display: true,
+          edit: false
+        })}
         >+</Span>
       )
     }
