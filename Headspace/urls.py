@@ -31,5 +31,7 @@ urlpatterns = [
     path('token-auth/', obtain_jwt_token),
     path('core/', include('core.urls')),
     path('create-reflection/', CreateReflectionView.as_view(),
-         name="create reflection")
+         name="create reflection"),
+    path('create-goal/', CreateGoalView.as_view(), name="create goal"),
+    path('update_goal/', update_goal, name="update goal")
 ]
