@@ -163,13 +163,12 @@
    
 }
 
-.butoon:hover{
+
+}
+  .button-style:hover {
     background-color: grey;
 }
-/*  .button-style:hover {
-    background-color: grey;
-}
-*/
+
 .button-style{
     width: 250px;
     /* height: 80px;*/
