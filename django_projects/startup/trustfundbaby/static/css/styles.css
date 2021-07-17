@@ -176,16 +176,19 @@
     height: 4.5rem;
     border-radius: 10px;
     margin: 10px;
-    vertical-align: middle;
-    line-height: normal;
+    text-decoration-color: black;
+    
+    
 }
 
 .button-style.StateSponsered{
     background-color: #5596E6;
+    
 }
 
 .button-style.TaxSavings{
     background-color: #7FAB73;
+   
 }
 
 .button-style.InvestmentPlans{
