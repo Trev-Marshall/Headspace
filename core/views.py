@@ -56,6 +56,29 @@ class CreateReflectionView(APIView):
             return Response(serializer.data)
 
 
+class CreateGoalView(APIView):
+    serializer_class = GoalsSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def post(self, request):
+        serializer = GoalsSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(user=request.user)
+            return Response(serializer.data)
+
+
+@api_view(['POST'])
+def update_goal(request, pk):
+    permission_classes = (permissions.IsAuthenticated,)
+    task = Goals.objects.get(id=pk)
+    serializer = GoalsSerializer(instance=task, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+
 @api_view(['POST'])
 def update_reflection(request, pk):
     permission_classes = (permissions.IsAuthenticated,)

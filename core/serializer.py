@@ -27,7 +27,7 @@ class ReflectionsSerializer(serializers.ModelSerializer):
 class GoalsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goals
-        fields = ['goal', 'completeBy', 'dateCreated', 'completed']
+        fields = ['goal', 'completeBy', 'dateCreated', 'completed', 'id']
 
 
 class UserSerializer(serializers.ModelSerializer):
