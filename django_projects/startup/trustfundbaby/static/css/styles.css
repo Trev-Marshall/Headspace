@@ -183,6 +183,22 @@
     background-color: #5596E6;
 }
 
+.button-style.TaxSavings{
+    background-color: #7FAB73;
+}
+
+.button-style.InvestmentPlans{
+    background-color: #E08B84;
+}
+.button-style.FinancialStrat{
+    background-color: #EBCB4C;
+}
+.button-style.Extra{
+    background-color: #FF8652;
+}
+
+
+
 .title{
     font-family:arial;
     font-size: 4rem;
