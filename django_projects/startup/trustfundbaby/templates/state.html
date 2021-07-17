@@ -1,0 +1,50 @@
+{% extends "base_generic.html" %}
+
+{% block title %}State Sponsored Savings{% endblock %}
+
+{% block content %}
+
+<body style="background-color: #FFFCF7;">
+    <div class = "top">
+        <div class = "title" >
+            The Wallet.
+        </div>
+    </div>
+
+    <!-- We will work on buttons later-->
+    <div class = "buttons">
+        <a class = "button-style" href="{% url 'state' %}">State Sponsered Savings</a>
+        <a class = "button-style" href="{% url 'tax' %}">Tax Savings</a>
+        <a class = "button-style" href="{% url 'investment' %}">Investment Plans</a>
+        <a class = "button-style" href="{% url 'strats' %}">Financial Strategies</a>
+        <a class = "button-style" href="{% url 'extra' %}">Extra</a>
+    </div>
+
+
+
+    <div class = "second-title">
+        State Sponsored Savings
+    </div>
+
+    <div class = "third-title">
+        .. construction in progress..
+        
+    </div>
+   
+
+    <!-- Do not delete this, it is needed for the cash icon -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+    
+{% endblock %}
+
+
+
+
+
+
+
+
+

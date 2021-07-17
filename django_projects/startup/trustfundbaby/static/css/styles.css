@@ -95,28 +95,25 @@
 .answer{
     max-height: 0;
     overflow: hidden; 
-    position: initial;
-    position:absolute;
+    position: relative;
     background-color:#fbf7ff;
     font-size: 1.4rem; 
     color: black;
     transition: max-height 650ms;
 }
 
-/*
+
 .answer::before{
     content:"";
-    position:absolute;
+    position: absolute;
     width: .6rem;
     height: 90%;
-    /*background-color:rgb(145, 177, 175); 
+    /*background-color:rgb(145, 177, 175); */
     background-color: palevioletred;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-}*/
-
-
+}
 
 .answer p{
     color: #130a38;
@@ -163,6 +160,7 @@
     width: 90%;
     padding: 85px 15px;
     font-size: 25px;
+   
 }
 .button-style:hover {
     background-color: grey;
@@ -175,7 +173,7 @@
     height: 4.5rem;
     background-color: #5596E6, #7FAB73, #E08B84, #EBCB4C, #FF8652;
     border-radius: 10px;
-    margin: 10px;   
+    margin: 10px;  
 
 }
 
