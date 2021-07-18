@@ -86,7 +86,8 @@ function App() {
       {loginState.username ? (
         <Switch>
           <Route path="/profile">
-            <Profile />
+            <Profile 
+            loginState={loginState}/>
           </Route>
           <Route path="/goals">
             <Goals />

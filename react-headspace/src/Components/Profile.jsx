@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
+import BackButton from './BackButton'
 
-function Profile() {
+function Profile({loginState}) {
   return (
     <Container>
+      <BackButton />
       <NameDiv>
-        Kingz's Space
+        {loginState.username}'s Space
         <Line />
       </NameDiv>
 

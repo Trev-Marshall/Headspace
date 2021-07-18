@@ -31,7 +31,7 @@ function SignupForm({ handleSignup, handleFormChange, formState, handleChange, d
           <Submit type="submit" />
         </Form>
       </SignInDiv>
-      <p>Already have an account? <SignupLink onClick={() => setDisplay(!display)}>Sign in.</SignupLink></p>
+      <AccountText>Already have an account? <SignupLink onClick={() => setDisplay(!display)}>Sign in.</SignupLink></AccountText>
       </>
   )
 }
@@ -105,5 +105,10 @@ const FormText = styled.h3`
 `
 
 const SignupLink = styled.a`
+  cursor: pointer;
+  color: ${COLORS1.bright_color}
+`
 
+const AccountText = styled.p`
+  color: ${COLORS1.secondary_accent};
 `
