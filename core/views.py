@@ -85,7 +85,16 @@ class GoalList(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Goals.objects.filter(user=user)
+        return Goals.objects.filter(user=user, completed=False)
+
+
+class FinishedGoalList(generics.ListAPIView):
+    serializer_class = GoalsSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get_queryset(self):
+        user = self.request.user
+        return Goals.objects.filter(user=user, completed=True)
 
 
 @api_view(['POST'])

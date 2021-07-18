@@ -42,11 +42,11 @@ function Goal({index, goals, goal, setGoals, setFormState, setValue}) {
 
   return (
     <Container>
-      <Li style={{ textDecoration: goal.completed ? "line-through" : "none" }} >
+      <Li>
         {goal.goal}
       </Li>
-      <Li style={{ textDecoration: goal.completed ? "line-through" : "none" }} >
-        Completed by: {goal.completeBy}
+      <Li>
+        Complete by: {goal.completeBy}
       </Li>
       {!goal.completed && <Span 
       onClick={() => completeTodo(index)}

@@ -34,5 +34,7 @@ urlpatterns = [
          name="create reflection"),
     path('create-goal/', CreateGoalView.as_view(), name="create goal"),
     path('update-goal/<str:pk>/', update_goal, name="update goal"),
-    path('get-goals/', GoalList.as_view(), name="get goals")
+    path('get-goals/', GoalList.as_view(), name="get goals"),
+    path("get-finished-goals", FinishedGoalList.as_view(),
+         name='get finsihed goals')
 ]

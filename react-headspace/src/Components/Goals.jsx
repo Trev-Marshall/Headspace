@@ -8,6 +8,7 @@ import BackButton from './BackButton.jsx'
 import axios from 'axios'
 import Goal from './Goal'
 import GoalForm from './GoalForm'
+import ArchiveModal from './ArchiveModal'
 
 function Goals() {
 
@@ -21,6 +22,7 @@ function Goals() {
     display: false,
     edit: false
   })
+  const [archiveModal, setArchiveState] = useState(false)
 
   useEffect(() => {
     axios('http://localhost:8000/get-goals/', {
@@ -37,6 +39,9 @@ function Goals() {
   return (
     <Container>
       <BackButton />
+      <ArchiveModalBtn 
+      onClick={() => setArchiveState(!archiveModal)}
+      >Archive</ArchiveModalBtn>
       <PageHeading value={"Goals"} headingSizeEm={"4em"}/>
       <Ul>
         {goals && 
@@ -71,6 +76,11 @@ function Goals() {
         >+</Span>
       )
     }
+    {archiveModal && 
+    <ArchiveModal
+    setArchiveState={setArchiveState}
+    />
+    }
     </Container>
   )
 }
@@ -98,5 +108,28 @@ const Span = styled.span`
   &:hover {
     color: ${COLORS1.secondary_accent};
     transform: rotate(90deg);
+  }
+`
+
+const ArchiveModalBtn = styled.button`
+  border-radius: 4px;
+  background: ${COLORS1.secondary_accent};
+  padding: 10px 22px;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
   }
 `
