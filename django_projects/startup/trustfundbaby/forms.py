@@ -10,3 +10,8 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email', 'password1', 'password2', )
+
+    # used to style the signup form
+    def __init__(self, *args, **kwargs):
+        super(SignUpForm, self).__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs['style'] = 'width:200px;'

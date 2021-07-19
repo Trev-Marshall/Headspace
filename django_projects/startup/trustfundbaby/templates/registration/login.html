@@ -37,6 +37,14 @@
   <p><a href="{% url 'signup' %}">Create Account</a></p>
 
   {% load socialaccount %}
-  <a href="{% provider_login_url 'google' %}">Login With Google</a>
+  <a href="{% provider_login_url 'google' %}" class="btn btn-primary">
+    <i class="fa fa-google fa-fw"></i>
+    <span>Login with Google</span>
+  </a>
 
-{% endblock %}
+  <a href="{% provider_login_url 'twitter' %}" class="btn btn-primary">
+    <i class="fa fa-twitter fa-fw"></i>
+    <span>Login with Twitter</span>
+  </a>
+
+  </a>{% endblock %}

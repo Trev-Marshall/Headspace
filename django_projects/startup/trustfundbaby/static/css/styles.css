@@ -95,7 +95,7 @@
 .answer{
     max-height: 0;
     overflow: hidden; 
-    position: sticky;
+    position: relative;
     background-color:#fbf7ff;
     font-size: 1.4rem; 
     color: black;
@@ -155,13 +155,15 @@
     margin-left: auto;
     margin-right: auto;
     max-width: fit-content;
-    align-content: space-between;
+    align-content: pace-between;
     display: flex;
     width: 90%;
     padding: 85px 15px;
     font-size: 25px;
    
 }
+
+
 .button-style:hover {
     background-color: grey;
 }
@@ -170,12 +172,35 @@
     width: 250px;
     /* height: 80px;*/
     align-content: center;
+    text-align: center;
     height: 4.5rem;
-    background-color: aqua;
     border-radius: 10px;
-    margin: 10px;  
-
+    margin: 10px;
+    
+    
 }
+
+.button-style.StateSponsered{
+    background-color: #5596E6;
+    
+}
+
+.button-style.TaxSavings{
+    background-color: #7FAB73;
+   
+}
+
+.button-style.InvestmentPlans{
+    background-color: #E08B84;
+}
+.button-style.FinancialStrat{
+    background-color: #EBCB4C;
+}
+.button-style.Extra{
+    background-color: #FF8652;
+}
+
+
 
 .title{
     font-family:arial;

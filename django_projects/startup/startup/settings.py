@@ -40,14 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # needed for google auth
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     "allauth.socialaccount.providers.twitter",
-    
 ]
 
 MIDDLEWARE = [
@@ -138,9 +136,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'trustfundbaby.User'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-LOGIN_REDIRECT_URL = 'dashboard'
-LOGOUT_REDIRECT_URL = 'logout'
-SITE_ID = 2
+LOGIN_REDIRECT_URL = "dashboard" #redirect to dashboard
+ACCOUNT_LOGOUT_REDIRECT_URL ="logout" #redirect to logout page
+SITE_ID = 3 #site id for google auth
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -161,3 +160,11 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+# also for google auth
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+SOCIALACCOUNT_AUTO_SIGNUP=True
+SOCIALACCOUNT_EMAIL_REQUIRED=True
