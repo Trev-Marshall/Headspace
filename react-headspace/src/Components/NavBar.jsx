@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { COLORS1 } from '../Design/Constants';
+import PersonIcon from '@material-ui/icons/Person';
 
 const Navbar = ({handleLogout}) => {
     return (
@@ -10,13 +11,13 @@ const Navbar = ({handleLogout}) => {
         <h1>Logo</h1>
       </NavLink>
 
-      <NavMenu>
-        <NavLink to="/profile" >
-          Profile
-        </NavLink>
-      </NavMenu>
       <NavBtn>
         <NavBtnLink onClick={handleLogout}>Logout</NavBtnLink>
+      <NavMenu>
+        <NavLink to="/profile" >
+          <PersonIcon />
+        </NavLink>
+      </NavMenu>
       </NavBtn>
     </Nav>
   )

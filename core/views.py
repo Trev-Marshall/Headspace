@@ -24,6 +24,18 @@ def current_user(request):
     return Response(serializer.data)
 
 
+@api_view(['GET'])
+def profile_view(request):
+    taskModel = Task.objects.filter(user=request.user)
+    goalModel = Goals.objects.filter(user=request.user)
+    reflectionsModel = Reflection.objects.filter(user=request.user)
+    taskSerObj = TaskSerializer(taskModel, many=True)
+    goalsSerObj = GoalsSerializer(goalModel, many=True)
+    reflSerObj = ReflectionsSerializer(reflectionsModel, many=True)
+    resultModel = taskSerObj.data+goalsSerObj.data+reflSerObj.data
+    return Response(resultModel)
+
+
 class TaskList(generics.ListAPIView):
     serializer_class = TaskSerializer
     permission_classes = (permissions.IsAuthenticated,)

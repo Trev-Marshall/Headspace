@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 import BackButton from './BackButton'
+import axios from 'axios'
 
 function Profile({loginState}) {
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/profile-info/',  {
+    headers: {
+          Authorization: `JWT ${localStorage.getItem('token')}`
+        }})
+    .then(res => {
+      console.log(res)
+    })
+    .catch(e => console.log(e))
+  })
+
   return (
     <Container>
       <BackButton />
