@@ -25,23 +25,90 @@ function Profile({loginState}) {
         <Line />
       </NameDiv>
 
-      <CompletedTaskContainer>
-        <Title>
-          Completed Tasks
-        </Title>
-      </CompletedTaskContainer>
+      <MainWrapper>
+        <TextStatsContainer>
+          <Title>
+            Completed Tasks
+          </Title>
+          <ScrollContainer>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+            <ListItem>
+              Lols
+            </ListItem>
+          </ScrollContainer>
+        </TextStatsContainer>
 
-      <ReflectionHistoryContainer>
-        <Title>
-          Reflection History
-        </Title>
-      </ReflectionHistoryContainer>
+        <TextStatsContainer>
+          <Title>
+            Reflection History
+          </Title>
+          <ScrollContainer>
+            
+          </ScrollContainer>
+        </TextStatsContainer>
 
-      <CompletedGoalsContainer>
-        <Title>
-          Goals Reached
-        </Title>
-      </CompletedGoalsContainer>
+        <TextStatsContainer>
+          <Title>
+            Goals Reached
+          </Title>
+          <ScrollContainer>
+            
+          </ScrollContainer>
+        </TextStatsContainer>
+      </MainWrapper>
 
     </Container>
   )
@@ -52,7 +119,7 @@ export default Profile
 const Container = styled.div`
   justify-content: center;
   align-items: center;
-  height: 110vh;
+  height: 100%;
   background-color: ${COLORS1.secondary_main};
 `
 
@@ -61,39 +128,56 @@ const NameDiv = styled.div`
   height: 100px;
   width: 100%;
   margin: 0;
+  padding-top: 20px;
   text-align: center;
   font-size: 2.5em;
 `
 const Line = styled.hr`
-  display: flex;
   width: 25%;
   margin: 0 auto;
   border: 1px solid #4CC9F0;
-`
-const CompletedTaskContainer = styled.div`
-  background-color: ${COLORS1.main};
-  border-radius: 20px;
-  width: 400px;
-  height: 300px;  
-  margin: 0px 0px 10px;
-`
-
-const CompletedGoalsContainer = styled.div`
-  background-color: ${COLORS1.main};
-  border-radius: 20px;
-  width: 400px;
-  height: 300px;
-  margin: -43% 0px 0px 72%;
 `
 
 const Title = styled.h3`
   text-align: center;
   color: ${COLORS1.bright_color};
+  padding-bottom: 10px; 
+  border-bottom: solid 1px #4CC9F0;
+  width: 80%;
+  height: fit-content;
 `
 
-const ReflectionHistoryContainer = styled.div`
+const TextStatsContainer = styled.div`
   background-color: ${COLORS1.main};
-  border-radius: 20px;
-  width: 400px;
-  height: 300px;  
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 300px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+`
+
+const MainWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+`
+
+const ScrollContainer = styled.div`
+  overflow-y: auto;
+  position: relative; 
+  max-height: 300px;
+  width: 80%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`
+
+const ListItem = styled.div`
+  color: white;
 `
