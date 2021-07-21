@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 import BackButton from './BackButton'
 import axios from 'axios'
 
 function Profile({loginState}) {
+  const [allStats, setAll] = useState([])
 
   useEffect(() => {
     axios.get('http://localhost:8000/profile-info/',  {
@@ -12,10 +13,11 @@ function Profile({loginState}) {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
     .then(res => {
-      console.log(res)
+      setAll(res.data)
+      console.log(res.data)
     })
     .catch(e => console.log(e))
-  })
+  }, [])
 
   return (
     <Container>
@@ -28,84 +30,49 @@ function Profile({loginState}) {
       <MainWrapper>
         <TextStatsContainer>
           <Title>
-            Completed Tasks
+            All Tasks
           </Title>
           <ScrollContainer>
-            <ListItem>
-              Lols
+            { allStats.tasks &&
+              allStats.tasks.map((task) => (
+              <ListItem
+              key={task.id}
+              >
+              {task.task}
             </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
-            <ListItem>
-              Lols
-            </ListItem>
+              ))}
           </ScrollContainer>
         </TextStatsContainer>
 
         <TextStatsContainer>
           <Title>
-            Reflection History
+                All Reflections
           </Title>
           <ScrollContainer>
-            
+            { allStats.reflections &&
+              allStats.reflections.map((reflection) => (
+              <ListItem
+              key={reflection.id}
+              >
+              {reflection.reflection}
+            </ListItem>
+              ))}
           </ScrollContainer>
         </TextStatsContainer>
 
         <TextStatsContainer>
           <Title>
-            Goals Reached
+            All Goals
           </Title>
           <ScrollContainer>
-            
+            { allStats.goals &&
+              allStats.goals.map((goal) => (
+              <ListItem
+              key={goal.id}
+              >
+              {goal.goal}
+            </ListItem>
+              ))}
           </ScrollContainer>
         </TextStatsContainer>
       </MainWrapper>
@@ -180,4 +147,5 @@ const ScrollContainer = styled.div`
 
 const ListItem = styled.div`
   color: white;
+  padding-bottom: 10px;
 `

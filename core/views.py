@@ -32,7 +32,8 @@ def profile_view(request):
     taskSerObj = TaskSerializer(taskModel, many=True)
     goalsSerObj = GoalsSerializer(goalModel, many=True)
     reflSerObj = ReflectionsSerializer(reflectionsModel, many=True)
-    resultModel = taskSerObj.data+goalsSerObj.data+reflSerObj.data
+    resultModel = {"tasks": taskSerObj.data,
+                   "goals": goalsSerObj.data, "reflections": reflSerObj.data}
     return Response(resultModel)
 
 
