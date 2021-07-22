@@ -38,7 +38,7 @@ function Profile({loginState}) {
               <ListItem
               key={task.id}
               >
-              {task.task}
+              {task.task} | <Span>{task.dateCreated}</Span>
             </ListItem>
               ))}
           </ScrollContainer>
@@ -46,7 +46,7 @@ function Profile({loginState}) {
 
         <TextStatsContainer>
           <Title>
-                All Reflections
+            All Reflections
           </Title>
           <ScrollContainer>
             { allStats.reflections &&
@@ -54,7 +54,7 @@ function Profile({loginState}) {
               <ListItem
               key={reflection.id}
               >
-              {reflection.reflection}
+              {reflection.reflection} | <Span>{reflection.dateCreated}</Span>
             </ListItem>
               ))}
           </ScrollContainer>
@@ -70,7 +70,7 @@ function Profile({loginState}) {
               <ListItem
               key={goal.id}
               >
-              {goal.goal}
+              {goal.goal} | <Span>{goal.dateCreated}</Span>
             </ListItem>
               ))}
           </ScrollContainer>
@@ -148,4 +148,7 @@ const ScrollContainer = styled.div`
 const ListItem = styled.div`
   color: white;
   padding-bottom: 10px;
+`
+const Span = styled.span`
+  color: ${COLORS1.bright_color};
 `
