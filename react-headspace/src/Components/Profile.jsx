@@ -3,9 +3,38 @@ import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 import BackButton from './BackButton'
 import axios from 'axios'
+import {Line} from 'react-chartjs-2'
+
+
+
+const options = {
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    ],
+  },
+};
 
 function Profile({loginState}) {
   const [allStats, setAll] = useState([])
+  const [chartData, setChartData] = useState([])
+
+  const data = {
+  labels: ['1', '2', '3', '4', '5', '6'],
+  datasets: [
+    {
+      label: 'Tasks Initialized in Past Week',
+      data: [12, 19, 3, 5, 2, 3],
+      fill: false,
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgba(255, 99, 132, 0.2)',
+    },
+  ],
+};
 
   useEffect(() => {
     axios.get('http://localhost:8000/profile-info/',  {
@@ -14,6 +43,7 @@ function Profile({loginState}) {
         }})
     .then(res => {
       setAll(res.data)
+      // setChartData()
       console.log(res.data)
     })
     .catch(e => console.log(e))
@@ -24,7 +54,7 @@ function Profile({loginState}) {
       <BackButton />
       <NameDiv>
         {loginState.username}'s Space
-        <Line />
+        <Linebro />
       </NameDiv>
 
       <MainWrapper>
@@ -43,6 +73,9 @@ function Profile({loginState}) {
               ))}
           </ScrollContainer>
         </TextStatsContainer>
+
+        {/* Chart js */}
+        <Line data={data} options={options} />
 
         <TextStatsContainer>
           <Title>
@@ -99,7 +132,7 @@ const NameDiv = styled.div`
   text-align: center;
   font-size: 2.5em;
 `
-const Line = styled.hr`
+const Linebro = styled.hr`
   width: 25%;
   margin: 0 auto;
   border: 1px solid #4CC9F0;
@@ -119,7 +152,8 @@ const TextStatsContainer = styled.div`
   box-sizing: border-box;
   width: 100%;
   min-height: 300px;
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
