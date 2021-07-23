@@ -47,6 +47,11 @@ const SignInDiv = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 400px) {
+    width: 97%;
+    height: 300px;
+  }
 `
 
 const Form = styled.form`
@@ -95,6 +100,10 @@ const LogoText = styled.h1`
   width: 90%;
   text-align: left;
   font-size: 2.5em;
+
+  @media (max-width: 400px) {
+    font-size: 2em;
+  }
 `
 
 const FormText = styled.h3`
@@ -102,6 +111,12 @@ const FormText = styled.h3`
   width: 90%;
   text-align: left;
   font-size: 2.5em;
+
+
+  @media (max-width: 400px) {
+    font-size: 1.5em;
+    margin: 15px 0 0 0;
+  }
 `
 
 const SignupLink = styled.a`

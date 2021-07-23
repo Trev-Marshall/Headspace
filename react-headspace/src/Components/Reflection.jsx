@@ -29,6 +29,7 @@ export default Reflection
 const Li = styled.p`
   margin: 13px;
   font-size: 1.4em; 
+  white-space: pre-wrap;
 `
 
 const Span = styled.span`

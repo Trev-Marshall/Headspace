@@ -80,4 +80,8 @@ const Container = styled.div`
       opacity: 1;
     }
   }
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+  }
 `

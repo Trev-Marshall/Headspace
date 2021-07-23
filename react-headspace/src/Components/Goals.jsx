@@ -43,7 +43,7 @@ function Goals() {
       onClick={() => setArchiveState(!archiveModal)}
       >Archive</ArchiveModalBtn>
       <PageHeading value={"Goals"} headingSizeEm={"4em"}/>
-      <Ul>
+      {/* <Ul> */}
         {goals && 
         goals.map((goal, index) => (
           <Goal
@@ -56,7 +56,7 @@ function Goals() {
           goals={goals}
           />
         ))}
-      </Ul>
+      {/* </Ul> */}
       {formState.display ? 
       (
         <GoalForm 
@@ -89,12 +89,14 @@ export default Goals
 
 const Container = styled.div`
   background-color: ${COLORS1.main};
-  height: 100vh;
   display: flex;
+  min-height: 100vh;
+  position: relative;
   justify-content: center;
   align-items: center;
   color: white;
   flex-direction: column;
+  list-style-type: none;
 `
 
 const Ul = styled.ul`
@@ -121,15 +123,17 @@ const ArchiveModalBtn = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
+  height: 50px;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   position: absolute;
-  top: 40px;
-  right: 40px;
+  right: 25px;
+  bottom: 20px;
 
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;
     color: #010606;
   }
+
 `

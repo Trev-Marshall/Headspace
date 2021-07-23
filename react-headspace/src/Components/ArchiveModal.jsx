@@ -19,7 +19,7 @@ function ArchiveModal({ setArchiveState }) {
   return (
     <Container onClick={() => setArchiveState(false)}>
       <WindowContainer>
-        <Ul>
+        {/* <Ul> */}
       {goals && 
         goals.map((goal, index) => (
           <Goal
@@ -30,7 +30,7 @@ function ArchiveModal({ setArchiveState }) {
           goals={goals}
           />
         ))}
-        </Ul>
+        {/* </Ul> */}
       </WindowContainer>
     </Container>
   )
@@ -54,8 +54,12 @@ const WindowContainer = styled.div`
   background-color: rgb(226, 74, 132);
   margin: auto;
   padding: 40px 20px;
+  list-style-type: none;
+
+  @media (max-width: 850px) {
+    padding: 10px;
+  }
 `
 
 const Ul = styled.ul`
-  list-style-type: none;
 `

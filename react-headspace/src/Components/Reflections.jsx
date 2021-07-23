@@ -45,7 +45,7 @@ function Reflections() {
     <Container>
       <BackButton />
       <HeadingContainer>
-      <PageHeading value={"Reflection"} headingSizeEm={"4em"}/>
+      <PageHeading value={"Reflection"} headingSizeEm={"2.5em"}/>
       <PageHeading value={`${months[d.getMonth()]} ${d.getDate()}`} headingSizeEm={"2em"}/>
       </HeadingContainer>
       <Ul>

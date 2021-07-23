@@ -28,4 +28,9 @@ const Button = styled.button`
   &:hover {
     color: ${COLORS1.secondary_accent};
   }
+
+  @media (max-width: 500px) {
+    top: 20px;
+    left: 25px;
+  }
 `

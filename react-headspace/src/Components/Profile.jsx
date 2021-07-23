@@ -104,6 +104,9 @@ function Profile({loginState}) {
               key={goal.id}
               >
               {goal.goal} | <Span>{goal.dateCreated}</Span>
+              {goal.completed && (
+                <Checkmark>&#10003;</Checkmark>
+              )}
             </ListItem>
               ))}
           </ScrollContainer>
@@ -131,11 +134,16 @@ const NameDiv = styled.div`
   padding-top: 20px;
   text-align: center;
   font-size: 2.5em;
+
+  @media (max-width: 600px) {
+    padding-top: 100px;
+  }
 `
 const Linebro = styled.hr`
   width: 25%;
   margin: 0 auto;
   border: 1px solid #4CC9F0;
+  margin-top: 10px;
 `
 
 const Title = styled.h3`
@@ -185,4 +193,8 @@ const ListItem = styled.div`
 `
 const Span = styled.span`
   color: ${COLORS1.bright_color};
+`
+
+const Checkmark = styled.span`
+  padding-left: 10px;
 `
