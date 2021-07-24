@@ -1,3 +1,4 @@
+from django.contrib.auth import password_validation
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
@@ -9,6 +10,7 @@ from .models import *
 from rest_framework.response import Response
 from datetime import date
 from .serializer import *
+from django.contrib.auth.password_validation import validate_password
 # Create your views here.
 
 
@@ -141,6 +143,9 @@ class UserList(APIView):
     def post(self, request, format=None):
         # 'request.data' is a POST but in django 'data' is used instead of 'POST'
         serializer = UserSerializerWithToken(data=request.data)
+        print(request.data)
+        # validate_password(password=request.data['password'])
+        # Response(data=validate_password(password=request.data['password']))
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -156,6 +161,6 @@ class TodoView(APIView):
     def post(self, request):
         serializer = TaskSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-          # the line below caused a problem for a day or so. When saving an instance be sure to name the data according to what it is in the model. Imade the mistake of following a tutorial and using the parameter he used which was 'ownwer' instead of user which throw a 500 internal server error.
+            # the line below caused a problem for a day or so. When saving an instance be sure to name the data according to what it is in the model. Imade the mistake of following a tutorial and using the parameter he used which was 'ownwer' instead of user which throw a 500 internal server error.
             serializer.save(user=request.user)
             return Response(serializer.data)

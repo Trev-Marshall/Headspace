@@ -59,7 +59,6 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
     .then( res => {
       setLoading(false)
       console.log(res)
-      
       setTodos([...todos, todos[value.id] = res.data])
     }
     )
@@ -81,12 +80,16 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
       name="task"
       onChange={e => setValue({...value, 'task': e.target.value})}
       placeholder="Task..."
+      maxLength="100"
+      required={true}
       />
       <Input
       type='text'
+      maxLength="600"
       name='details'
       value={value.details}
       onChange={e => setValue({...value, 'details': e.target.value})}
+      required={true}
       placeholder="Description..." />
       <Input
       type='checkbox'

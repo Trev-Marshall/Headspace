@@ -72,15 +72,22 @@ function App() {
       },
       body: JSON.stringify(data)
     })
-      .then(res => res.json())
-      .then(json => {
-        setLoading(false)
-        localStorage.setItem('token', json.token)
-        setLogin({
-          logged_in: true,
-          username: json.username
-        })
+      .then(res => {
+        console.log(res)
+        res.json()
       })
+      .catch(e => {
+        console.log(e)
+      })
+    // .then(json => {
+    //   console.log(json)
+    //   setLoading(false)
+    //   localStorage.setItem('token', json.token)
+    //   setLogin({
+    //     logged_in: true,
+    //     username: json.username
+    //   })
+    // })
   }
 
   const handleLogout = () => {

@@ -57,6 +57,7 @@ function ReflectionForm({ setValue, value, formState, setReflection, setFormStat
     <Form onSubmit={(e) => {formState.edit ? handleReflectionEdit(e) : handleCreateReflection(e)}}>
       <TextArea
       value={value.reflection}
+      maxLength="600"
       name="New Reflection..."
       onChange={e => setValue({...value, 'reflection': e.target.value})}
       placeholder="Task..."

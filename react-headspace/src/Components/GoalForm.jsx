@@ -78,6 +78,7 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState, se
     <Form onSubmit={(e) => {formState.edit ? handleSubmitEdit(e) : handleSubmit(e)}}>
       <Input
       type='text'
+      maxLength="100"
       value={value.goal}
       name="task"
       onChange={e => setValue({...value, 'goal': e.target.value})}

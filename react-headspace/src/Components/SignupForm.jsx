@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 
-function SignupForm({ handleSignup, handleFormChange, formState, handleChange, display, setDisplay }) {
+function SignupForm({ handleSignup, formState, handleChange, display, setDisplay }) {
 
 
   return (
