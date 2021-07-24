@@ -4,7 +4,7 @@ import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 import { array } from 'prop-types'
 
-function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
+function TodoForm({value, setValue, todos, setTodos, formState, setFormState, setLoading}) {
 
   const addTodo = text => {
     const newTodo = [...todos];
@@ -23,6 +23,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
   }
 
   const handleSubmit = (e) => {
+    setLoading(true)
     e.preventDefault()
     if (!value) return;
     axios.post('http://localhost:8000/wel/', value, {
@@ -30,6 +31,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
     .then( res => {
+      setLoading(false)
       console.log(res.data)
       setTodos([...todos,
       res.data])
@@ -46,6 +48,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
   }
 
   const handleSubmitEdit = (e) => {
+    setLoading(true)
     e.preventDefault()
     console.log(value.id)
     if (!value) return;
@@ -54,6 +57,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState}) {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
     .then( res => {
+      setLoading(false)
       console.log(res)
       
       setTodos([...todos, todos[value.id] = res.data])

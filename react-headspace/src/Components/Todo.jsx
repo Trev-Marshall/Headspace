@@ -6,6 +6,7 @@ import axios from 'axios';
 function Todo({todo, index, todos, setTodos, setFormState, setValue}) {
 
   const completeTodo = index => {
+    setLoading(true)
     const newTodo = [...todos];
     const completedTodo = newTodo[index]
     completedTodo.completed = true
@@ -14,6 +15,7 @@ function Todo({todo, index, todos, setTodos, setFormState, setValue}) {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
         .then(res => {
+          setLoading(false)
           newTodo.splice(index, 1)
           setTodos([...newTodo,
             res.data

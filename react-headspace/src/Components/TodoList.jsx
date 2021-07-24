@@ -5,7 +5,7 @@ import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 
-function TodoList() {
+function TodoList({setLoading}) {
   const [todos, setTodos] = useState([])
   const [value, setValue] = useState({
     'task': '',
@@ -18,11 +18,13 @@ function TodoList() {
   })
 
   useEffect(() => {
+    setLoading(true)
     axios.get('http://localhost:8000/todos/',  {
     headers: {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
     .then(res => {
+      setLoading(false)
       console.log(res.data)
       setTodos(res.data)
     })
@@ -51,6 +53,7 @@ function TodoList() {
       value={value} 
       setValue={setValue}
       setTodos={setTodos}
+      setLoading={setLoading}
       formState={formState}
       todos={todos}
       setFormState={setFormState}

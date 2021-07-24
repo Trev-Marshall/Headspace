@@ -10,7 +10,7 @@ import Goal from './Goal'
 import GoalForm from './GoalForm'
 import ArchiveModal from './ArchiveModal'
 
-function Goals() {
+function Goals({setLoading}) {
 
   const [goals, setGoals] = useState([])
   const [value, setValue] = useState({
@@ -25,11 +25,13 @@ function Goals() {
   const [archiveModal, setArchiveState] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     axios('http://localhost:8000/get-goals/', {
     headers: {
           Authorization: `JWT ${localStorage.getItem('token')}`
       }})
       .then(res => {
+        setLoading(false)
         console.log(res)
         setGoals(res.data)
       })
@@ -48,6 +50,7 @@ function Goals() {
         goals.map((goal, index) => (
           <Goal
           key={index}
+          setLoading={setLoading}
           index={index}
           goal={goal}
           setValue={setValue}
@@ -63,6 +66,7 @@ function Goals() {
       value={value} 
       setValue={setValue}
       setGoals={setGoals}
+      setLoading={setLoading}
       goals={goals}
       formState={formState}
       setFormState={setFormState}

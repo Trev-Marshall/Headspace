@@ -4,9 +4,10 @@ import EditIcon from '@material-ui/icons/Edit';
 import axios from 'axios';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
-function Goal({index, goals, goal, setGoals, setFormState, setValue}) {
+function Goal({index, goals, goal, setGoals, setFormState, setValue, setLoading}) {
 
   const completeTodo = index => {
+    setLoading(true)
     const newGoals = [...goals];
     const completedGoal = newGoals[index]
     console.log(completedGoal.id)
@@ -16,6 +17,7 @@ function Goal({index, goals, goal, setGoals, setFormState, setValue}) {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
         .then(res => {
+          setLoading(false)
           newGoals.splice(index, 1)
           setGoals([...newGoals,
             res.data

@@ -8,8 +8,9 @@ import BackButton from './BackButton'
 import Reflection from './Reflection'
 import ReflectionForm from './ReflectionForm'
 import axios from 'axios'
+import LoadingSign from './LoadingSign'
 
-function Reflections() {
+function Reflections({setLoading}) {
 
   const [reflection, setReflection] = useState({})
   const [value, setValue] = useState({
@@ -25,14 +26,16 @@ function Reflections() {
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
   useEffect(() => {
+    setLoading(true)
     axios.get('http://localhost:8000/current-reflection/', { headers: {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
         .then(res => {
+          setLoading(false)
           console.log(res.data) 
           setReflection(res.data)
           if(!res.data[0]){
-            alert('You have no new todo today! Would you like to add a new one?')
+            alert('You have no reflection for today! Would you like to add a new one?')
             setFormState({
               display: true,
               edit: false
@@ -62,6 +65,7 @@ function Reflections() {
       {formState.display &&
         <ReflectionForm 
       value={value} 
+      setLoading={setLoading}
       setValue={setValue}
       setFormState={setFormState}
       formState={formState}
@@ -78,6 +82,7 @@ export default Reflections
 
 const Container = styled.div`
   background-color: ${COLORS1.main};
+  position: relative;
   height: 100vh;
   display: flex;
   align-items: center;

@@ -4,7 +4,7 @@ import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 import { array } from 'prop-types'
 
-function GoalForm({value, setValue, goals, setGoals, formState, setFormState}) {
+function GoalForm({value, setValue, goals, setGoals, formState, setFormState, setLoading}) {
 
   const addGoal = value => {
     const newGoals = [...goals];
@@ -23,6 +23,7 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState}) {
   }
 
   const handleSubmit = (e) => {
+    setLoading(true)
     e.preventDefault()
     if (!value) return;
     console.log(value)
@@ -31,6 +32,7 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState}) {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
     .then( res => {
+      setLoading(false)
       console.log(res.data)
       setGoals([...goals,
       res.data])
@@ -47,6 +49,7 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState}) {
   }
 
   const handleSubmitEdit = (e) => {
+    setLoading(true)
     e.preventDefault()
     console.log(value.id)
     if (!value) return;
@@ -55,6 +58,7 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState}) {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
     .then( res => {
+      setLoading(false)
       console.log(res)
       
       setGoals([...goals, goals[value.id] = res.data])
