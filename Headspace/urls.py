@@ -18,6 +18,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_jwt.views import obtain_jwt_token
+# from rest_framework_jwt import views as jwt_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),

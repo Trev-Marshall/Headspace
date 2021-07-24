@@ -76,18 +76,15 @@ function App() {
         console.log(res)
         res.json()
       })
-      .catch(e => {
-        console.log(e)
+      .then(json => {
+        console.log(json)
+        setLoading(false)
+        localStorage.setItem('token', json.token)
+        setLogin({
+          logged_in: true,
+          username: json.username
+        })
       })
-    // .then(json => {
-    //   console.log(json)
-    //   setLoading(false)
-    //   localStorage.setItem('token', json.token)
-    //   setLogin({
-    //     logged_in: true,
-    //     username: json.username
-    //   })
-    // })
   }
 
   const handleLogout = () => {
