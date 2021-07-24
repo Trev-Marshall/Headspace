@@ -45,7 +45,7 @@ class TaskList(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Task.objects.filter(user=user)
+        return Task.objects.filter(user=user, dateCreated=date.today())
 
 
 @api_view(['POST'])

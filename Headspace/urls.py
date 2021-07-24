@@ -17,8 +17,7 @@ from core.views import *
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework_jwt.views import obtain_jwt_token
-# from rest_framework_jwt import views as jwt_views
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,6 +29,7 @@ urlpatterns = [
     path('update-reflection/<str:pk>/',
          update_reflection, name="update reflection"),
     path('token-auth/', obtain_jwt_token),
+    path('refresh-token-auth/', refresh_jwt_token),
     path('core/', include('core.urls')),
     path('create-reflection/', CreateReflectionView.as_view(),
          name="create reflection"),

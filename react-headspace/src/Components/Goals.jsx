@@ -36,6 +36,10 @@ function Goals({setLoading}) {
         setGoals(res.data)
       })
       .catch(e => console.log(e))
+    axios.post('http://localhost:8000/refresh-token-auth/', {
+      'token': `${localStorage.getItem('token')}`
+    })
+    .then(res => console.log(res))
   }, [])
 
   return (

@@ -23,6 +23,7 @@ function Profile({loginState}) {
   const [allStats, setAll] = useState([])
   const [chartData, setChartData] = useState([])
 
+
   const data = {
   labels: ['1', '2', '3', '4', '5', '6'],
   datasets: [
@@ -64,7 +65,7 @@ function Profile({loginState}) {
           </Title>
           <ScrollContainer>
             { allStats.tasks &&
-              allStats.tasks.map((task) => (
+              allStats.tasks.slice(0).reverse().map((task) => (
               <ListItem
               key={task.id}
               >
@@ -83,7 +84,7 @@ function Profile({loginState}) {
           </Title>
           <ScrollContainer>
             { allStats.reflections &&
-              allStats.reflections.map((reflection) => (
+              allStats.reflections.slice(0).reverse().map((reflection) => (
               <ListItem
               key={reflection.id}
               >
@@ -99,7 +100,7 @@ function Profile({loginState}) {
           </Title>
           <ScrollContainer>
             { allStats.goals &&
-              allStats.goals.map((goal) => (
+              allStats.goals.slice(0).reverse().map((goal) => (
               <ListItem
               key={goal.id}
               >
