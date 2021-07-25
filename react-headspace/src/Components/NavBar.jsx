@@ -8,7 +8,7 @@ const Navbar = ({handleLogout}) => {
     return (
     <Nav>
       <NavLink to="/">
-        <h1>Logo</h1>
+        <h1>Headspace</h1>
       </NavLink>
 
       <NavBtn>

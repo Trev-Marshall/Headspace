@@ -25,17 +25,59 @@ function Profile({loginState}) {
 
 
   const data = {
-  labels: ['1', '2', '3', '4', '5', '6'],
+  labels: ['1', '2', '3', '4', '5', '6', '7'],
   datasets: [
     {
       label: 'Tasks Initialized in Past Week',
-      data: [12, 19, 3, 5, 2, 3],
+      data: chartData,
       fill: false,
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgba(255, 99, 132, 0.2)',
     },
   ],
 };
+
+  function Last7Days () {
+    var result = [];
+    for (var i=0; i<7; i++) {
+        var d = new Date();
+        d.setDate(d.getDate() - i);
+        result.push( formatDate(d) )
+    }
+    return(result);
+}
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+  Last7Days()
+
+  const populateChartData = (tasksArr) => {
+    const daysArr = Last7Days()
+    console.log(daysArr)
+    let result = []
+    tasksArr.forEach((task) => {
+      let tasksCompletedInADay = 0
+      daysArr.forEach((day) => {
+        if(task.dateCreated === day) {
+          tasksCompletedInADay += 1
+        }
+      })
+      result.push(tasksCompletedInADay)
+    })
+    setChartData(result)
+  }
 
   useEffect(() => {
     axios.get('http://localhost:8000/profile-info/',  {
@@ -46,6 +88,10 @@ function Profile({loginState}) {
       setAll(res.data)
       // setChartData()
       console.log(res.data)
+      // To populate the chart data the entire array of all the tasks are passed into the function below, this will get slower exponentially the more tasks a person adds. A fix for this is only passing in the tasks that have happened the last seven days which there is a function above that gets the last seven days that I'm not sure how to implement for it to be faster. Another way to fix this is to get the backend to get the last seven days which would be the easiest way, then pass another object in to then pass that object in to the function below.
+      if(res.data.tasks != [] || res.data.tasks != undefined){
+        populateChartData(res.data.tasks)
+      }
     })
     .catch(e => console.log(e))
   }, [])
@@ -76,7 +122,10 @@ function Profile({loginState}) {
         </TextStatsContainer>
 
         {/* Chart js */}
-        <Line data={data} options={options} />
+        {
+          chartData &&
+          <Line data={data} options={options} />
+        }
 
         <TextStatsContainer>
           <Title>
