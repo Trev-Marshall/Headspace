@@ -16,6 +16,7 @@ function TodoList({setLoading}) {
     display: false,
     edit: false
   })
+  const [taskDetailModal, setTaskDetailModal] = useState(false)
 
   useEffect(() => {
     setLoading(true)

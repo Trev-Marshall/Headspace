@@ -83,14 +83,14 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
       maxLength="100"
       required={true}
       />
-      <Input
+      {/* <Input
       type='text'
       maxLength="600"
       name='details'
       value={value.details}
       onChange={e => setValue({...value, 'details': e.target.value})}
       required={true}
-      placeholder="Description..." />
+      placeholder="Description..." /> */}
       <Input
       type='checkbox'
       onChange={e => setValue({...value, 'completed': e.currentTarget.checked})}
