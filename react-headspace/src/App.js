@@ -101,6 +101,7 @@ function App() {
             {loading &&
               <LoadingSign />
             }
+            <NavBar handleLogout={handleLogout} />
             <Profile
               loginState={loginState}
               setLoading={setLoading}
@@ -110,6 +111,7 @@ function App() {
             {loading &&
               <LoadingSign />
             }
+            <NavBar handleLogout={handleLogout} />
             <Goals
               setLoading={setLoading} />
           </Route>
@@ -117,6 +119,7 @@ function App() {
             {loading &&
               <LoadingSign />
             }
+            <NavBar handleLogout={handleLogout} />
             <Reflections
               setLoading={setLoading} />
           </Route>
@@ -151,5 +154,5 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   height: calc(100vh - 60px);
-  background-color: ${COLORS1.secondary_main};
+  background-color: ${COLORS1.off_white};
 `

@@ -4,6 +4,7 @@ import Todo from './Todo'
 import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
+import { colors } from '@material-ui/core'
 
 function TodoList({setLoading}) {
   const [todos, setTodos] = useState([])
@@ -44,6 +45,7 @@ function TodoList({setLoading}) {
           setFormState={setFormState}
           setValue={setValue}
           setTodos={setTodos}
+          setLoading={setLoading}
           todos={todos}
           />
         ))}
@@ -78,18 +80,19 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
   flex-direction: column;
 `
 
 const Ul = styled.ul`
   list-style-type: none;
+  padding: 0;
 `
 
 const Span = styled.span`
   font-size: 2.5em;
   transition: all 250ms;
   cursor: pointer;
+  color: ${COLORS1.off_black};
   &:hover {
     color: ${COLORS1.secondary_accent};
     transform: rotate(90deg);

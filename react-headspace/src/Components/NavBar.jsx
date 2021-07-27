@@ -3,23 +3,33 @@ import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { COLORS1 } from '../Design/Constants';
 import PersonIcon from '@material-ui/icons/Person';
+import Ellipse from '../assets/images/Ellipse 2.png'
 
 const Navbar = ({handleLogout}) => {
     return (
+      <>
     <Nav>
       <NavLink to="/">
-        <h1>Headspace</h1>
+        <h1
+        style={{fontWeight: 400}}
+        >Headspace</h1>
       </NavLink>
 
-      <NavBtn>
-        <NavBtnLink onClick={handleLogout}>Logout</NavBtnLink>
+      {/* <NavBtn>
+        <NavBtnLink onClick={handleLogout}>Logout</NavBtnLink> */}
       <NavMenu>
         <NavLink to="/profile" >
-          <PersonIcon />
+          <PersonIcon
+          style={{fill: COLORS1.off_white}}
+          />
         </NavLink>
       </NavMenu>
-      </NavBtn>
+      {/* </NavBtn> */}
     </Nav>
+      <NavImage
+      src={Ellipse}
+      />
+      </>
   )
 }
 
@@ -27,15 +37,17 @@ export default Navbar;
 
 const Nav = styled.nav`
   background: ${COLORS1.main};
-  height: 60px;
+  height: 45px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px 0 20px;
+  position: relative;
+  z-index: 100;
 `
 
 const NavLink = styled(Link)`
-  color: #fff;
+  color: #014139;
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -43,10 +55,6 @@ const NavLink = styled(Link)`
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
-
-  &.active {
-    color: #15cdfc;
-  }
 `
 
 const NavMenu = styled.div`
@@ -88,4 +96,12 @@ const NavBtnLink = styled.button`
     background: #fff;
     color: #010606;
   }
+`
+
+const NavImage = styled.img`
+  position: absolute; 
+  z-index: 0;
+  right: 0;
+  top: 0;
+  height: 70px;
 `
