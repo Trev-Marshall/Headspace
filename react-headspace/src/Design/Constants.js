@@ -1,8 +1,10 @@
 export const COLORS1 = {
-  main: '#3A0CA3',
+  main: '#54CEB1',
   secondary_main: '#3F37C9',
-  main_accent: '#B5179E',
-  secondary_accent: '#F72585',
-  bright_color: '#4CC9F0',
-  off_white: '#EDDBB8'
+  main_accent: '#54696D',
+  secondary_accent: '#7CF6A6',
+  bright_color: '#2DF06E',
+  off_white: '#EFF1F3',
+  off_black: '#1C2022',
+  dark_grey: '#54696D'
 }

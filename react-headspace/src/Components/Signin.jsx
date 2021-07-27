@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 import SignupForm from './SignupForm'
 import SigninForm from './SigninForm'
+import TopVector from '../assets/images/top-vector-signin.png'
+import BottomVector from '../assets/images/bottom-vector-signin.png'
 
 function Signin({ handleLogin, handleSignup }) {
   const [formState, setForm] = useState({
@@ -24,6 +26,14 @@ function Signin({ handleLogin, handleSignup }) {
 
   return (
     <Container>
+      <Background1
+      src={TopVector}
+      alt="background"
+      />
+      <Background2
+      src={BottomVector}
+      alt="background"
+      />
       {
         display ? (
           <SigninForm 
@@ -52,8 +62,20 @@ export default Signin
 const Container = styled.div`
   height: 100vh;
   display: flex;
+  position: relative;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: ${COLORS1.secondary_main};
+  background-color: ${COLORS1.off_white};
+`
+
+const Background1 = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+`
+const Background2 = styled.img`
+  position: fixed;
+  bottom: 0;
+  left: 0;
 `

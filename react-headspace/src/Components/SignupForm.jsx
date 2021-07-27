@@ -8,8 +8,8 @@ function SignupForm({ handleSignup, formState, handleChange, display, setDisplay
   return (
     <>
       <SignInDiv>
-        <LogoText>Headspace</LogoText>
-        <FormText>Sign up</FormText>
+        {/* <LogoText>Headspace</LogoText> */}
+        <FormText>Sign-up</FormText>
         <Form onSubmit={e => handleSignup(e, formState)}>
           <Label htmlFor="username">Username:</Label>
           <Input 
@@ -29,8 +29,8 @@ function SignupForm({ handleSignup, formState, handleChange, display, setDisplay
           />
           <Submit type="submit" />
         </Form>
-      </SignInDiv>
       <AccountText>Already have an account? <SignupLink onClick={() => setDisplay(!display)}>Sign in.</SignupLink></AccountText>
+      </SignInDiv>
       </>
   )
 }
@@ -38,14 +38,15 @@ function SignupForm({ handleSignup, formState, handleChange, display, setDisplay
 export default SignupForm
 
 const SignInDiv = styled.div`
-  background-color: ${COLORS1.main};
-  border-radius: 20px;
+  background: #9EB3B745;
+  border-radius: 15px;
   width: 400px;
   height: 400px;
   display: flex; 
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(39px);
 
   @media (max-width: 400px) {
     width: 97%;
@@ -57,6 +58,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 90%;
+  margin-top: auto;
 `
 
 const Label = styled.label`
@@ -68,15 +70,11 @@ const Label = styled.label`
 
 const Input = styled.input`
   padding: 10px;
-  background-color: ${COLORS1.main};
+  background: #9EB3B745;
   border: none;
-  border-bottom: 3px solid ${COLORS1.bright_color};
-  color: white;
+  border-bottom: 3px solid ${COLORS1.off_black};
   font-size: 1.1em;
   margin: 10px 0;
-  &::placeholder {
-    color: white;
-  }
 `
 
 
@@ -90,7 +88,8 @@ const Submit = styled.input`
   padding: 14px;
   font-size: 1.1em;
   border-radius: 15px;
-  color: white;
+  color: ${COLORS1.dark_grey};
+  cursor: pointer;
 `
 
 const LogoText = styled.h1`
@@ -106,10 +105,11 @@ const LogoText = styled.h1`
 `
 
 const FormText = styled.h3`
-  color: ${COLORS1.off_white};
   width: 90%;
   text-align: left;
   font-size: 2.5em;
+  margin: 20px 0 0;
+  font-weight: 400;
 
   @media (max-width: 400px) {
     font-size: 1.5em;
@@ -119,9 +119,12 @@ const FormText = styled.h3`
 
 const SignupLink = styled.a`
   cursor: pointer;
-  color: ${COLORS1.bright_color}
+  color: #08A097;
 `
 
 const AccountText = styled.p`
-  color: ${COLORS1.secondary_accent};
+  text-align: center;
+    @media (max-width: 400px) {
+    font-size: .9em;
+  }
 `
