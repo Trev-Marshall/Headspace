@@ -74,7 +74,9 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
 
   return (
     <Form onSubmit={(e) => {formState.edit ? handleSubmitEdit(e) : handleSubmit(e)}}>
+      <DivFlexRow>
       <Input
+      style={{flex: 1}}
       type='text'
       value={value.task}
       name="task"
@@ -83,6 +85,14 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
       maxLength="100"
       required={true}
       />
+      <span
+      style={{fontWeight: 800}}
+      >&#10003;</span>
+      <Input
+      type='checkbox'
+      onChange={e => setValue({...value, 'completed': e.currentTarget.checked})}
+      />
+      </DivFlexRow>
       {/* <Input
       type='text'
       maxLength="600"
@@ -91,10 +101,6 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
       onChange={e => setValue({...value, 'details': e.target.value})}
       required={true}
       placeholder="Description..." /> */}
-      <Input
-      type='checkbox'
-      onChange={e => setValue({...value, 'completed': e.currentTarget.checked})}
-      />
       <Input 
       type="submit"
       value={formState.edit ? 'Edit' : 'Create'}
@@ -114,13 +120,17 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
-  width: 80%;
+  padding: 10px;
+  background: #9EB3B745;
   border: none;
-  border-bottom: 3px solid ${COLORS1.bright_color};
-  background-color: ${COLORS1.secondary_main};
-  color: white;
-  font-size: 1.5em;
-  &::placeholder {
-    color: white;
-  }
+  border-bottom: 3px solid ${COLORS1.off_black};
+  font-size: 1.1em;
+  overflow: hidden;
+  border-radius: 2px;
+  margin: 10px 15px;
+`
+
+const DivFlexRow = styled.div`
+  display: flex;
+  align-items: center;
 `
