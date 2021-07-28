@@ -45,12 +45,12 @@ function Reflections({setLoading}) {
   }, [])
 
   return (
+    <OuterWrapper>
     <Container>
-      <HeadingContainer>
-      <PageHeading value={"Reflection"} headingSizeEm={"2.5em"}/>
-      <PageHeading value={`${months[d.getMonth()]} ${d.getDate()}`} headingSizeEm={"2em"}/>
-      </HeadingContainer>
-      <Ul>
+      <ReflectionContainer>
+      <Span>
+        {d.getMonth()}-{d.getDate()}-{d.getFullYear()}
+        </Span> 
         {reflection[0] && 
         <Reflection
           reflection={reflection[0]}
@@ -59,9 +59,9 @@ function Reflections({setLoading}) {
           setValue={setValue}
         ></Reflection>
         }
-      </Ul>
-      <FormContainer>
+      </ReflectionContainer>
       {formState.display &&
+      <FormContainer>
         <ReflectionForm 
       value={value} 
       setLoading={setLoading}
@@ -71,33 +71,53 @@ function Reflections({setLoading}) {
       reflection={reflection}
       setReflection={setReflection}
       />
-    }
       </FormContainer>
+    }
     </Container>
+    </OuterWrapper>
   )
 }
 
 export default Reflections
 
-const Container = styled.div`
-  background-color: ${COLORS1.main};
-  position: relative;
-  height: 100vh;
+const OuterWrapper = styled.div`
+  background-color: ${COLORS1.off_white};
+  width: 100%;
+  min-height: calc(100vh - 108px);
   display: flex;
-  align-items: center;
-  color: white;
+`
+
+const Container = styled.div`
+  display: flex;
+  background: rgba(196, 196, 196, 0.15);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.14);
+  margin: 5px auto;
   flex-direction: column;
-`
+  border-radius: 25px;
+  width: 90%;
+  max-width: 800px;
+  min-height: 650px; 
+  // height: 
+  overflow: auto;
 
-const Ul = styled.ul`
-  list-style-type: none;
-  margin-top: 15%;
-`
 
-const HeadingContainer = styled.div`
-  text-align: center;
+  @media (max-width: 900px) {
+    // min-height: 0;
+  }
 `
 
 const FormContainer = styled.div`
   width: 70%;
+  margin: auto;
+`
+
+const ReflectionContainer = styled.div`
+  width: 100%;
+`
+
+const Span = styled.p`
+  color: #0E886B;
+  padding-top: 5px;
+  padding-left: 20px;
+  font-size: 20px;
 `

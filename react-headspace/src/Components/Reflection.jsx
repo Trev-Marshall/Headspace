@@ -30,6 +30,7 @@ const Li = styled.p`
   margin: 13px;
   font-size: 1.4em; 
   white-space: pre-wrap;
+  width: 100%;
 `
 
 const Span = styled.span`
@@ -43,6 +44,12 @@ const Span = styled.span`
 const Container = styled.div`
   display: flex;
   align-items: center;
+  margin: 5px 15px 5px 15px;
+
+
+  @media (max-width: 900px) {
+    min-height: 0;
+  }
   &:hover {
     ${Span} {
       opacity: 1;

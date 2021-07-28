@@ -86,7 +86,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
       required={true}
       />
       <span
-      style={{fontWeight: 800}}
+      style={{fontWeight: 800, fontSize: '2.5em'}}
       >&#10003;</span>
       <Input
       type='checkbox'

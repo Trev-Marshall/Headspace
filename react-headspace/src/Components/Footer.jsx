@@ -28,6 +28,7 @@ const Container = styled.div`
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color: ${COLORS1.off_white};
 `
 
 const FooterLink = styled(Link)`

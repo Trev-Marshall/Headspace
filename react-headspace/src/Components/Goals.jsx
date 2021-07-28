@@ -9,6 +9,7 @@ import axios from 'axios'
 import Goal from './Goal'
 import GoalForm from './GoalForm'
 import ArchiveModal from './ArchiveModal'
+import ArchivePng from '../assets/images/Archive container.png'
 
 function Goals({setLoading}) {
 
@@ -46,8 +47,8 @@ function Goals({setLoading}) {
     <Container>
       <ArchiveModalBtn 
       onClick={() => setArchiveState(!archiveModal)}
-      >Archive</ArchiveModalBtn>
-      <PageHeading value={"Goals"} headingSizeEm={"4em"}/>
+      >
+        Archive</ArchiveModalBtn>
       {/* <Ul> */}
         {goals && 
         goals.map((goal, index) => (
@@ -95,15 +96,14 @@ function Goals({setLoading}) {
 export default Goals
 
 const Container = styled.div`
-  background-color: ${COLORS1.main};
   display: flex;
-  min-height: 100vh;
+  min-height: calc(100vh - 108px);
   position: relative;
-  justify-content: center;
   align-items: center;
-  color: white;
   flex-direction: column;
   list-style-type: none;
+  width: 100%;
+  background-color: ${COLORS1.off_white};
 `
 
 const Ul = styled.ul`
@@ -121,21 +121,23 @@ const Span = styled.span`
 `
 
 const ArchiveModalBtn = styled.button`
-  border-radius: 4px;
-  background: ${COLORS1.secondary_accent};
-  padding: 10px 22px;
+
+  border-radius: 20px;
+  padding: 20px 30px;
   font-weight: bold;
   font-size: 1.1em;
-  color: white;
   outline: none;
   border: none;
   cursor: pointer;
   height: 50px;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  position: absolute;
-  right: 25px;
-  bottom: 20px;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  border-radius: 30px 0 0 0;
+  background: ${COLORS1.bright_color};
+  cursor: pointer;
 
   &:hover {
     transition: all 0.2s ease-in-out;
@@ -143,4 +145,9 @@ const ArchiveModalBtn = styled.button`
     color: #010606;
   }
 
+`
+
+const Img = styled.img`
+width: 100%;
+position: absolute;
 `

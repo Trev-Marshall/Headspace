@@ -45,16 +45,18 @@ function Goal({index, goals, goal, setGoals, setFormState, setValue, setLoading}
   return (
     <Container>
       <Li>
-        {goal.goal}
+        {goal.goal} <span
+        style={{color: '#0E886B'}}>
+        | Complete by: {goal.completeBy}
+        </span>
       </Li>
-      <Li>
-        Complete by: {goal.completeBy}
-      </Li>
+        
+      <div>
       {!goal.completed && <Span 
       onClick={() => completeTodo(index)}
-      style={{ textDecoration: goal.completed ? "line-through" : "none" }}
       ><CheckCircleOutlineIcon /></Span>}
       <Span onClick={() => handleEdit(index)}><EditIcon /></Span>
+      </div>
     </Container>
   )
 }
@@ -71,7 +73,6 @@ const Span = styled.span`
   font-size: 1.5em;
   opacity: .5;
   transition: opacity 250ms;
-  margin-right: 10px;
 `
 
 const Container = styled.div`
@@ -82,8 +83,10 @@ const Container = styled.div`
       opacity: 1;
     }
   }
+  max-width: 800px;
 
   @media (max-width: 850px) {
     flex-direction: column;
+    padding: 0 15px;
   }
 `

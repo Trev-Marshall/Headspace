@@ -85,8 +85,6 @@ const Input = styled.input`
   margin: auto;
   border: none;
   border-bottom: 3px solid ${COLORS1.bright_color};
-  background-color: ${COLORS1.secondary_main};
-  color: white;
   font-size: 1.5em;
   &::placeholder {
     color: white;
@@ -96,9 +94,9 @@ const Input = styled.input`
 const TextArea = styled.textarea`
   margin-bottom: 7px;
   border: none;
+  min-height: 150px;
+  border-radius: 3px;
   border-bottom: 3px solid ${COLORS1.bright_color};
-  background-color: ${COLORS1.secondary_main};
-  color: white;
   font-size: 1.5em;
   &::placeholder {
     color: white;

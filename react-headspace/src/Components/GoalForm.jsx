@@ -76,24 +76,30 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState, se
 
   return (
     <Form onSubmit={(e) => {formState.edit ? handleSubmitEdit(e) : handleSubmit(e)}}>
+      <DivFlexRow>
       <Input
+      style={{flex: 1}}
       type='text'
       maxLength="100"
       value={value.goal}
       name="task"
       onChange={e => setValue({...value, 'goal': e.target.value})}
-      placeholder="Task..."
+      placeholder="Goal..."
       />
-      <Input
-      type='date'
-      name='details'
-      value={value.completeBy}
-      onChange={e => setValue({...value, 'completeBy': e.target.value})} />
+      <span
+      style={{fontWeight: 800, fontSize: '2.5em'}}
+      >&#10003;</span>
       <Input
       type='checkbox'
       onChange={e => setValue({...value, 'completed': e.currentTarget.checked})}
       checked={value.completed}
       />
+      </DivFlexRow>
+      <Input
+      type='date'
+      name='details'
+      value={value.completeBy}
+      onChange={e => setValue({...value, 'completeBy': e.target.value})} />
       <Input 
       type="submit"
       value={formState.edit ? 'Edit' : 'Create'}
@@ -113,13 +119,21 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
-  width: 80%;
+  padding: 10px;
+  background: #9EB3B745;
   border: none;
-  border-bottom: 3px solid ${COLORS1.bright_color};
-  background-color: ${COLORS1.secondary_main};
-  color: white;
-  font-size: 1.5em;
-  &::placeholder {
-    color: white;
+  border-bottom: 3px solid ${COLORS1.off_black};
+  font-size: 1.1em;
+  overflow: hidden;
+  border-radius: 2px;
+  margin: 10px 15px;
+
+  @media (min-width: 900px) {
+    margin: 10px 10%;
   }
+`
+
+const DivFlexRow = styled.div`
+  display: flex;
+  align-items: center;
 `
