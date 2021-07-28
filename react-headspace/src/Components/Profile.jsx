@@ -13,6 +13,7 @@ const options = {
       {
         ticks: {
           beginAtZero: true,
+          // index: 1
         },
       },
     ],
@@ -25,14 +26,14 @@ function Profile({loginState}) {
 
 
   const data = {
-  labels: ['1', '2', '3', '4', '5', '6', '7'],
+  labels: ['7', '6', '5', '4', '3', '2', '1'],
   datasets: [
     {
       label: 'Tasks Initialized in Past Week',
       data: chartData,
       fill: false,
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgba(255, 99, 132, 0.2)',
+      backgroundColor: 'rgba(84, 206, 177, 1)',
+      borderColor: 'rgba(84, 206, 177, 1)',
     },
   ],
 };
@@ -121,11 +122,13 @@ function formatDate(date) {
           </ScrollContainer>
         </TextStatsContainer>
 
+        <TextStatsContainer>
         {/* Chart js */}
         {
           chartData &&
           <Line data={data} options={options} />
         }
+        </TextStatsContainer>
 
         <TextStatsContainer>
           <Title>
@@ -173,14 +176,14 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: ${COLORS1.secondary_main};
+  background-color: ${COLORS1.off_white};
 `
 
 const NameDiv = styled.div`
-  color: ${COLORS1.secondary_accent};
+  color: #0E886B;
   height: 100px;
-  width: 100%;
-  margin: 0;
+  width: fit-content;
+  margin: 0 auto;
   padding-top: 20px;
   text-align: center;
   font-size: 2.5em;
@@ -190,23 +193,24 @@ const NameDiv = styled.div`
   }
 `
 const Linebro = styled.hr`
-  width: 25%;
+  width: 100%;
   margin: 0 auto;
-  border: 1px solid #4CC9F0;
+  border: 2px solid #7CF6CA;
   margin-top: 10px;
 `
 
 const Title = styled.h3`
   text-align: center;
-  color: ${COLORS1.bright_color};
+  color: ${COLORS1.dark_grey};
   padding-bottom: 10px; 
-  border-bottom: solid 1px #4CC9F0;
+  border-bottom: solid 1px #0E886B;
   width: 80%;
   height: fit-content;
 `
 
 const TextStatsContainer = styled.div`
-  background-color: ${COLORS1.main};
+  background: #F9F9F9;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.17);
   box-sizing: border-box;
   width: 100%;
   min-height: 300px;
@@ -235,14 +239,15 @@ const ScrollContainer = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 `
 
 const ListItem = styled.div`
-  color: white;
+  color: black;
   padding-bottom: 10px;
 `
 const Span = styled.span`
-  color: ${COLORS1.bright_color};
+  color: #0E886B;
 `
 
 const Checkmark = styled.span`

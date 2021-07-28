@@ -17,11 +17,11 @@ export default BackButton
 
 const Button = styled.button`
   position: absolute;
-  top: 40px;
+  top: 50px;
   left: 40px;
   border: none;
   background-color: transparent;
-  color: white;
+  color: ${COLORS1.dark_grey};
   font-size: 2.5em;
   cursor: pointer;
   transition: color 250ms ease;
@@ -30,7 +30,6 @@ const Button = styled.button`
   }
 
   @media (max-width: 500px) {
-    top: 20px;
     left: 25px;
   }
 `

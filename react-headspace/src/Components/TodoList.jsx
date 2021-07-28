@@ -62,12 +62,14 @@ function TodoList({setLoading}) {
       setFormState={setFormState}
       />
       ) : (
-        <Span
-        onClick={() => setFormState({
-          'display': true,
-          'edit': false
-        })}
-        >+</Span>
+        <Div>
+          <Span
+          onClick={() => setFormState({
+            'display': true,
+            'edit': false
+          })}
+          >+</Span>
+        </Div>
       )
     }
     </Container>
@@ -93,8 +95,19 @@ const Span = styled.span`
   transition: all 250ms;
   cursor: pointer;
   color: ${COLORS1.off_black};
+`
+
+const Div = styled.div`
+  transition: all 250ms;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  text-align: center;
   &:hover {
-    color: ${COLORS1.secondary_accent};
     transform: rotate(90deg);
+    ${Span} {
+      color: ${COLORS1.secondary_accent};
+      // transform: rotate(90deg);
+    }
   }
 `
