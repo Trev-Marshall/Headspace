@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import EditIcon from '@material-ui/icons/Edit';
 import axios from 'axios';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import { COLORS1 } from '../Design/Constants';
 
 function Goal({index, goals, goal, setGoals, setFormState, setValue, setLoading}) {
 
@@ -66,6 +67,8 @@ export default Goal
 const Li = styled.li`
   margin: 13px;
   font-size: 1.4em; 
+  border-top: 1px solid lightgrey;
+  padding-top: 5px;
 `
 
 const Span = styled.span`

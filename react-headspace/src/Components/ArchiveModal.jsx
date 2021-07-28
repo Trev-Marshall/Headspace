@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { COLORS1 } from '../Design/Constants'
 import Goal from './Goal'
 
 function ArchiveModal({ setArchiveState }) {
@@ -19,7 +20,8 @@ function ArchiveModal({ setArchiveState }) {
   return (
     <Container onClick={() => setArchiveState(false)}>
       <WindowContainer>
-        {/* <Ul> */}
+        <Span>Completed Goals</Span>
+        <OverflowDiv>
       {goals && 
         goals.map((goal, index) => (
           <Goal
@@ -30,7 +32,7 @@ function ArchiveModal({ setArchiveState }) {
           goals={goals}
           />
         ))}
-        {/* </Ul> */}
+        </OverflowDiv>
       </WindowContainer>
     </Container>
   )
@@ -43,6 +45,7 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   height: 100vh;
+  top: 0;
   background-color: rgba(78, 55, 75, 0.39);
 `
 const WindowContainer = styled.div`
@@ -51,7 +54,7 @@ const WindowContainer = styled.div`
   flex-direction: column;
   width: 80%;
   height: 70%;
-  background-color: rgb(226, 74, 132);
+  background-color: ${COLORS1.off_white};
   margin: auto;
   padding: 40px 20px;
   list-style-type: none;
@@ -62,4 +65,15 @@ const WindowContainer = styled.div`
 `
 
 const Ul = styled.ul`
+`
+
+const Span = styled.div`
+  text-align: center;
+  font-size: 1.5em;
+  border-bottom: 2px solid ${COLORS1.dark_grey};
+  padding-bottom: 5px;
+`
+
+const OverflowDiv = styled.div`
+ overflow: auto;
 `
