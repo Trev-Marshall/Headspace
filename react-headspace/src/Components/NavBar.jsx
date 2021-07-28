@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { COLORS1 } from '../Design/Constants';
 import PersonIcon from '@material-ui/icons/Person';
 import Ellipse from '../assets/images/Ellipse 2.png'
+import NavbarPng from '../assets/images/navbar.png'
 
 const Navbar = ({handleLogout}) => {
     return (
@@ -29,6 +30,10 @@ const Navbar = ({handleLogout}) => {
       <NavImage
       src={Ellipse}
       />
+        <NavImage
+        src={NavbarPng}
+        style={{height: '60px', width: '100%'}}
+        ></NavImage>
       </>
   )
 }
@@ -36,7 +41,7 @@ const Navbar = ({handleLogout}) => {
 export default Navbar;
 
 const Nav = styled.nav`
-  background: ${COLORS1.main};
+  // background: ${COLORS1.main};
   height: 45px;
   display: flex;
   justify-content: space-between;

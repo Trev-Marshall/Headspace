@@ -38,7 +38,9 @@ const FooterLink = styled(Link)`
   padding: 0 14px;
   font-size: 1.4em;
 
-
+  @media (max-width: 900px) {
+    font-size: 1.2em;
+  }
   &:hover {
     color: ${COLORS1.bright_color};
   }
