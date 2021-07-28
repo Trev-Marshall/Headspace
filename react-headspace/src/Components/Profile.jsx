@@ -23,10 +23,11 @@ const options = {
 function Profile({loginState}) {
   const [allStats, setAll] = useState([])
   const [chartData, setChartData] = useState([])
+  const [chartLabels, setChartLabels] = useState([])
 
 
   const data = {
-  labels: ['7', '6', '5', '4', '3', '2', '1'],
+  labels: chartLabels,
   datasets: [
     {
       label: 'Tasks Initialized in Past Week',
@@ -66,7 +67,8 @@ function formatDate(date) {
 
   const populateChartData = (tasksArr) => {
     const daysArr = Last7Days()
-    console.log(daysArr)
+    console.log(daysArr.reverse())
+    setChartLabels(daysArr)
     let result = []
     tasksArr.forEach((task) => {
       let tasksCompletedInADay = 0
@@ -209,7 +211,7 @@ const Title = styled.h3`
 `
 
 const TextStatsContainer = styled.div`
-  background: #F9F9F9;
+  background: #F7F7F7;
   box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.17);
   box-sizing: border-box;
   width: 100%;
@@ -244,7 +246,10 @@ const ScrollContainer = styled.div`
 
 const ListItem = styled.div`
   color: black;
+  padding-top: 10px;
   padding-bottom: 10px;
+  white-space: pre-wrap;
+  border-bottom: 1px solid ${COLORS1.secondary_accent};
 `
 const Span = styled.span`
   color: #0E886B;
