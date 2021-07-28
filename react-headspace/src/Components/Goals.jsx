@@ -44,7 +44,6 @@ function Goals({setLoading}) {
 
   return (
     <Container>
-      <BackButton />
       <ArchiveModalBtn 
       onClick={() => setArchiveState(!archiveModal)}
       >Archive</ArchiveModalBtn>

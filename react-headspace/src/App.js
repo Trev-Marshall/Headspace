@@ -112,6 +112,7 @@ function App() {
               <LoadingSign />
             }
             <NavBar handleLogout={handleLogout} />
+            <Footer />
             <Goals
               setLoading={setLoading} />
           </Route>
@@ -120,6 +121,7 @@ function App() {
               <LoadingSign />
             }
             <NavBar handleLogout={handleLogout} />
+            <Footer />
             <Reflections
               setLoading={setLoading} />
           </Route>
@@ -129,9 +131,9 @@ function App() {
             }
             <NavBar handleLogout={handleLogout} />
             <Container>
+              <Footer />
               <TodoList
                 setLoading={setLoading} />
-              <Footer />
             </Container>
           </Route>
         </Switch>
@@ -150,7 +152,6 @@ export default App;
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   align-items: center;
   height: calc(100vh - 60px);

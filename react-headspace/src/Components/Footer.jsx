@@ -6,11 +6,14 @@ import { COLORS1 } from '../Design/Constants'
 function Footer() {
   return (
     <Container>
-      <FooterLink to="/reflections">
-        Reflections
+      <FooterLink to="/">
+        Tasks
       </FooterLink>
       <FooterLink to="/goals">
         Goals
+      </FooterLink>
+      <FooterLink to="/reflections">
+        Reflections
       </FooterLink>
     </Container>
   )
@@ -19,17 +22,19 @@ function Footer() {
 export default Footer
 
 const Container = styled.div`
-  color: white;
+  color: black;
   width: 100%;
-  text-align: right;
+  height: auto;
+  text-align: center;
+  padding-top: 20px;
   padding-bottom: 20px;
 `
 
 const FooterLink = styled(Link)`
   text-decoration: none;
-  color: white;
+  color: black;
   transition: color 250ms; 
-  padding-right: 27px;
+  padding: 0 14px;
   font-size: 1.4em;
 
 
