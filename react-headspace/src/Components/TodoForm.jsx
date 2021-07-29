@@ -32,19 +32,24 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
         }})
     .then( res => {
       setLoading(false)
-      console.log(res.data)
+      console.log(res)
       setTodos([...todos,
       res.data])
+      if(res.statusText === "OK"){
+        setValue({
+          'task': '',
+          'details': '',
+          'completed': false,
+          'value': null
+        });
+        setFormState({
+          display: false,
+          edit: false
+        })
+      }
     }
     )
     .catch(e => console.log(e))
-    addTodo(value);
-    setValue({
-      'task': '',
-      'details': '',
-      'completed': false,
-      'value': null
-    });
   }
 
   const handleSubmitEdit = (e) => {

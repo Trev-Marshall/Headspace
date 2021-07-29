@@ -146,9 +146,8 @@ class UserList(APIView):
     def post(self, request, format=None):
         # 'request.data' is a POST but in django 'data' is used instead of 'POST'
         serializer = UserSerializerWithToken(data=request.data)
-        print(request.data)
-        # validate_password(password=request.data['password'])
-        # Response(data=validate_password(password=request.data['password']))
+        # The line below throws a 500 error back to the frontend if the password that was passed in is not valid. (e.g minimum 8 characters or it was a totally numeric password)
+        validate_password(password=request.data['password'])
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
