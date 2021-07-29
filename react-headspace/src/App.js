@@ -66,26 +66,41 @@ function App() {
   const handleSignup = (e, data) => {
     setLoading(true)
     e.preventDefault()
-    fetch('http://localhost:8000/core/users/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => {
-        console.log(res)
-        res.json()
+
+
+
+    // Validation 
+
+    function isNumeric(num) {
+      return !isNaN(num)
+    }
+
+    let pass = data.username
+    console.log(pass.length)
+    if (!isNumeric(pass) && pass.length >= 8) {
+      fetch('http://localhost:8000/core/users/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
       })
-      .then(json => {
-        console.log(json)
-        setLoading(false)
-        localStorage.setItem('token', json.token)
-        setLogin({
-          logged_in: true,
-          username: json.username
+        .then(res => {
+          console.log(res)
+          res.json()
         })
-      })
+        .then(json => {
+          console.log(json)
+          setLoading(false)
+          localStorage.setItem('token', json.token)
+          setLogin({
+            logged_in: true,
+            username: json.username
+          })
+        })
+    } else {
+      alert('Password has the be longer than 8 characters and not totally numeric.')
+    }
   }
 
   const handleLogout = () => {

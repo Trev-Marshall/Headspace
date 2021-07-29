@@ -16,8 +16,8 @@ const Navbar = ({handleLogout}) => {
         >Headspace</h1>
       </NavLink>
 
-      {/* <NavBtn>
-        <NavBtnLink onClick={handleLogout}>Logout</NavBtnLink> */}
+      <NavBtn>
+        <NavBtnLink onClick={handleLogout}>Logout</NavBtnLink>
       <NavMenu>
         <NavLink to="/profile" >
           <PersonIcon
@@ -25,7 +25,7 @@ const Navbar = ({handleLogout}) => {
           />
         </NavLink>
       </NavMenu>
-      {/* </NavBtn> */}
+      </NavBtn>
     </Nav>
       <NavImage
       src={Ellipse}
