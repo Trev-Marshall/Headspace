@@ -8,7 +8,7 @@ from rest_framework.serializers import Serializer
 from rest_framework.views import APIView
 from .models import *
 from rest_framework.response import Response
-from datetime import date
+from datetime import date, datetime, timedelta
 from .serializer import *
 from django.contrib.auth.password_validation import validate_password
 # Create your views here.
@@ -29,13 +29,16 @@ def current_user(request):
 @api_view(['GET'])
 def profile_view(request):
     taskModel = Task.objects.filter(user=request.user)
+    taskModelDelta = Task.objects.filter(
+        user=request.user, dateCreated__gt=datetime.now()-timedelta(days=7))
     goalModel = Goals.objects.filter(user=request.user)
     reflectionsModel = Reflection.objects.filter(user=request.user)
     taskSerObj = TaskSerializer(taskModel, many=True)
+    taskSerObjDelta = TaskSerializer(taskModelDelta, many=True)
     goalsSerObj = GoalsSerializer(goalModel, many=True)
     reflSerObj = ReflectionsSerializer(reflectionsModel, many=True)
     resultModel = {"tasks": taskSerObj.data,
-                   "goals": goalsSerObj.data, "reflections": reflSerObj.data}
+                   "goals": goalsSerObj.data, "reflections": reflSerObj.data, "last7DaysOfTasks": taskSerObjDelta.data}
     return Response(resultModel)
 
 

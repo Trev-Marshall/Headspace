@@ -67,18 +67,18 @@ function formatDate(date) {
 
   const populateChartData = (tasksArr) => {
     const daysArr = Last7Days()
-    console.log(daysArr.reverse())
     setChartLabels(daysArr)
     let result = []
-    tasksArr.forEach((task) => {
-      let tasksCompletedInADay = 0
-      daysArr.forEach((day) => {
-        if(task.dateCreated === day) {
-          tasksCompletedInADay += 1
+    for (let i = 0; i < daysArr.length; i++){
+      let count = 0
+      tasksArr.forEach((task) => {
+        if(task.dateCreated == daysArr[i]){
+          count += 1
         }
       })
-      result.push(tasksCompletedInADay)
-    })
+      result.push(count)
+    }
+    result.reverse()
     setChartData(result)
   }
 
@@ -92,8 +92,8 @@ function formatDate(date) {
       // setChartData()
       console.log(res.data)
       // To populate the chart data the entire array of all the tasks are passed into the function below, this will get slower exponentially the more tasks a person adds. A fix for this is only passing in the tasks that have happened the last seven days which there is a function above that gets the last seven days that I'm not sure how to implement for it to be faster. Another way to fix this is to get the backend to get the last seven days which would be the easiest way, then pass another object in to then pass that object in to the function below.
-      if(res.data.tasks != [] || res.data.tasks != undefined){
-        populateChartData(res.data.tasks)
+      if(res.data.last7DaysOfTasks != [] || res.data.last7DaysOfTasks != undefined){
+        populateChartData(res.data.last7DaysOfTasks)
       }
     })
     .catch(e => console.log(e))
