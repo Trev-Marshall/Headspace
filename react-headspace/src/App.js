@@ -80,14 +80,15 @@ function App() {
         .then(json => {
           console.log(json)
           setLoading(false)
-          if (json === false) {
-            alert('Something went wrong please try again.')
+          if (json === undefined) {
+            alert('Something went wrong please try again. An error occured when signing up.')
+          } else if (json) {
+            localStorage.setItem('token', json.token)
+            setLogin({
+              logged_in: true,
+              username: json.username
+            })
           }
-          localStorage.setItem('token', json.token)
-          setLogin({
-            logged_in: true,
-            username: json.username
-          })
         })
     } else {
       alert('Password has the be longer than 8 characters and not totally numeric.')
