@@ -4,7 +4,7 @@ import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 import { array } from 'prop-types'
 
-function TodoForm({value, setValue, todos, setTodos, formState, setFormState, setLoading, setLocalStrgUpdateTasks}) {
+function TodoForm({value, setValue, todos, setTodos, formState, setFormState, setLoading, setLocalStrgUpdateProfile}) {
 
   const addTodo = text => {
     const newTodo = [...todos];
@@ -47,6 +47,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
           display: false,
           edit: false
         })
+        setLocalStrgUpdateProfile(true)
       }
     }
     )
@@ -78,6 +79,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
       'completed': false,
       'value': null
     });
+    setLocalStrgUpdateProfile(true)
   }
 
   return (

@@ -20,7 +20,7 @@ const options = {
   },
 };
 
-function Profile({loginState}) {
+function Profile({loginState, needsLocalStrgUpdateProfile, setLocalStrgUpdateProfile, setLoading}) {
   const [allStats, setAll] = useState([])
   const [chartData, setChartData] = useState([])
   const [chartLabels, setChartLabels] = useState([])
@@ -83,20 +83,36 @@ function formatDate(date) {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:8000/profile-info/',  {
-    headers: {
-          Authorization: `JWT ${localStorage.getItem('token')}`
-        }})
-    .then(res => {
-      setAll(res.data)
-      // setChartData()
-      console.log(res.data)
-      // To populate the chart data the entire array of all the tasks are passed into the function below, this will get slower exponentially the more tasks a person adds. A fix for this is only passing in the tasks that have happened the last seven days which there is a function above that gets the last seven days that I'm not sure how to implement for it to be faster. Another way to fix this is to get the backend to get the last seven days which would be the easiest way, then pass another object in to then pass that object in to the function below.
-      if(res.data.last7DaysOfTasks != [] || res.data.last7DaysOfTasks != undefined){
-        populateChartData(res.data.last7DaysOfTasks)
-      }
-    })
-    .catch(e => console.log(e))
+    if(needsLocalStrgUpdateProfile === false) {
+      let stats = JSON.parse(localStorage.getItem('stats'))
+      console.log(stats)
+      setAll(JSON.parse(localStorage.getItem('stats')))
+
+      // Set chart data from local storage here
+      if(stats.last7DaysOfTasks != [] || stats.last7DaysOfTasks != undefined){
+          populateChartData(stats.last7DaysOfTasks)
+        }
+
+      setLoading(false)
+      console.log('pulled from local storage')
+    } else if (needsLocalStrgUpdateProfile) {
+      console.log('pulled from database')
+      axios.get('http://localhost:8000/profile-info/',  {
+      headers: {
+            Authorization: `JWT ${localStorage.getItem('token')}`
+          }})
+      .then(res => {
+        setAll(res.data)
+        localStorage.setItem('stats', JSON.stringify(res.data))
+        // setChartData()
+        console.log(res.data)
+        if(res.data.last7DaysOfTasks != [] || res.data.last7DaysOfTasks != undefined){
+          populateChartData(res.data.last7DaysOfTasks)
+        }
+        setLocalStrgUpdateProfile(false)
+      })
+      .catch(e => console.log(e))
+    }
   }, [])
 
   return (

@@ -27,6 +27,7 @@ function App() {
   const [needsLocalStrgUpdateTasks, setLocalStrgUpdateTasks] = useState(true)
   const [needsLocalStrgUpdateGoals, setLocalStrgUpdateGoals] = useState(true)
   const [needsLocalStrgUpdateReflections, setLocalStrgUpdateReflections] = useState(true)
+  const [needsLocalStrgUpdateProfile, setLocalStrgUpdateProfile] = useState(true)
 
   useEffect(() => {
     if (loginState.logged_in) {
@@ -123,7 +124,10 @@ function App() {
             <Profile
               loginState={loginState}
               setLoading={setLoading}
-              loading={loading} />
+              loading={loading}
+              setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
+              needsLocalStrgUpdateProfile={needsLocalStrgUpdateProfile}
+            />
           </Route>
           <Route path="/goals">
             {loading &&
@@ -133,6 +137,7 @@ function App() {
             <Footer />
             <Goals
               setLoading={setLoading}
+              setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
               setLocalStrgUpdateGoals={setLocalStrgUpdateGoals}
               needsLocalStrgUpdateGoals={needsLocalStrgUpdateGoals}
             />
@@ -145,6 +150,7 @@ function App() {
             <Footer />
             <Reflections
               setLoading={setLoading}
+              setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
               setLocalStrgUpdateReflections={setLocalStrgUpdateReflections}
               needsLocalStrgUpdateReflections={needsLocalStrgUpdateReflections}
             />
@@ -159,6 +165,7 @@ function App() {
               <TodoList
                 setLocalStrgUpdateTasks={setLocalStrgUpdateTasks}
                 needsLocalStrgUpdateTasks={needsLocalStrgUpdateTasks}
+                setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
                 setLoading={setLoading} />
             </Container>
           </Route>

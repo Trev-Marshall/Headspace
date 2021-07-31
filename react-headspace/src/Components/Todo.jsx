@@ -6,7 +6,7 @@ import { COLORS1 } from '../Design/Constants';
 import Checkbox from '../assets/images/checkbox.png'
 import Checkmark from '../assets/images/checkmark.png'
 
-function Todo({todo, index, todos, setTodos, setFormState, setValue, setLoading}) {
+function Todo({todo, index, todos, setTodos, setFormState, setValue, setLoading, setLocalStrgUpdateProfile}) {
 
   const completeTodo = index => {
     setLoading(true)
@@ -24,6 +24,7 @@ function Todo({todo, index, todos, setTodos, setFormState, setValue, setLoading}
             res.data
           ])
           localStorage.setItem('tasks', JSON.stringify([...todos, res.data]))
+          setLocalStrgUpdateProfile(true)
         })
         .catch(e => {
           console.log(e)

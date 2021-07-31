@@ -4,7 +4,7 @@ import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 import { array } from 'prop-types'
 
-function GoalForm({value, setValue, goals, setGoals, formState, setFormState, setLoading}) {
+function GoalForm({value, setValue, goals, setGoals, formState, setFormState, setLoading, setLocalStrgUpdateProfile}) {
 
 
 
@@ -41,6 +41,7 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState, se
           display: false,
           edit: false
         })
+        setLocalStrgUpdateProfile(true)
       }
     }
     )
@@ -71,6 +72,7 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState, se
       'completed': false,
       'value': null
     });
+    setLocalStrgUpdateProfile(true)
   }
 
   return (

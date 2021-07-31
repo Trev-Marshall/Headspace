@@ -6,7 +6,7 @@ import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 import { colors } from '@material-ui/core'
 
-function TodoList({setLoading, needsLocalStrgUpdateTasks, setLocalStrgUpdateTasks}) {
+function TodoList({ setLoading, needsLocalStrgUpdateTasks, setLocalStrgUpdateTasks, setLocalStrgUpdateProfile }) {
   const [todos, setTodos] = useState([])
   const [value, setValue] = useState({
     'task': '',
@@ -52,6 +52,7 @@ function TodoList({setLoading, needsLocalStrgUpdateTasks, setLocalStrgUpdateTask
           key={todo.id}
           index={index}
           todo={todo}
+          setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
           setFormState={setFormState}
           setValue={setValue}
           setTodos={setTodos}
@@ -66,6 +67,7 @@ function TodoList({setLoading, needsLocalStrgUpdateTasks, setLocalStrgUpdateTask
       value={value} 
       setValue={setValue}
       setTodos={setTodos}
+      setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
       setLoading={setLoading}
       formState={formState}
       todos={todos}

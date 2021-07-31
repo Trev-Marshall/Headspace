@@ -11,7 +11,7 @@ import GoalForm from './GoalForm'
 import ArchiveModal from './ArchiveModal'
 import ArchivePng from '../assets/images/Archive container.png'
 
-function Goals({setLoading, setLocalStrgUpdateGoals, needsLocalStrgUpdateGoals}) {
+function Goals({setLoading, setLocalStrgUpdateGoals, needsLocalStrgUpdateGoals, needsLocalStrgUpdateProfile}) {
 
   const [goals, setGoals] = useState([])
   const [value, setValue] = useState({
@@ -73,6 +73,7 @@ function Goals({setLoading, setLocalStrgUpdateGoals, needsLocalStrgUpdateGoals})
           setFormState={setFormState}
           setGoals={setGoals}
           goals={goals}
+          needsLocalStrgUpdateProfile={needsLocalStrgUpdateProfile}
           />
         ))}
       {/* </Ul> */}
@@ -82,6 +83,7 @@ function Goals({setLoading, setLocalStrgUpdateGoals, needsLocalStrgUpdateGoals})
       value={value} 
       setValue={setValue}
       setGoals={setGoals}
+      needsLocalStrgUpdateProfile={needsLocalStrgUpdateProfile}
       setLoading={setLoading}
       goals={goals}
       formState={formState}

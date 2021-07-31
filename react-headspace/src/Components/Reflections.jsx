@@ -10,7 +10,7 @@ import ReflectionForm from './ReflectionForm'
 import axios from 'axios'
 import LoadingSign from './LoadingSign'
 
-function Reflections({setLoading, setLocalStrgUpdateReflections, needsLocalStrgUpdateReflections}) {
+function Reflections({setLoading, setLocalStrgUpdateReflections, needsLocalStrgUpdateReflections, setLocalStrgUpdateProfile}) {
 
   const [reflection, setReflection] = useState({})
   const [value, setValue] = useState({
@@ -68,6 +68,7 @@ function Reflections({setLoading, setLocalStrgUpdateReflections, needsLocalStrgU
           setReflection={setReflection}
           setFormState={setFormState}
           setValue={setValue}
+          setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
         ></Reflection>
         }
       </ReflectionContainer>
@@ -77,6 +78,7 @@ function Reflections({setLoading, setLocalStrgUpdateReflections, needsLocalStrgU
       value={value} 
       setLoading={setLoading}
       setValue={setValue}
+      setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
       setFormState={setFormState}
       formState={formState}
       reflection={reflection}
