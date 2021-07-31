@@ -58,12 +58,21 @@ function App() {
       .then(res => res.json())
       .then(json => {
         setLoading(false)
-        console.log('logged in. This is the data that has been returned: ' + json.token)
-        localStorage.setItem('token', json.token);
-        setLogin({
-          logged_in: true,
-          username: json.user.username
-        })
+        if (json.non_field_errors) {
+          console.log(json.non_field_errors)
+          let errors = ''
+          json.non_field_errors.forEach((error) =>
+            errors = errors + error + ' '
+          )
+          alert(errors)
+        } else {
+          localStorage.setItem('token', json.token);
+          setLogin({
+            logged_in: true,
+            username: json.user.username
+          })
+        }
+
       })
   }
 
