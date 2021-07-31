@@ -26,6 +26,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [needsLocalStrgUpdateTasks, setLocalStrgUpdateTasks] = useState(true)
   const [needsLocalStrgUpdateGoals, setLocalStrgUpdateGoals] = useState(true)
+  const [needsLocalStrgUpdateReflections, setLocalStrgUpdateReflections] = useState(true)
 
   useEffect(() => {
     if (loginState.logged_in) {
@@ -143,7 +144,10 @@ function App() {
             <NavBar handleLogout={handleLogout} />
             <Footer />
             <Reflections
-              setLoading={setLoading} />
+              setLoading={setLoading}
+              setLocalStrgUpdateReflections={setLocalStrgUpdateReflections}
+              needsLocalStrgUpdateReflections={needsLocalStrgUpdateReflections}
+            />
           </Route>
           <Route path="/">
             {loading &&

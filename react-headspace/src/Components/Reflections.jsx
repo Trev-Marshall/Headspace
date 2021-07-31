@@ -10,7 +10,7 @@ import ReflectionForm from './ReflectionForm'
 import axios from 'axios'
 import LoadingSign from './LoadingSign'
 
-function Reflections({setLoading}) {
+function Reflections({setLoading, setLocalStrgUpdateReflections, needsLocalStrgUpdateReflections}) {
 
   const [reflection, setReflection] = useState({})
   const [value, setValue] = useState({
@@ -27,21 +27,32 @@ function Reflections({setLoading}) {
 
   useEffect(() => {
     setLoading(true)
-    axios.get('http://localhost:8000/current-reflection/', { headers: {
-          Authorization: `JWT ${localStorage.getItem('token')}`
-        }})
-        .then(res => {
-          setLoading(false)
-          console.log(res.data) 
-          setReflection(res.data)
-          if(!res.data[0]){
-            alert('You have no reflection for today! Would you like to add a new one?')
-            setFormState({
-              display: true,
-              edit: false
-            })
-          }
-        })
+    if(needsLocalStrgUpdateReflections === false) {
+      console.log(localStorage.getItem('reflection'))
+      setReflection(JSON.parse(localStorage.getItem('reflection')))
+      setLoading(false)
+      console.log('pulled from local storage')
+    } else if (needsLocalStrgUpdateReflections) {
+      console.log('pulled from database')
+      axios.get('http://localhost:8000/current-reflection/', { headers: {
+            Authorization: `JWT ${localStorage.getItem('token')}`
+          }})
+          .then(res => {
+            setLoading(false)
+            console.log(res.data) 
+            setReflection(res.data)
+            if(!res.data[0]){
+              alert('You have no reflection for today! Would you like to add a new one?')
+              setFormState({
+                display: true,
+                edit: false
+              })
+            } else {
+              localStorage.setItem('reflection', JSON.stringify(res.data))
+            }
+            setLocalStrgUpdateReflections(false)
+          })
+    }
   }, [])
 
   return (

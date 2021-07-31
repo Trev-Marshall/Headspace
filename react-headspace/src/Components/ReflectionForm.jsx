@@ -10,7 +10,6 @@ function ReflectionForm({ setValue, value, formState, setReflection, setFormStat
   const handleReflectionEdit = e => {
     setLoading(true)
     e.preventDefault()
-    console.log(value, 'handleReflectionEdit has been activated')
     if (!value) return;
     axios.post(`http://localhost:8000/update-reflection/${value.id}/`, value, {
     headers: {
@@ -20,6 +19,7 @@ function ReflectionForm({ setValue, value, formState, setReflection, setFormStat
       setLoading(false)
       console.log(res)
       setReflection([res.data])
+      localStorage.setItem('reflection', JSON.stringify([res.data]))
     }
     )
     .catch(e => console.log(e))
