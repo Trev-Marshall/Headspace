@@ -23,6 +23,7 @@ function Goal({index, goals, goal, setGoals, setFormState, setValue, setLoading}
           setGoals([...newGoals,
             res.data
           ])
+          localStorage.setItem('goals', JSON.stringify([...goals, res.data]))
         })
         .catch(e => {
           console.log(e)

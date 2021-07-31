@@ -21,7 +21,6 @@ function TodoList({setLoading, needsLocalStrgUpdateTasks, setLocalStrgUpdateTask
 
   useEffect(() => {
     setLoading(true)
-    console.log(needsLocalStrgUpdateTasks)
     if(needsLocalStrgUpdateTasks === false) {
       console.log(localStorage.getItem('tasks'))
       setTodos(JSON.parse(localStorage.getItem('tasks')))
