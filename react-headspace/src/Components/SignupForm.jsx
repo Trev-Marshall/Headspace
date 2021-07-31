@@ -52,9 +52,6 @@ const SignInDiv = styled.div`
     width: 97%;
     height: 300px;
   }
-  @media (max-width: 900px) {
-    width: 82%;
-  }
 `
 
 const Form = styled.form`

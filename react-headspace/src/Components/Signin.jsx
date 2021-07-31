@@ -26,7 +26,6 @@ function Signin({ handleLogin, handleSignup }) {
 
   return (
     <Container>
-      <Logo>HeadSpace</Logo>
       <Background1
       src={TopVector}
       alt="background"
@@ -79,18 +78,4 @@ const Background2 = styled.img`
   position: fixed;
   bottom: 0;
   left: 0;
-`
-
-const Logo = styled.h1`
-  position: absolute;
-  color: black;
-  top: 0;
-  left: 50px;
-  font-weight: 400;
-  z-index: 100;
-  font-size: 2.3em;
-
-  @media (max-width: 900px) {
-    left: 25px;
-  }
 `
