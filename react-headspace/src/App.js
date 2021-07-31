@@ -82,6 +82,14 @@ function App() {
           setLoading(false)
           if (json === undefined) {
             alert('Something went wrong please try again. An error occured when signing up.')
+          } else if (json.username[0] === "A user with that username already exists.") {
+            alert("A user with that username already exists.")
+          } else if (json.username.isArray()) {
+            let errorMessage = ''
+            json.username.forEach((error) => {
+              errorMessage = errorMessage + error + " "
+            })
+            alert(errorMessage)
           } else if (json) {
             localStorage.setItem('token', json.token)
             setLogin({
