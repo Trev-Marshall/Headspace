@@ -67,17 +67,8 @@ function App() {
     setLoading(true)
     e.preventDefault()
 
-
-
-    // Validation 
-
-    function isNumeric(num) {
-      return !isNaN(num)
-    }
-
-    let pass = data.username
-    console.log(pass.length)
-    if (!isNumeric(pass) && pass.length >= 8) {
+    let pass = data.password
+    if (isNaN(pass) && pass.length >= 8) {
       fetch('http://localhost:8000/core/users/', {
         method: 'POST',
         headers: {
@@ -85,10 +76,7 @@ function App() {
         },
         body: JSON.stringify(data)
       })
-        .then(res => {
-          console.log(res)
-          res.json()
-        })
+        .then(res => res.json())
         .then(json => {
           console.log(json)
           setLoading(false)
