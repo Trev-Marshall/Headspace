@@ -80,6 +80,9 @@ function App() {
         .then(json => {
           console.log(json)
           setLoading(false)
+          if (json === false) {
+            alert('Something went wrong please try again.')
+          }
           localStorage.setItem('token', json.token)
           setLogin({
             logged_in: true,
