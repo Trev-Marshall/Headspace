@@ -5,12 +5,11 @@ import axios from 'axios'
 import { array } from 'prop-types'
 import { StepLabel } from '@material-ui/core'
 
-function ReflectionForm({ setValue, value, formState, setReflection, setFormState, setLoading }) {
+function ReflectionForm({ setValue, value, formState, setReflection, setFormState, setLoading, setLocalStrgUpdateProfile }) {
 
   const handleReflectionEdit = e => {
     setLoading(true)
     e.preventDefault()
-    console.log(value, 'handleReflectionEdit has been activated')
     if (!value) return;
     axios.post(`http://localhost:8000/update-reflection/${value.id}/`, value, {
     headers: {
@@ -20,6 +19,8 @@ function ReflectionForm({ setValue, value, formState, setReflection, setFormStat
       setLoading(false)
       console.log(res)
       setReflection([res.data])
+      localStorage.setItem('reflection', JSON.stringify([res.data]))
+      setLocalStrgUpdateProfile(true)
     }
     )
     .catch(e => console.log(e))
@@ -42,6 +43,7 @@ function ReflectionForm({ setValue, value, formState, setReflection, setFormStat
       setLoading(false)
       console.log(res.data)
       setReflection([res.data])
+      setLocalStrgUpdateProfile(true)
     }
     )
     .catch(e => console.log(e))

@@ -5,7 +5,7 @@ import axios from 'axios';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import { COLORS1 } from '../Design/Constants';
 
-function Goal({index, goals, goal, setGoals, setFormState, setValue, setLoading}) {
+function Goal({index, goals, goal, setGoals, setFormState, setValue, setLoading, setLocalStrgUpdateProfile}) {
 
   const completeTodo = index => {
     setLoading(true)
@@ -23,10 +23,12 @@ function Goal({index, goals, goal, setGoals, setFormState, setValue, setLoading}
           setGoals([...newGoals,
             res.data
           ])
+          localStorage.setItem('goals', JSON.stringify([...goals, res.data]))
         })
         .catch(e => {
           console.log(e)
         })
+        setLocalStrgUpdateProfile(true)
   }
 
   const handleEdit = index => {

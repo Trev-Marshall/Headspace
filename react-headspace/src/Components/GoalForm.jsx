@@ -4,16 +4,9 @@ import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 import { array } from 'prop-types'
 
-function GoalForm({value, setValue, goals, setGoals, formState, setFormState, setLoading}) {
+function GoalForm({value, setValue, goals, setGoals, formState, setFormState, setLoading, setLocalStrgUpdateProfile}) {
 
-  const addGoal = value => {
-    const newGoals = [...goals];
-    setGoals(newGoals)
-    setFormState({
-      display: false,
-      edit: false
-    })
-  }
+
 
   const resetEditForm = () => {
   setFormState({
@@ -36,16 +29,23 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState, se
       console.log(res.data)
       setGoals([...goals,
       res.data])
+      localStorage.setItem('goals', JSON.stringify([...goals, res.data]))
+      if(res.statusText === "OK"){
+        setValue({
+          'goal': '',
+          'completeBy': '',
+          'completed': false,
+          'id': null
+        });
+        setFormState({
+          display: false,
+          edit: false
+        })
+        setLocalStrgUpdateProfile(true)
+      }
     }
     )
     .catch(e => console.log(e))
-    addGoal(value);
-    setValue({
-      'goal': '',
-      'completeBy': '',
-      'completed': false,
-      'id': null
-    });
   }
 
   const handleSubmitEdit = (e) => {
@@ -60,8 +60,8 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState, se
     .then( res => {
       setLoading(false)
       console.log(res)
-      
-      setGoals([...goals, goals[value.id] = res.data])
+      localStorage.setItem('goals', JSON.stringify([...goals, res.data]))
+      setGoals([...goals, res.data])
     }
     )
     .catch(e => console.log(e))
@@ -72,6 +72,7 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState, se
       'completed': false,
       'value': null
     });
+    setLocalStrgUpdateProfile(true)
   }
 
   return (

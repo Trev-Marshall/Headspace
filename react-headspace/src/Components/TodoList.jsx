@@ -6,7 +6,7 @@ import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 import { colors } from '@material-ui/core'
 
-function TodoList({setLoading}) {
+function TodoList({ setLoading, needsLocalStrgUpdateTasks, setLocalStrgUpdateTasks, setLocalStrgUpdateProfile }) {
   const [todos, setTodos] = useState([])
   const [value, setValue] = useState({
     'task': '',
@@ -17,20 +17,30 @@ function TodoList({setLoading}) {
     display: false,
     edit: false
   })
-  const [taskDetailModal, setTaskDetailModal] = useState(false)
+  
 
   useEffect(() => {
     setLoading(true)
-    axios.get('http://localhost:8000/todos/',  {
-    headers: {
-          Authorization: `JWT ${localStorage.getItem('token')}`
-        }})
-    .then(res => {
+    if(needsLocalStrgUpdateTasks === false) {
+      console.log(localStorage.getItem('tasks'))
+      setTodos(JSON.parse(localStorage.getItem('tasks')))
       setLoading(false)
-      console.log(res.data)
-      setTodos(res.data)
-    })
-    .catch(e => console.log(e))
+      console.log('pulled from local storage')
+    } else if (needsLocalStrgUpdateTasks) {
+      console.log('pulled from database')
+      axios.get('http://localhost:8000/todos/',  {
+      headers: {
+            Authorization: `JWT ${localStorage.getItem('token')}`
+          }})
+      .then(res => {
+        setLoading(false)
+          console.log(res.data)
+          setTodos(res.data)
+          localStorage.setItem('tasks', JSON.stringify(res.data))
+          setLocalStrgUpdateTasks(false)
+      })
+      .catch(e => console.log(e))
+    }
   }, [])
 
   return (
@@ -42,6 +52,7 @@ function TodoList({setLoading}) {
           key={todo.id}
           index={index}
           todo={todo}
+          setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
           setFormState={setFormState}
           setValue={setValue}
           setTodos={setTodos}
@@ -56,9 +67,11 @@ function TodoList({setLoading}) {
       value={value} 
       setValue={setValue}
       setTodos={setTodos}
+      setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
       setLoading={setLoading}
       formState={formState}
       todos={todos}
+      setLocalStrgUpdateTasks={setLocalStrgUpdateTasks}
       setFormState={setFormState}
       />
       ) : (

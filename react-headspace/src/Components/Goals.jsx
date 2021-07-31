@@ -11,7 +11,7 @@ import GoalForm from './GoalForm'
 import ArchiveModal from './ArchiveModal'
 import ArchivePng from '../assets/images/Archive container.png'
 
-function Goals({setLoading}) {
+function Goals({setLoading, setLocalStrgUpdateGoals, needsLocalStrgUpdateGoals, needsLocalStrgUpdateProfile}) {
 
   const [goals, setGoals] = useState([])
   const [value, setValue] = useState({
@@ -27,20 +27,32 @@ function Goals({setLoading}) {
 
   useEffect(() => {
     setLoading(true)
-    axios('http://localhost:8000/get-goals/', {
-    headers: {
-          Authorization: `JWT ${localStorage.getItem('token')}`
-      }})
-      .then(res => {
-        setLoading(false)
-        console.log(res)
-        setGoals(res.data)
+    if(needsLocalStrgUpdateGoals === false) {
+      console.log(localStorage.getItem('goals'))
+      setGoals(JSON.parse(localStorage.getItem('goals')))
+      setLoading(false)
+      console.log('pulled from local storage')
+    } else if (needsLocalStrgUpdateGoals) {
+      console.log('pulled from database')
+      axios('http://localhost:8000/get-goals/', {
+      headers: {
+            Authorization: `JWT ${localStorage.getItem('token')}`
+        }})
+        .then(res => {
+          setLoading(false)
+          console.log(res)
+          setGoals(res.data)
+          localStorage.setItem('goals', JSON.stringify(res.data))
+          setLocalStrgUpdateGoals(false)
+        })
+        .catch(e => console.log(e))
+      }
+
+      // Random refresh token call. Move to places it needs to be called.
+      axios.post('http://localhost:8000/refresh-token-auth/', {
+        'token': `${localStorage.getItem('token')}`
       })
-      .catch(e => console.log(e))
-    axios.post('http://localhost:8000/refresh-token-auth/', {
-      'token': `${localStorage.getItem('token')}`
-    })
-    .then(res => console.log(res))
+      .then(res => console.log(res))
   }, [])
 
   return (
@@ -61,6 +73,7 @@ function Goals({setLoading}) {
           setFormState={setFormState}
           setGoals={setGoals}
           goals={goals}
+          needsLocalStrgUpdateProfile={needsLocalStrgUpdateProfile}
           />
         ))}
       {/* </Ul> */}
@@ -70,6 +83,7 @@ function Goals({setLoading}) {
       value={value} 
       setValue={setValue}
       setGoals={setGoals}
+      needsLocalStrgUpdateProfile={needsLocalStrgUpdateProfile}
       setLoading={setLoading}
       goals={goals}
       formState={formState}

@@ -4,7 +4,7 @@ import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
 import { array } from 'prop-types'
 
-function TodoForm({value, setValue, todos, setTodos, formState, setFormState, setLoading}) {
+function TodoForm({value, setValue, todos, setTodos, formState, setFormState, setLoading, setLocalStrgUpdateProfile}) {
 
   const addTodo = text => {
     const newTodo = [...todos];
@@ -35,6 +35,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
       console.log(res)
       setTodos([...todos,
       res.data])
+      localStorage.setItem('tasks', JSON.stringify([...todos, res.data]))
       if(res.statusText === "OK"){
         setValue({
           'task': '',
@@ -46,6 +47,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
           display: false,
           edit: false
         })
+        setLocalStrgUpdateProfile(true)
       }
     }
     )
@@ -63,8 +65,10 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
         }})
     .then( res => {
       setLoading(false)
-      console.log(res)
-      setTodos([...todos, todos[value.id] = res.data])
+      console.log(res.data.id)
+      console.log([...todos, res.data])
+      setTodos([...todos, res.data])
+      localStorage.setItem('tasks', JSON.stringify([...todos, res.data]))
     }
     )
     .catch(e => console.log(e))
@@ -75,6 +79,7 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
       'completed': false,
       'value': null
     });
+    setLocalStrgUpdateProfile(true)
   }
 
   return (
