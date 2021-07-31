@@ -47,8 +47,9 @@ const Container = styled.div`
   height: 100vh;
   top: 0;
   background-color: rgba(78, 55, 75, 0.39);
-`
-const WindowContainer = styled.div`
+  `
+  const WindowContainer = styled.div`
+  border-radius: 4px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
