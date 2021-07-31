@@ -24,10 +24,6 @@ function App() {
     username: ''
   })
   const [loading, setLoading] = useState(false)
-  const [needsLocalStrgUpdateTasks, setLocalStrgUpdateTasks] = useState(true)
-  const [needsLocalStrgUpdateGoals, setLocalStrgUpdateGoals] = useState(true)
-  const [needsLocalStrgUpdateReflections, setLocalStrgUpdateReflections] = useState(true)
-  const [needsLocalStrgUpdateProfile, setLocalStrgUpdateProfile] = useState(true)
 
   useEffect(() => {
     if (loginState.logged_in) {
@@ -58,21 +54,12 @@ function App() {
       .then(res => res.json())
       .then(json => {
         setLoading(false)
-        if (json.non_field_errors) {
-          console.log(json.non_field_errors)
-          let errors = ''
-          json.non_field_errors.forEach((error) =>
-            errors = errors + error + ' '
-          )
-          alert(errors)
-        } else {
-          localStorage.setItem('token', json.token);
-          setLogin({
-            logged_in: true,
-            username: json.user.username
-          })
-        }
-
+        console.log('logged in. This is the data that has been returned: ' + json.token)
+        localStorage.setItem('token', json.token);
+        setLogin({
+          logged_in: true,
+          username: json.user.username
+        })
       })
   }
 
@@ -80,8 +67,17 @@ function App() {
     setLoading(true)
     e.preventDefault()
 
-    let pass = data.password
-    if (isNaN(pass) && pass.length >= 8) {
+
+
+    // Validation 
+
+    function isNumeric(num) {
+      return !isNaN(num)
+    }
+
+    let pass = data.username
+    console.log(pass.length)
+    if (!isNumeric(pass) && pass.length >= 8) {
       fetch('http://localhost:8000/core/users/', {
         method: 'POST',
         headers: {
@@ -89,36 +85,19 @@ function App() {
         },
         body: JSON.stringify(data)
       })
-        .then(res => res.json())
+        .then(res => {
+          console.log(res)
+          res.json()
+        })
         .then(json => {
           console.log(json)
           setLoading(false)
-<<<<<<< HEAD
           console.log(json.token)
           localStorage.setItem('token', json.token)
           setLogin({
             logged_in: true,
             username: json.username
           })
-=======
-          if (json === undefined) {
-            alert('Something went wrong please try again. An error occured when signing up.')
-          } else if (json.username[0] === "A user with that username already exists.") {
-            alert("A user with that username already exists.")
-          } else if (json.username.isArray()) {
-            let errorMessage = ''
-            json.username.forEach((error) => {
-              errorMessage = errorMessage + error + " "
-            })
-            alert(errorMessage)
-          } else if (json) {
-            localStorage.setItem('token', json.token)
-            setLogin({
-              logged_in: true,
-              username: json.username
-            })
-          }
->>>>>>> b2e83eb14566b4200579bc4354ac2b5f4a148550
         })
     } else {
       alert('Password has the be longer than 8 characters and not totally numeric.')
@@ -142,10 +121,7 @@ function App() {
             <Profile
               loginState={loginState}
               setLoading={setLoading}
-              loading={loading}
-              setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
-              needsLocalStrgUpdateProfile={needsLocalStrgUpdateProfile}
-            />
+              loading={loading} />
           </Route>
           <Route path="/goals">
             {loading &&
@@ -154,11 +130,7 @@ function App() {
             <NavBar handleLogout={handleLogout} />
             <Footer />
             <Goals
-              setLoading={setLoading}
-              setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
-              setLocalStrgUpdateGoals={setLocalStrgUpdateGoals}
-              needsLocalStrgUpdateGoals={needsLocalStrgUpdateGoals}
-            />
+              setLoading={setLoading} />
           </Route>
           <Route path="/reflections">
             {loading &&
@@ -167,11 +139,7 @@ function App() {
             <NavBar handleLogout={handleLogout} />
             <Footer />
             <Reflections
-              setLoading={setLoading}
-              setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
-              setLocalStrgUpdateReflections={setLocalStrgUpdateReflections}
-              needsLocalStrgUpdateReflections={needsLocalStrgUpdateReflections}
-            />
+              setLoading={setLoading} />
           </Route>
           <Route path="/">
             {loading &&
@@ -181,9 +149,6 @@ function App() {
             <Container>
               <Footer />
               <TodoList
-                setLocalStrgUpdateTasks={setLocalStrgUpdateTasks}
-                needsLocalStrgUpdateTasks={needsLocalStrgUpdateTasks}
-                setLocalStrgUpdateProfile={setLocalStrgUpdateProfile}
                 setLoading={setLoading} />
             </Container>
           </Route>
