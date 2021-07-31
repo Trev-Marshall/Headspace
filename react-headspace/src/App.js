@@ -24,6 +24,7 @@ function App() {
     username: ''
   })
   const [loading, setLoading] = useState(false)
+  const [needsLocalStrgUpdateTasks, setLocalStrgUpdateTasks] = useState(true)
 
   useEffect(() => {
     if (loginState.logged_in) {
@@ -148,6 +149,8 @@ function App() {
             <Container>
               <Footer />
               <TodoList
+                setLocalStrgUpdateTasks={setLocalStrgUpdateTasks}
+                needsLocalStrgUpdateTasks={needsLocalStrgUpdateTasks}
                 setLoading={setLoading} />
             </Container>
           </Route>

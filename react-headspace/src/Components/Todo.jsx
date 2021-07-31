@@ -23,6 +23,7 @@ function Todo({todo, index, todos, setTodos, setFormState, setValue, setLoading}
           setTodos([...newTodo,
             res.data
           ])
+          localStorage.setItem('tasks', JSON.stringify([...todos, res.data]))
         })
         .catch(e => {
           console.log(e)
