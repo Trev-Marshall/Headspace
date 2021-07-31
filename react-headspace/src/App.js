@@ -92,6 +92,7 @@ function App() {
         .then(json => {
           console.log(json)
           setLoading(false)
+          console.log(json.token)
           localStorage.setItem('token', json.token)
           setLogin({
             logged_in: true,
