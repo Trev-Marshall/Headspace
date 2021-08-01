@@ -10,6 +10,7 @@ import Goal from './Goal'
 import GoalForm from './GoalForm'
 import ArchiveModal from './ArchiveModal'
 import ArchivePng from '../assets/images/Archive container.png'
+import { refreshToken } from '../utils/refreshCall';
 
 function Goals({setLoading, setLocalStrgUpdateGoals, needsLocalStrgUpdateGoals, needsLocalStrgUpdateProfile}) {
 
