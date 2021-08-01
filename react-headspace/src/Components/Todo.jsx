@@ -98,7 +98,6 @@ const Container = styled.div`
   margin: 5px 15px 5px 15px;
 
   width: fit-content;
-  // position: relative;
 
 border-radius: 25px;
   &:hover {

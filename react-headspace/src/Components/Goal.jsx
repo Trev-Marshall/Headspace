@@ -67,10 +67,8 @@ function Goal({index, goals, goal, setGoals, setFormState, setValue, setLoading,
 export default Goal
 
 const Li = styled.li`
-  margin: 13px;
+  margin: 7px;
   font-size: 1.4em; 
-  border-top: 1px solid lightgrey;
-  padding-top: 5px;
 `
 
 const Span = styled.span`
@@ -83,6 +81,11 @@ const Span = styled.span`
 const Container = styled.div`
   display: flex;
   align-items: center;
+  background: rgba(196, 196, 196, 0.1);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.14);
+  border-radius: 25px;
+
+  width: fit-content;
   &:hover {
     ${Span} {
       opacity: 1;
