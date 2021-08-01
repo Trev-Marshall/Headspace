@@ -2,16 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import EditIcon from '@material-ui/icons/Edit';
 import axios from 'axios';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import { COLORS1 } from '../Design/Constants';
+import { refreshToken } from '../utils/refreshCall';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
 function Goal({index, goals, goal, setGoals, setFormState, setValue, setLoading, setLocalStrgUpdateProfile}) {
 
   const completeTodo = index => {
+    refreshToken()
     setLoading(true)
     const newGoals = [...goals];
     const completedGoal = newGoals[index]
-    console.log(completedGoal.id)
     completedGoal.completed = true
     axios.post(`http://localhost:8000/update-goal/${completedGoal.id}/`, completedGoal, {
     headers: {
@@ -26,15 +27,13 @@ function Goal({index, goals, goal, setGoals, setFormState, setValue, setLoading,
           localStorage.setItem('goals', JSON.stringify([...goals, res.data]))
         })
         .catch(e => {
-          console.log(e)
+          alert(e)
         })
         setLocalStrgUpdateProfile(true)
   }
 
   const handleEdit = index => {
-    console.log(index)
     const newGoals = [...goals];
-    console.log(newGoals[index])
     setFormState({
     'display': true,
     'edit': true

@@ -85,18 +85,14 @@ function formatDate(date) {
   useEffect(() => {
     if(needsLocalStrgUpdateProfile === false) {
       let stats = JSON.parse(localStorage.getItem('stats'))
-      console.log(stats)
       setAll(JSON.parse(localStorage.getItem('stats')))
 
       // Set chart data from local storage here
       if(stats.last7DaysOfTasks != [] || stats.last7DaysOfTasks != undefined){
           populateChartData(stats.last7DaysOfTasks)
         }
-
       setLoading(false)
-      console.log('pulled from local storage')
     } else if (needsLocalStrgUpdateProfile) {
-      console.log('pulled from database')
       axios.get('http://localhost:8000/profile-info/',  {
       headers: {
             Authorization: `JWT ${localStorage.getItem('token')}`
@@ -105,13 +101,12 @@ function formatDate(date) {
         setAll(res.data)
         localStorage.setItem('stats', JSON.stringify(res.data))
         // setChartData()
-        console.log(res.data)
         if(res.data.last7DaysOfTasks != [] || res.data.last7DaysOfTasks != undefined){
           populateChartData(res.data.last7DaysOfTasks)
         }
         setLocalStrgUpdateProfile(false)
       })
-      .catch(e => console.log(e))
+      .catch(e => alert(e))
     }
   }, [])
 

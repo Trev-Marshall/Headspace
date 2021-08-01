@@ -5,10 +5,12 @@ import axios from 'axios';
 import { COLORS1 } from '../Design/Constants';
 import Checkbox from '../assets/images/checkbox.png'
 import Checkmark from '../assets/images/checkmark.png'
+import { refreshToken } from '../utils/refreshCall';
 
 function Todo({todo, index, todos, setTodos, setFormState, setValue, setLoading, setLocalStrgUpdateProfile}) {
 
   const completeTodo = index => {
+    refreshToken()
     setLoading(true)
     const newTodo = [...todos];
     const completedTodo = newTodo[index]
@@ -27,14 +29,12 @@ function Todo({todo, index, todos, setTodos, setFormState, setValue, setLoading,
           setLocalStrgUpdateProfile(true)
         })
         .catch(e => {
-          console.log(e)
+          alert(e)
         })
   }
 
   const handleEdit = index => {
-    console.log(index)
     const newTodo = [...todos];
-    console.log(newTodo[index])
     setFormState({
     'display': true,
     'edit': true

@@ -15,7 +15,7 @@ function ArchiveModal({ setArchiveState }) {
       .then(res => {
         setGoals(res.data)
       })
-      .catch(e => console.log(e))
+      .catch(e => alert(e))
   }, [])
   return (
     <Container onClick={() => setArchiveState(false)}>

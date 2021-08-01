@@ -2,18 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
-import { array } from 'prop-types'
+import { refreshToken } from '../utils/refreshCall'
 
 function TodoForm({value, setValue, todos, setTodos, formState, setFormState, setLoading, setLocalStrgUpdateProfile}) {
-
-  const addTodo = text => {
-    const newTodo = [...todos];
-    setTodos(newTodo)
-    setFormState({
-      display: false,
-      edit: false
-    })
-  }
 
   const resetEditForm = () => {
   setFormState({
@@ -23,8 +14,9 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
   }
 
   const handleSubmit = (e) => {
-    setLoading(true)
     e.preventDefault()
+    refreshToken()
+    setLoading(true)
     if (!value) return;
     axios.post('http://localhost:8000/wel/', value, {
     headers: {
@@ -32,7 +24,6 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
         }})
     .then( res => {
       setLoading(false)
-      console.log(res)
       setTodos([...todos,
       res.data])
       localStorage.setItem('tasks', JSON.stringify([...todos, res.data]))
@@ -51,13 +42,13 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
       }
     }
     )
-    .catch(e => console.log(e))
+    .catch(e => alert(e))
   }
 
   const handleSubmitEdit = (e) => {
     setLoading(true)
     e.preventDefault()
-    console.log(value.id)
+    refreshToken()
     if (!value) return;
     axios.post(`http://localhost:8000/edit-todo/${value.id}/`, value, {
     headers: {
@@ -65,13 +56,11 @@ function TodoForm({value, setValue, todos, setTodos, formState, setFormState, se
         }})
     .then( res => {
       setLoading(false)
-      console.log(res.data.id)
-      console.log([...todos, res.data])
       setTodos([...todos, res.data])
       localStorage.setItem('tasks', JSON.stringify([...todos, res.data]))
     }
     )
-    .catch(e => console.log(e))
+    .catch(e => alert(e))
     resetEditForm(value);
     setValue({
       'task': '',

@@ -2,11 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
-import { array } from 'prop-types'
+import { refreshToken } from '../utils/refreshCall';
 
 function GoalForm({value, setValue, goals, setGoals, formState, setFormState, setLoading, setLocalStrgUpdateProfile}) {
-
-
 
   const resetEditForm = () => {
   setFormState({
@@ -16,17 +14,16 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState, se
   }
 
   const handleSubmit = (e) => {
+    refreshToken()
     setLoading(true)
     e.preventDefault()
     if (!value) return;
-    console.log(value)
     axios.post('http://localhost:8000/create-goal/', value, {
     headers: {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }})
     .then( res => {
       setLoading(false)
-      console.log(res.data)
       setGoals([...goals,
       res.data])
       localStorage.setItem('goals', JSON.stringify([...goals, res.data]))
@@ -45,13 +42,13 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState, se
       }
     }
     )
-    .catch(e => console.log(e))
+    .catch(e => alert(e))
   }
 
   const handleSubmitEdit = (e) => {
+    refreshToken()
     setLoading(true)
     e.preventDefault()
-    console.log(value.id)
     if (!value) return;
     axios.post(`http://localhost:8000/update-goal/${value.id}/`, value, {
     headers: {
@@ -59,12 +56,11 @@ function GoalForm({value, setValue, goals, setGoals, formState, setFormState, se
         }})
     .then( res => {
       setLoading(false)
-      console.log(res)
       localStorage.setItem('goals', JSON.stringify([...goals, res.data]))
       setGoals([...goals, res.data])
     }
     )
-    .catch(e => console.log(e))
+    .catch(e => alert(e))
     resetEditForm();
     setValue({
       'task': '',

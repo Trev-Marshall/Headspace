@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
-  Link,
   Route,
   Switch
 } from 'react-router-dom'
@@ -39,7 +38,6 @@ function App() {
       })
         .then(res => res.json())
         .then(json => {
-          console.log(json)
           setLogin({ username: json.username })
         })
     }
@@ -60,7 +58,6 @@ function App() {
       .then(json => {
         setLoading(false)
         if (json.non_field_errors) {
-          console.log(json.non_field_errors)
           let errors = ''
           json.non_field_errors.forEach((error) =>
             errors = errors + error + ' '
@@ -92,7 +89,6 @@ function App() {
       })
         .then(res => res.json())
         .then(json => {
-          console.log(json)
           setLoading(false)
           if (json === undefined) {
             alert('Something went wrong please try again. An error occured when signing up.')

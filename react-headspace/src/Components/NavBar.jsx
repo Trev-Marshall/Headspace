@@ -5,6 +5,7 @@ import { COLORS1 } from '../Design/Constants';
 import PersonIcon from '@material-ui/icons/Person';
 import Ellipse from '../assets/images/Ellipse 2.png'
 import NavbarPng from '../assets/images/navbar.png'
+import { refreshToken } from '../utils/refreshCall';
 
 const Navbar = ({handleLogout}) => {
     return (
@@ -19,7 +20,10 @@ const Navbar = ({handleLogout}) => {
       <NavBtn>
         <NavBtnLink onClick={handleLogout}>Logout</NavBtnLink>
       <NavMenu>
-        <NavLink to="/profile" >
+        <NavLink 
+        to="/profile"
+        onClick={refreshToken}
+        >
           <PersonIcon
           style={{fill: COLORS1.off_white}}
           />

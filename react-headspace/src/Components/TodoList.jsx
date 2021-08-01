@@ -22,24 +22,20 @@ function TodoList({ setLoading, needsLocalStrgUpdateTasks, setLocalStrgUpdateTas
   useEffect(() => {
     setLoading(true)
     if(needsLocalStrgUpdateTasks === false) {
-      console.log(localStorage.getItem('tasks'))
       setTodos(JSON.parse(localStorage.getItem('tasks')))
       setLoading(false)
-      console.log('pulled from local storage')
     } else if (needsLocalStrgUpdateTasks) {
-      console.log('pulled from database')
       axios.get('http://localhost:8000/todos/',  {
       headers: {
             Authorization: `JWT ${localStorage.getItem('token')}`
           }})
       .then(res => {
         setLoading(false)
-          console.log(res.data)
           setTodos(res.data)
           localStorage.setItem('tasks', JSON.stringify(res.data))
           setLocalStrgUpdateTasks(false)
       })
-      .catch(e => console.log(e))
+      .catch(e => alert(e))
     }
   }, [])
 

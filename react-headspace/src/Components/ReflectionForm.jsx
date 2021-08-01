@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
-import { array } from 'prop-types'
-import { StepLabel } from '@material-ui/core'
+import { refreshToken } from '../utils/refreshCall';
 
 function ReflectionForm({ setValue, value, formState, setReflection, setFormState, setLoading, setLocalStrgUpdateProfile }) {
 
   const handleReflectionEdit = e => {
+    refreshToken()
     setLoading(true)
     e.preventDefault()
     if (!value) return;
@@ -17,13 +17,12 @@ function ReflectionForm({ setValue, value, formState, setReflection, setFormStat
         }})
     .then( res => {
       setLoading(false)
-      console.log(res)
       setReflection([res.data])
       localStorage.setItem('reflection', JSON.stringify([res.data]))
       setLocalStrgUpdateProfile(true)
     }
     )
-    .catch(e => console.log(e))
+    .catch(e => alert(e))
     setFormState({
       display: false,
       edit: false
@@ -32,6 +31,7 @@ function ReflectionForm({ setValue, value, formState, setReflection, setFormStat
   }
 
   const handleCreateReflection = (e) => {
+    refreshToken
     setLoading(true)
     e.preventDefault()
     if (!value) return;
@@ -41,12 +41,11 @@ function ReflectionForm({ setValue, value, formState, setReflection, setFormStat
         }})
     .then( res => {
       setLoading(false)
-      console.log(res.data)
       setReflection([res.data])
       setLocalStrgUpdateProfile(true)
     }
     )
-    .catch(e => console.log(e))
+    .catch(e => alert(e))
     setFormState({
       display: false,
       edit: false

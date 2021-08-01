@@ -1,10 +1,11 @@
 import React, { useRef, useState } from "react";
 import IdleTimer from "react-idle-timer";
 import SessionTimeoutDialog from "./SessionTimeoutDialog";
+import axios from 'axios'
 
 let countdownInterval;
 let timeout;
-const SessionTimeout = ({isAuthenticated, logOut}) => {
+const SessionTimeout = ({ isAuthenticated, logOut }) => {
   const [timeoutModalOpen, setTimeoutModalOpen] = useState(false);
   const [timeoutCountdown, setTimeoutCountdown] = useState(0);
   const idleTimer = useRef(null);
@@ -19,16 +20,22 @@ const SessionTimeout = ({isAuthenticated, logOut}) => {
 
   const handleLogout = async (isTimedOut = false) => {
     try {
-        setTimeoutModalOpen(false);
-        clearSessionInterval();
-        clearSessionTimeout();
-        logOut();
-     } catch (err) {
-        console.error(err);
-      }
+      setTimeoutModalOpen(false);
+      clearSessionInterval();
+      clearSessionTimeout();
+      logOut();
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const handleContinue = () => {
+    axios.post('http://localhost:8000/refresh-token-auth/', {
+      'token': `${localStorage.getItem('token')}`
+    })
+      .then(res => {
+        localStorage.setItem('token', res.data.token);
+      })
     setTimeoutModalOpen(false);
     clearSessionInterval();
     clearSessionTimeout();
@@ -66,8 +73,8 @@ const SessionTimeout = ({isAuthenticated, logOut}) => {
         onActive={onActive}
         onIdle={onIdle}
         debounce={250}
-        // timeout={300000} // for 5 mins of idle
-        timeout={5000} // for 5 seconds of idle
+        timeout={300000} // for 5 mins of idle
+      // timeout={5000} // for 5 seconds of idle
       />
       <SessionTimeoutDialog
         countdown={timeoutCountdown}

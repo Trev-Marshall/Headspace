@@ -2,12 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import { COLORS1 } from '../Design/Constants'
 import {useHistory} from 'react-router-dom'
+import { refreshToken } from '../utils/refreshCall';
 
 function BackButton() {
   const history = useHistory()
 
   return (
-    <Button onClick={() => history.push('/')}>
+    <Button onClick={() => {
+      history.push('/')
+      refreshToken()
+      }}>
       {'<'}
     </Button>
   )

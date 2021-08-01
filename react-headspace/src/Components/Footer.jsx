@@ -2,17 +2,27 @@ import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import { COLORS1 } from '../Design/Constants'
+import { refreshToken } from '../utils/refreshCall'
 
 function Footer() {
   return (
     <Container>
-      <FooterLink to="/">
+      <FooterLink 
+      to="/"
+      onClick={refreshToken}
+      >
         Tasks
       </FooterLink>
-      <FooterLink to="/goals">
+      <FooterLink 
+      to="/goals"
+      onClick={refreshToken}
+      >
         Goals
       </FooterLink>
-      <FooterLink to="/reflections">
+      <FooterLink 
+      to="/reflections"
+      onClick={refreshToken}
+      >
         Reflections
       </FooterLink>
     </Container>
