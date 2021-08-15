@@ -31,7 +31,7 @@ function ReflectionForm({ setValue, value, formState, setReflection, setFormStat
   }
 
   const handleCreateReflection = (e) => {
-    refreshToken
+    refreshToken()
     setLoading(true)
     e.preventDefault()
     if (!value) return;
