@@ -13,10 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.views.generic.base import TemplateView
 from core.views import *
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 urlpatterns = [
@@ -38,5 +39,6 @@ urlpatterns = [
     path('get-goals/', GoalList.as_view(), name="get goals"),
     path("get-finished-goals", FinishedGoalList.as_view(),
          name='get finsihed goals'),
-    path('profile-info/', profile_view, name="user profile data")
+    path('profile-info/', profile_view, name="user profile data"),
+    re_path('.*', TemplateView.as_view(template_name='index.html'))
 ]
