@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import EditIcon from '@material-ui/icons/Edit';
-import axios from 'axios';
 
 function Reflection({ reflection, setFormState, setValue, setReflection }) {
 

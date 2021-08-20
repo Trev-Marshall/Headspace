@@ -4,7 +4,6 @@ import Todo from './Todo'
 import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
 import axios from 'axios'
-import { colors } from '@material-ui/core'
 
 function TodoList({ setLoading, needsLocalStrgUpdateTasks, setLocalStrgUpdateTasks, setLocalStrgUpdateProfile }) {
   const [todos, setTodos] = useState([])
@@ -37,7 +36,7 @@ function TodoList({ setLoading, needsLocalStrgUpdateTasks, setLocalStrgUpdateTas
       })
       .catch(e => alert(e))
     }
-  }, [])
+  }, [needsLocalStrgUpdateTasks, setLoading, setLocalStrgUpdateTasks])
 
   return (
     <Container>

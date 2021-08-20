@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Todo from './Todo'
-import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
-import PageHeading from './PageHeading'
-import BackButton from './BackButton'
 import Reflection from './Reflection'
 import ReflectionForm from './ReflectionForm'
 import axios from 'axios'
-import LoadingSign from './LoadingSign'
 
 function Reflections({setLoading, setLocalStrgUpdateReflections, needsLocalStrgUpdateReflections, setLocalStrgUpdateProfile}) {
 
@@ -23,7 +18,7 @@ function Reflections({setLoading, setLocalStrgUpdateReflections, needsLocalStrgU
 
 
   const d = new Date();
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  // const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
   useEffect(() => {
     setLoading(true)
@@ -49,7 +44,7 @@ function Reflections({setLoading, setLocalStrgUpdateReflections, needsLocalStrgU
             setLocalStrgUpdateReflections(false)
           })
     }
-  }, [])
+  }, [needsLocalStrgUpdateReflections, setLoading, setLocalStrgUpdateReflections])
 
   return (
     <OuterWrapper>

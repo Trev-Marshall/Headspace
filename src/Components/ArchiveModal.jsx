@@ -65,9 +65,6 @@ const Container = styled.div`
   }
 `
 
-const Ul = styled.ul`
-`
-
 const Span = styled.div`
   text-align: center;
   font-size: 1.5em;

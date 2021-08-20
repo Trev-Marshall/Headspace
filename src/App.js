@@ -42,7 +42,7 @@ function App() {
         })
     }
 
-  }, [])
+  }, [loginState.logged_in])
 
   const handleLogin = (e, data) => {
     e.preventDefault()

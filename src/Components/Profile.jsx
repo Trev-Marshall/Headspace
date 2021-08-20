@@ -72,7 +72,7 @@ function formatDate(date) {
     for (let i = 0; i < daysArr.length; i++){
       let count = 0
       tasksArr.forEach((task) => {
-        if(task.dateCreated == daysArr[i]){
+        if(task.dateCreated === daysArr[i]){
           count += 1
         }
       })
@@ -88,7 +88,7 @@ function formatDate(date) {
       setAll(JSON.parse(localStorage.getItem('stats')))
 
       // Set chart data from local storage here
-      if(stats.last7DaysOfTasks != [] || stats.last7DaysOfTasks != undefined){
+      if(stats.last7DaysOfTasks !== [] || stats.last7DaysOfTasks !== undefined){
           populateChartData(stats.last7DaysOfTasks)
         }
       setLoading(false)
@@ -101,14 +101,14 @@ function formatDate(date) {
         setAll(res.data)
         localStorage.setItem('stats', JSON.stringify(res.data))
         // setChartData()
-        if(res.data.last7DaysOfTasks != [] || res.data.last7DaysOfTasks != undefined){
+        if(res.data.last7DaysOfTasks !== [] || res.data.last7DaysOfTasks !== undefined){
           populateChartData(res.data.last7DaysOfTasks)
         }
         setLocalStrgUpdateProfile(false)
       })
       .catch(e => alert(e))
     }
-  }, [])
+  }, [needsLocalStrgUpdateProfile, populateChartData, setLoading, setLocalStrgUpdateProfile])
 
   return (
     <Container>

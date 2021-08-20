@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import {COLORS1} from '../Design/Constants'
 
@@ -93,18 +93,6 @@ const Submit = styled.input`
   border-radius: 15px;
   color: ${COLORS1.dark_grey};
   cursor: pointer;
-`
-
-const LogoText = styled.h1`
-  color: ${COLORS1.off_white};
-  height: 100px;
-  width: 90%;
-  text-align: left;
-  font-size: 2.5em;
-
-  @media (max-width: 400px) {
-    font-size: 2em;
-  }
 `
 
 const FormText = styled.h3`

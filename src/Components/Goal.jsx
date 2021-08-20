@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import EditIcon from '@material-ui/icons/Edit';
 import axios from 'axios';
-import { COLORS1 } from '../Design/Constants';
 import { refreshToken } from '../utils/refreshCall';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 

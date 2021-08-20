@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Todo from './Todo'
-import TodoForm from './TodoForm'
 import {COLORS1} from '../Design/Constants'
-import PageHeading from './PageHeading'
-import BackButton from './BackButton.jsx'
 import axios from 'axios'
 import Goal from './Goal'
 import GoalForm from './GoalForm'
 import ArchiveModal from './ArchiveModal'
-import ArchivePng from '../assets/images/Archive container.png'
-import { refreshToken } from '../utils/refreshCall';
 
 function Goals({setLoading, setLocalStrgUpdateGoals, needsLocalStrgUpdateGoals, needsLocalStrgUpdateProfile}) {
 
@@ -44,7 +38,7 @@ function Goals({setLoading, setLocalStrgUpdateGoals, needsLocalStrgUpdateGoals, 
         })
         .catch(e => alert(e))
       }
-  }, [])
+  }, [needsLocalStrgUpdateGoals, setLoading, setLocalStrgUpdateGoals])
 
   return (
     <Container>
@@ -111,10 +105,6 @@ const Container = styled.div`
   background-color: ${COLORS1.off_white};
 `
 
-const Ul = styled.ul`
-  list-style-type: none;
-`
-
 const Span = styled.span`
   font-size: 2.5em;
   transition: all 250ms;
@@ -150,9 +140,4 @@ const ArchiveModalBtn = styled.button`
     color: #010606;
   }
 
-`
-
-const Img = styled.img`
-width: 100%;
-position: absolute;
 `
